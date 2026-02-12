@@ -60,7 +60,7 @@
         }
 
         .header:not(.home) .logo-img {
-            max-width: 350px;
+            max-width: 500px;
         }
 
         /* Logo Tecnósfera 25% más chico */
@@ -213,7 +213,7 @@
         .btn-note {
             display: block;
             text-align: center;
-            font-size: 14px;
+            font-size: 21px;
             color: var(--gris);
             margin-top: 12px;
             font-weight: 300;
@@ -713,6 +713,23 @@
             border-radius: 15px;
             margin: 30px auto;
             max-width: 650px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .home-intro-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Animación para botón Empecemos cuando hover en cuadro */
+        .home-intro-box:hover ~ h1 + .btn-container .btn {
+            animation: pulse 0.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .services-grid {
@@ -825,6 +842,7 @@
             color: var(--negro);
             text-align: right;
             margin-right: 50px;
+            margin-top: 5px;
         }
 
         .tecnosfera-text {
@@ -955,13 +973,8 @@
             </div>
         </div>
 
-        <!-- Líneas de colores fuera del header, antes de los botones -->
-        <div class="logo-lines-bottom" style="margin: 0 auto 30px; max-width: 600px;">
-            <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
-        </div>
+        <!-- Línea sutil debajo del logo (solo ancho del texto) -->
+        <div style="width: 600px; margin: 10px auto 30px; border-bottom: 1px solid #e0e0e0;"></div>
 
         <div class="container" style="padding-top: 0;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
@@ -1006,7 +1019,7 @@
                     <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias de comunicación</button>
                     <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">Creación de contenidos</button>
                     <button class="service-btn verde" onclick="showServiceScreen('identidad')">Identidad de marca</button>
-                    <button class="service-btn gris" onclick="showServiceScreen('voceria')">Vocería para empresas</button>
+                    <button class="service-btn rosa" onclick="showServiceScreen('voceria')">Vocería para empresas</button>
                     <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">Acciones con influencers</button>
                     <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
                 </div>
@@ -1018,7 +1031,7 @@
             </div>
 
             <!-- Botón Hablemos -->
-            <div class="btn-container" style="margin-top: 40px; margin-bottom: 60px;">
+            <div class="btn-container" style="margin-top: 40px; margin-bottom: 30px;">
                 <button class="btn btn-contacto" onclick="showContactScreen('home')">¡Hablemos!</button>
             </div>
         </div>
@@ -1074,7 +1087,7 @@
                 <div class="program-card rosa-icon-2" onclick="showProgramScreen('cotidiana')">
                     <img src="iconoindividuos.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Comunicación Cotidiana</p>
+                        <p class="program-title">Optimización de Comunicación Cotidiana</p>
                         <p class="program-profile">Personas que tienen inconvenientes al comunicarse</p>
                     </div>
                 </div>
@@ -2133,7 +2146,7 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">PyME Familiar</h1>
+                            <h1 class="tree-main-title">Modernización Comunicacional para PyMEs</h1>
                         </div>
 
                         <div class="tree-timeline">
@@ -2201,7 +2214,7 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Posicionamiento Personal</h1>
+                            <h1 class="tree-main-title">Posicionamiento y Comunicación Personal</h1>
                         </div>
 
                         <div class="tree-timeline">
@@ -2269,7 +2282,7 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Comunicación Organizacional</h1>
+                            <h1 class="tree-main-title">Consultoría Estratégica de Comunicación Organizacional</h1>
                         </div>
 
                         <div class="tree-timeline">
@@ -2327,7 +2340,7 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Comunicación Cotidiana</h1>
+                            <h1 class="tree-main-title">Optimización de Comunicación Cotidiana</h1>
                         </div>
 
                         <div class="tree-timeline">

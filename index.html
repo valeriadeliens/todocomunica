@@ -268,6 +268,48 @@
             align-items: center;
         }
 
+        /* Tarjetas de programas */
+        .program-card {
+            background: var(--blanco);
+            padding: 15px 25px;
+            border-radius: 15px;
+            border-left: 6px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .program-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-card.amarillo-icon { border-left-color: #f4cf3c; }
+        .program-card.rosa-icon { border-left-color: #ff66c4; }
+        .program-card.rosa-icon-2 { border-left-color: #ff66c4; }
+        .program-card.verde-icon { border-left-color: #c0d226; }
+        .program-card.gris-icon { border-left-color: #a6a6a6; }
+
+        .program-info {
+            flex: 1;
+        }
+
+        .program-title {
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--negro);
+            margin: 0 0 5px 0;
+        }
+
+        .program-profile {
+            font-size: 13px;
+            color: #888;
+            margin: 0;
+        }
+
         /* COMPRENSIÓN */
         .comprension-box {
             background: var(--gris-fondo);
@@ -558,9 +600,9 @@
         .top-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             max-width: 700px;
-            margin: 20px auto;
+            margin: 12px auto;
             padding: 0 20px;
         }
 
@@ -574,6 +616,7 @@
             cursor: pointer;
             background: var(--blanco);
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .btn-half:hover {
@@ -741,6 +784,26 @@
             max-height: 2000px;
         }
 
+        /* Botón LinkedIn */
+        .btn-linkedin {
+            display: inline-block;
+            padding: 10px 30px;
+            background: var(--blanco);
+            border: 2px solid var(--negro);
+            border-radius: 50px;
+            color: var(--negro);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-linkedin:hover {
+            background: var(--negro);
+            color: var(--blanco);
+        }
+
         /* TECNÓSFERA */
         .tecnosfera-container {
             max-width: 800px;
@@ -890,27 +953,26 @@
         <div class="header home">
             <div class="logo-container">
                 <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
-                <div class="logo-lines-bottom">
-                    <span class="line gris"></span>
-                    <span class="line rosa"></span>
-                    <span class="line verde"></span>
-                    <span class="line amarillo"></span>
-                </div>
             </div>
         </div>
 
-        <div class="container">
+        <!-- Líneas de colores fuera del header, antes de los botones -->
+        <div class="logo-lines-bottom" style="margin: 0 auto 30px; max-width: 600px;">
+            <span class="line gris"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+            <span class="line amarillo"></span>
+        </div>
+
+        <div class="container" style="padding-top: 0;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
-            <div class="top-buttons">
+            <div class="top-buttons" style="margin-bottom: 12px;">
                 <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
                 <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
             </div>
 
-            <!-- Línea separadora -->
-            <div class="separator-line"></div>
-
-            <!-- Botón verde nuevo -->
-            <div class="btn-container" style="margin-top: 40px;">
+            <!-- Botón verde nuevo (más junto) -->
+            <div class="btn-container" style="margin-top: 0; margin-bottom: 30px;">
                 <button class="btn-verde-servicios" onclick="scrollToServicios()">¿Qué puedo aportar a tus proyectos?</button>
             </div>
 
@@ -936,8 +998,11 @@
                 <span class="line verde"></span>
             </div>
 
+            <!-- Título antes de servicios -->
+            <h2 style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">¿Qué puedo aportar a tus proyectos?</h2>
+
             <!-- 6 botones de servicios (scroll) -->
-            <div id="servicios-section" style="margin-top: 40px;">
+            <div id="servicios-section">
                 <div class="services-grid">
                     <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias de comunicación</button>
                     <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">Creación de contenidos</button>
@@ -946,6 +1011,73 @@
                     <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">Acciones con influencers</button>
                     <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
                 </div>
+            </div>
+
+            <!-- Botón Programas de auditoría -->
+            <div class="btn-container" style="margin-top: 40px;">
+                <button class="btn-verde-servicios" onclick="showScreen('screen-programas')">Programas de auditoría y optimización</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA PROGRAMAS -->
+    <div class="screen" id="screen-programas">
+        <div class="header">
+            <div class="logo-container">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>Programas de auditoría y optimización</h1>
+            <p class="subtitle">Elegí el programa que se ajuste a tu perfil</p>
+
+            <div class="options">
+                <div class="program-card amarillo-icon" onclick="showProgramScreen('figura-rentable')">
+                    <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
+                    <div class="program-info">
+                        <p class="program-title">Programa Perfil Rentable</p>
+                        <p class="program-profile">Figuras / Periodistas / Referentes</p>
+                    </div>
+                </div>
+                <div class="program-card rosa-icon" onclick="showProgramScreen('pyme')">
+                    <img src="icono_PyMEs.png" alt="" class="profile-icon">
+                    <div class="program-info">
+                        <p class="program-title">Modernización Comunicacional para PyMEs</p>
+                        <p class="program-profile">PyMEs</p>
+                    </div>
+                </div>
+                <div class="program-card verde-icon" onclick="showProgramScreen('posicionamiento')">
+                    <img src="icono_emprendedores.png" alt="" class="profile-icon">
+                    <div class="program-info">
+                        <p class="program-title">Posicionamiento y Comunicación Personal</p>
+                        <p class="program-profile">Emprendedores e Independientes</p>
+                    </div>
+                </div>
+                <div class="program-card gris-icon" onclick="showProgramScreen('organizacional')">
+                    <img src="iconograndesempresas.png" alt="" class="profile-icon">
+                    <div class="program-info">
+                        <p class="program-title">Consultoría Estratégica de Comunicación Organizacional</p>
+                        <p class="program-profile">Grandes empresas</p>
+                    </div>
+                </div>
+                <div class="program-card rosa-icon-2" onclick="showProgramScreen('cotidiana')">
+                    <img src="iconoindividuos.png" alt="" class="profile-icon">
+                    <div class="program-info">
+                        <p class="program-title">Comunicación Cotidiana</p>
+                        <p class="program-profile">Personas que tienen inconvenientes al comunicarse</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -971,23 +1103,23 @@
             <div class="options">
                 <div class="option-card amarillo-icon" onclick="selectProfile('figuras')">
                     <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
-                    <p>Figuras públicas / Periodistas / Referentes</p>
+                    <p>Figura pública / Periodista / Referente</p>
                 </div>
                 <div class="option-card rosa-icon" onclick="selectProfile('pymes')">
                     <img src="icono_PyMEs.png" alt="" class="profile-icon">
-                    <p>PyMEs</p>
+                    <p>PyME</p>
                 </div>
                 <div class="option-card verde-icon" onclick="selectProfile('emprendedores')">
                     <img src="icono_emprendedores.png" alt="" class="profile-icon">
-                    <p>Emprendedores / Profesionales independientes</p>
+                    <p>Emprendedor / Profesional independiente</p>
                 </div>
                 <div class="option-card gris-icon" onclick="selectProfile('empresas')">
                     <img src="iconograndesempresas.png" alt="" class="profile-icon">
-                    <p>Grandes empresas</p>
+                    <p>Gran empresa</p>
                 </div>
                 <div class="option-card rosa-icon-2" onclick="selectProfile('cotidiana')">
                     <img src="iconoindividuos.png" alt="" class="profile-icon">
-                    <p>Comunicación cotidiana (analógica y digital)</p>
+                    <p>Persona que tiene inconvenientes al comunicarse</p>
                 </div>
             </div>
 
@@ -1279,6 +1411,10 @@
                     <br>
                     <p>Vengo del mundo de la comunicación y la tecnología con 15 años de experiencia en Trade Marketing y Retail.</p>
                     <br>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="https://www.linkedin.com/in/todocomunica/" target="_blank" class="btn-linkedin">LinkedIn</a>
+                    </div>
+                    <br>
                     <p><strong>📍 CABA, Buenos Aires</strong></p>
                 </div>
 
@@ -1295,35 +1431,29 @@
 
     <!-- PANTALLA TECNÓSFERA -->
     <div class="screen" id="screen-tecnosfera">
-        <div class="header">
-            <div class="logo-container">
-                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
-            </div>
-        </div>
-
-        <div class="separator">
-            <span class="line amarillo"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-        </div>
-
-        <div class="container">
+        <div class="container" style="padding-top: 60px;">
             <div class="tecnosfera-container">
-                <div class="tecnosfera-logo-container">
-                    <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo">
+                <!-- Logo Tecnósfera clickeable arriba -->
+                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 50px;">
+                    <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     <p class="tecnosfera-signature">by Valeria Deliens.</p>
                 </div>
 
-                <div class="tecnosfera-text">
-                    <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
-                    <p style="margin-top: 30px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</p>
+                <!-- Grid: texto izquierda, video derecha -->
+                <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; margin: 40px 0;">
+                    <!-- Texto a la izquierda -->
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--negro);">
+                        <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
+                        <p style="margin-top: 20px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</p>
+                    </div>
+                    
+                    <!-- Video a la derecha -->
+                    <div>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/KyCImP1hL9s" title="Tecnósfera Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 15px;"></iframe>
+                    </div>
                 </div>
 
-                <div class="tecnosfera-video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KyCImP1hL9s" title="Tecnósfera Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <div class="btn-container" style="margin-top: 30px;">
+                <div class="btn-container" style="margin-top: 50px; text-align: center;">
                     <a href="https://www.atom.bio/Tecnósfera" target="_blank" class="btn btn-tecnosfera-episodes">¡Mirá todos los episodios!</a>
                 </div>
             </div>

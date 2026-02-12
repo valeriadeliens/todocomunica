@@ -55,7 +55,7 @@
         }
 
         .header.home .logo-img {
-            max-width: 700px;
+            max-width: 1400px;
         }
 
         .header:not(.home) .logo-img {
@@ -664,13 +664,86 @@
             max-height: 2000px;
         }
 
+        /* TECNÓSFERA */
+        .tecnosfera-container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .tecnosfera-logo-container {
+            margin-bottom: 40px;
+        }
+
+        .tecnosfera-logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .tecnosfera-signature {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 18px;
+            color: var(--negro);
+            text-align: right;
+            margin-right: 50px;
+        }
+
+        .tecnosfera-text {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .tecnosfera-text p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--negro);
+        }
+
+        .tecnosfera-highlight {
+            color: var(--rosa);
+            font-weight: 500;
+        }
+
+        .tecnosfera-video {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tecnosfera-video iframe {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+        .btn-tecnosfera-episodes {
+            background: var(--rosa);
+            color: var(--blanco);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tecnosfera-episodes:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 102, 196, 0.4);
+        }
+
         /* FOOTER */
         .footer {
-            background: var(--negro);
-            color: var(--blanco);
+            background: var(--blanco);
+            color: var(--negro);
             padding: 40px 20px 20px;
             margin-top: 80px;
             text-align: center;
+            border-top: 1px solid #e0e0e0;
         }
 
         .footer-content {
@@ -682,10 +755,11 @@
             font-size: 14px;
             margin-bottom: 20px;
             line-height: 1.8;
+            color: var(--negro);
         }
 
         .footer-info a {
-            color: var(--blanco);
+            color: var(--negro);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -696,7 +770,7 @@
 
         .footer-partnership {
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid #e0e0e0;
         }
 
         .partnership-link {
@@ -704,13 +778,13 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            color: var(--blanco);
+            color: var(--negro);
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
 
         .partnership-link:hover {
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         .capsula-logo {
@@ -720,7 +794,7 @@
 
         .partnership-text {
             font-size: 12px;
-            color: var(--blanco);
+            color: var(--negro);
         }
     </style>
 </head>
@@ -763,7 +837,7 @@
                     <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
                 </div>
 
-                <button class="btn-wide tecnosfera" onclick="window.open('https://www.atom.bio/Tecnósfera', '_blank')">
+                <button class="btn-wide tecnosfera" onclick="showScreen('screen-tecnosfera')">
                     Tecnósfera Podcast
                 </button>
             </div>
@@ -775,7 +849,7 @@
             </div>
 
             <div class="home-intro-box">
-                <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS</p>
+                <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS.</p>
                 <p class="home-intro-text">REALIZÁ UN AUTODIAGNÓSTICO CON UN PAR DE CLICKS Y ENTERATE CÓMO TE PUEDO AYUDAR A OPTIMIZAR TU COMUNICACIÓN, LA DE TU MARCA O EMPRESA.</p>
             </div>
 
@@ -812,19 +886,19 @@
                     <p>Figuras públicas / Periodistas / Referentes</p>
                 </div>
                 <div class="option-card rosa-icon" onclick="selectProfile('pymes')">
-                    <img src="icono_para_perfil_PyMEs.png" alt="" class="profile-icon">
-                    <p>PyMES familiares</p>
+                    <img src="icono_PyMEs.png" alt="" class="profile-icon">
+                    <p>PyMEs</p>
                 </div>
                 <div class="option-card verde-icon" onclick="selectProfile('emprendedores')">
-                    <img src="icono_para_perfil_emprendedores.png" alt="" class="profile-icon">
+                    <img src="icono_emprendedores.png" alt="" class="profile-icon">
                     <p>Emprendedores / Profesionales independientes</p>
                 </div>
                 <div class="option-card gris-icon" onclick="selectProfile('empresas')">
-                    <img src="icono_para_perfil_grandes_empresas.png" alt="" class="profile-icon">
-                    <p>Empresas medianas y grandes</p>
+                    <img src="iconograndesempresas.png" alt="" class="profile-icon">
+                    <p>Grandes empresas</p>
                 </div>
                 <div class="option-card rosa-icon-2" onclick="selectProfile('cotidiana')">
-                    <img src="icono_para_perfil_individuos_con_problemas.png" alt="" class="profile-icon">
+                    <img src="iconoindividuos.png" alt="" class="profile-icon">
                     <p>Comunicación cotidiana (analógica y digital)</p>
                 </div>
             </div>
@@ -1102,7 +1176,8 @@
                     <img src="perfil_amarillo.jpg" alt="Valeria Deliens" class="sobre-mi-photo">
                     <div class="sobre-mi-intro">
                         <h2>Valeria Deliens</h2>
-                        <p><strong>Licenciada en Comunicación Social.</strong> Especializándome en Comunicación Convergente y Locución en ISER.</p>
+                        <p><strong>Licenciada en Comunicación Social.</strong> Especializándome en <strong>Comunicación Convergente y Locución</strong> en ISER.</p>
+                        <br>
                         <p>Comunicación estratégica | Contenidos | Vocería de marcas | Gestión de acuerdos entre marcas y figuras/influencers.</p>
                     </div>
                 </div>
@@ -1110,14 +1185,59 @@
                 <button class="btn btn-amarillo" onclick="toggleExpand()">Quiero saber más</button>
 
                 <div class="expandable-content" id="expandable-sobre-mi">
-                    <p>Trabajo en la intersección entre comunicación, contenido y experiencia. Ayudo a marcas, proyectos y medios a definir qué decir, cómo decirlo y desde dónde.</p>
-                    <p><strong>¿Mi especialidad?</strong> Analizar contextos, audiencias, entornos y objetivos. Construir mensajes claros, humanos y consistentes.</p>
+                    <p>Trabajo en la intersección entre <strong>comunicación, contenido y experiencia.</strong> Ayudo a empresas de todo tipo, figuras y referentes, emprendedores y proyectos en general a definir qué decir, cómo decirlo y desde dónde.</p>
+                    <br>
+                    <p><strong>¿Mi especialidad?</strong> Analizar contextos, audiencias, entornos y objetivos para <strong>construir mensajes claros, humanos y consistentes.</strong></p>
+                    <br>
                     <p>Vengo del mundo de la comunicación y la tecnología con 15 años de experiencia en Trade Marketing y Retail.</p>
+                    <br>
                     <p><strong>📍 CABA, Buenos Aires</strong></p>
+                    <br><br><br>
                 </div>
 
                 <div class="btn-container">
                     <button class="btn btn-contacto" onclick="showContactScreen('sobre-mi')">Dejame tus datos y te contacto sin compromiso</button>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA TECNÓSFERA -->
+    <div class="screen" id="screen-tecnosfera">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <div class="tecnosfera-container">
+                <div class="tecnosfera-logo-container">
+                    <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo">
+                    <p class="tecnosfera-signature">by Valeria Deliens.</p>
+                </div>
+
+                <div class="tecnosfera-text">
+                    <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
+                    <p style="margin-top: 30px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</p>
+                </div>
+
+                <div class="tecnosfera-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KyCImP1hL9s" title="Tecnósfera Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="btn-container" style="margin-top: 30px;">
+                    <a href="https://www.atom.bio/Tecnósfera" target="_blank" class="btn btn-tecnosfera-episodes">¡Mirá todos los episodios!</a>
                 </div>
             </div>
 
@@ -1440,9 +1560,9 @@
 
         const profileNames = {
             figuras: "Figuras públicas / Periodistas / Referentes",
-            pymes: "PyMES familiares",
+            pymes: "PyMEs",
             emprendedores: "Emprendedores / Profesionales independientes",
-            empresas: "Empresas medianas y grandes",
+            empresas: "Grandes empresas",
             cotidiana: "Comunicación cotidiana (analógica y digital)"
         };
 
@@ -1489,7 +1609,7 @@
         };
 
         const programNames = {
-            "figura-rentable": "Figura Rentable Express",
+            "figura-rentable": "Programa Perfil Rentable",
             "pyme": "Modernización Comunicacional para PyMEs",
             "posicionamiento": "Posicionamiento y Comunicación Personal",
             "organizacional": "Consultoría Estratégica de Comunicación Organizacional",
@@ -1556,7 +1676,7 @@
         function showProgramScreen(program) {
             const programContent = {
                 'figura-rentable': {
-                    title: 'Figura Rentable Express',
+                    title: 'Programa Perfil Rentable',
                     description: 'Un programa de consultoría estratégica con 3 niveles a elegir según necesidad para transformar tu perfil en una herramienta coherente, atractiva para marcas y monetizable, sin improvisación ni desgaste.',
                     screenId: 'screen-programa-figura-rentable'
                 },
@@ -1662,7 +1782,7 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Figura Rentable Express</h1>
+                            <h1 class="tree-main-title">Programa Perfil Rentable</h1>
                         </div>
 
                         <div class="tree-timeline">

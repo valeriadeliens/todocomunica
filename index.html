@@ -63,10 +63,10 @@
             max-width: 350px;
         }
 
-        /* Logo grande para Tecnósfera */
+        /* Logo Tecnósfera 25% más chico */
         #screen-tecnosfera .tecnosfera-logo {
             max-width: 100%;
-            width: 90%;
+            width: 67.5%;
         }
 
         .line {
@@ -554,6 +554,76 @@
             padding: 0 20px;
         }
 
+        /* Botones mitad ancho (Sobre mí y Tecnósfera) */
+        .top-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .btn-half {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+            border: 3px solid;
+            cursor: pointer;
+            background: var(--blanco);
+            transition: all 0.3s ease;
+        }
+
+        .btn-half:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-half.sobre-mi {
+            background: var(--amarillo);
+            border-color: var(--amarillo);
+            color: var(--negro);
+            font-weight: 400;
+        }
+
+        .btn-half.tecnosfera {
+            background: var(--rosa);
+            border-color: var(--rosa);
+            color: var(--blanco);
+            font-family: 'Kaushan Script', cursive;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* Línea separadora */
+        .separator-line {
+            border-bottom: 1px solid #e0e0e0;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        /* Botón verde servicios */
+        .btn-verde-servicios {
+            width: 100%;
+            max-width: 700px;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            background: var(--verde);
+            border: 3px solid var(--verde);
+            color: var(--negro);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-verde-servicios:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(192, 210, 38, 0.4);
+        }
+
         .btn-wide {
             display: block;
             width: 100%;
@@ -819,7 +889,7 @@
     <div class="screen active" id="screen-home">
         <div class="header home">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                 <div class="logo-lines-bottom">
                     <span class="line gris"></span>
                     <span class="line rosa"></span>
@@ -830,9 +900,44 @@
         </div>
 
         <div class="container">
-            <div class="home-buttons">
-                <button class="btn-wide sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
+            <!-- Botones Sobre mí y Tecnósfera lado a lado -->
+            <div class="top-buttons">
+                <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
+                <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
+            </div>
 
+            <!-- Línea separadora -->
+            <div class="separator-line"></div>
+
+            <!-- Botón verde nuevo -->
+            <div class="btn-container" style="margin-top: 40px;">
+                <button class="btn-verde-servicios" onclick="scrollToServicios()">¿Qué puedo aportar a tus proyectos?</button>
+            </div>
+
+            <!-- Cuadro de texto -->
+            <div class="home-intro-box">
+                <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS.</p>
+                <p class="home-intro-text">REALIZÁ UN AUTODIAGNÓSTICO CON UN PAR DE CLICKS Y ENTERATE CÓMO TE PUEDO AYUDAR A OPTIMIZAR TU COMUNICACIÓN, LA DE TU MARCA O EMPRESA.</p>
+            </div>
+
+            <!-- Pregunta principal -->
+            <h1>¿Qué te está pasando?</h1>
+
+            <!-- Botón Empecemos -->
+            <div class="btn-container">
+                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')">¡Empecemos!</button>
+                <span class="btn-note">(te llevará menos de 2 minutos)</span>
+            </div>
+
+            <!-- Separador antes de servicios -->
+            <div class="separator" style="margin-top: 60px;">
+                <span class="line amarillo"></span>
+                <span class="line rosa"></span>
+                <span class="line verde"></span>
+            </div>
+
+            <!-- 6 botones de servicios (scroll) -->
+            <div id="servicios-section" style="margin-top: 40px;">
                 <div class="services-grid">
                     <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias de comunicación</button>
                     <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">Creación de contenidos</button>
@@ -841,28 +946,6 @@
                     <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">Acciones con influencers</button>
                     <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
                 </div>
-
-                <button class="btn-wide tecnosfera" onclick="showScreen('screen-tecnosfera')">
-                    Tecnósfera Podcast
-                </button>
-            </div>
-
-            <div class="separator" style="margin-top: 50px;">
-                <span class="line amarillo"></span>
-                <span class="line rosa"></span>
-                <span class="line verde"></span>
-            </div>
-
-            <div class="home-intro-box">
-                <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS.</p>
-                <p class="home-intro-text">REALIZÁ UN AUTODIAGNÓSTICO CON UN PAR DE CLICKS Y ENTERATE CÓMO TE PUEDO AYUDAR A OPTIMIZAR TU COMUNICACIÓN, LA DE TU MARCA O EMPRESA.</p>
-            </div>
-
-            <h1>¿Qué te está pasando?</h1>
-
-            <div class="btn-container">
-                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')">¡Empecemos!</button>
-                <span class="btn-note">(te llevará menos de 2 minutos)</span>
             </div>
         </div>
     </div>
@@ -871,7 +954,7 @@
     <div class="screen" id="screen-perfiles">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -918,7 +1001,7 @@
     <div class="screen" id="screen-problemas-figuras">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -961,7 +1044,7 @@
     <div class="screen" id="screen-problemas-pymes">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1004,7 +1087,7 @@
     <div class="screen" id="screen-problemas-emprendedores">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1047,7 +1130,7 @@
     <div class="screen" id="screen-problemas-empresas">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1090,7 +1173,7 @@
     <div class="screen" id="screen-problemas-cotidiana">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1165,7 +1248,7 @@
     <div class="screen" id="screen-sobre-mi">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1214,7 +1297,7 @@
     <div class="screen" id="screen-tecnosfera">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1255,7 +1338,7 @@
     <div class="screen" id="screen-servicio-estrategias">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1285,7 +1368,7 @@
     <div class="screen" id="screen-servicio-contenidos">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1315,7 +1398,7 @@
     <div class="screen" id="screen-servicio-identidad">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1345,7 +1428,7 @@
     <div class="screen" id="screen-servicio-voceria">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1375,7 +1458,7 @@
     <div class="screen" id="screen-servicio-influencers">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1405,7 +1488,7 @@
     <div class="screen" id="screen-servicio-brainstorming">
         <div class="header">
             <div class="logo-container">
-                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
             </div>
         </div>
 
@@ -1648,7 +1731,7 @@
             screen.innerHTML = `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -1712,7 +1795,7 @@
             screen.innerHTML = `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -1772,7 +1855,7 @@
             return `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -1900,7 +1983,7 @@
             return `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -1968,7 +2051,7 @@
             return `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -2036,7 +2119,7 @@
             return `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -2094,7 +2177,7 @@
             return `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -2169,7 +2252,7 @@
             screen.innerHTML = `
                 <div class="header">
                     <div class="logo-container">
-                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     </div>
                 </div>
 
@@ -2314,6 +2397,12 @@
         }
 
         // Función para mostrar pantallas de servicios
+        // Función para scroll suave a servicios
+        function scrollToServicios() {
+            const serviciosSection = document.getElementById('servicios-section');
+            serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
         function showServiceScreen(serviceKey) {
             const services = {
                 estrategias: {

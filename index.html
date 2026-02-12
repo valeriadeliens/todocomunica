@@ -603,7 +603,6 @@
             gap: 12px;
             max-width: 700px;
             margin: 12px auto;
-            padding: 0 20px;
         }
 
         .btn-half {
@@ -635,9 +634,9 @@
             background: var(--rosa);
             border-color: var(--rosa);
             color: var(--blanco);
-            font-family: 'Kaushan Script', cursive;
-            font-size: 18px;
-            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
         }
 
         /* Línea separadora */
@@ -987,7 +986,7 @@
 
             <!-- Botón Empecemos -->
             <div class="btn-container">
-                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')">¡Empecemos!</button>
+                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')" style="padding: 27px 60px; font-size: 24px;">¡Empecemos!</button>
                 <span class="btn-note">(te llevará menos de 2 minutos)</span>
             </div>
 
@@ -1017,6 +1016,11 @@
             <div class="btn-container" style="margin-top: 40px;">
                 <button class="btn-verde-servicios" onclick="showScreen('screen-programas')">Programas de auditoría y optimización</button>
             </div>
+
+            <!-- Botón Hablemos -->
+            <div class="btn-container" style="margin-top: 40px; margin-bottom: 60px;">
+                <button class="btn btn-contacto" onclick="showContactScreen('home')">¡Hablemos!</button>
+            </div>
         </div>
     </div>
 
@@ -1028,7 +1032,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1090,7 +1094,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1137,7 +1141,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1180,7 +1184,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1223,7 +1227,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1266,7 +1270,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1309,7 +1313,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1384,7 +1388,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1419,7 +1423,7 @@
                 </div>
 
                 <div class="btn-container" style="margin-top: 30px;">
-                    <button class="btn btn-contacto" onclick="showContactScreen('sobre-mi')">Dejame tus datos y te contacto sin compromiso</button>
+                    <button class="btn btn-contacto" onclick="showContactScreen('sobre-mi')">Contacto</button>
                 </div>
             </div>
 
@@ -1434,17 +1438,19 @@
         <div class="container" style="padding-top: 60px;">
             <div class="tecnosfera-container">
                 <!-- Logo Tecnósfera clickeable arriba -->
-                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 50px;">
+                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px;">
                     <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo" onclick="showScreen('screen-home')" style="cursor: pointer;">
-                    <p class="tecnosfera-signature">by Valeria Deliens.</p>
+                    <p class="tecnosfera-signature" onclick="showScreen('screen-sobre-mi')" style="cursor: pointer;">by Valeria Deliens.</p>
                 </div>
+
+                <!-- Título centrado -->
+                <h2 style="text-align: center; margin: 30px 0; font-size: 20px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</h2>
 
                 <!-- Grid: texto izquierda, video derecha -->
                 <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; margin: 40px 0;">
                     <!-- Texto a la izquierda -->
                     <div style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--negro);">
                         <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
-                        <p style="margin-top: 20px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</p>
                     </div>
                     
                     <!-- Video a la derecha -->
@@ -1472,7 +1478,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1502,7 +1508,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1532,7 +1538,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1562,7 +1568,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1592,7 +1598,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1622,7 +1628,7 @@
             </div>
         </div>
 
-        <div class="separator">
+        <div class="separator" style="margin-top: 20px;">
             <span class="line amarillo"></span>
             <span class="line rosa"></span>
             <span class="line verde"></span>
@@ -1865,7 +1871,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -1929,7 +1935,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -1989,7 +1995,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -2117,7 +2123,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -2185,7 +2191,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -2253,7 +2259,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -2311,7 +2317,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>
@@ -2386,7 +2392,7 @@
                     </div>
                 </div>
 
-                <div class="separator">
+                <div class="separator" style="margin-top: 20px;">
                     <span class="line amarillo"></span>
                     <span class="line rosa"></span>
                     <span class="line verde"></span>

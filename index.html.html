@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeria Deliens - Comunicación Estratégica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gris: #a6a6a6;
+            --rosa: #ff66c4;
+            --amarillo: #f4cf3c;
+            --verde: #c0d226;
+            --negro: #2d2d2d;
+            --blanco: #ffffff;
+            --gris-fondo: #f8f8f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--blanco);
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            background: var(--blanco);
+        }
+
+        .header.home {
+            padding: 80px 20px 60px;
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header.home .logo-img {
+            max-width: 700px;
+        }
+
+        .header:not(.home) .logo-img {
+            max-width: 350px;
+        }
+
+        .line {
+            height: 4px;
+            width: 80px;
+            border-radius: 2px;
+        }
+
+        .line.amarillo { background: var(--amarillo); }
+        .line.rosa { background: var(--rosa); }
+        .line.verde { background: var(--verde); }
+        .line.gris { background: var(--gris); }
+
+        .logo-lines-bottom {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .wide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* SCREEN */
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TÍTULOS */
+        h1 {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 64px;
+            color: var(--negro);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: var(--negro);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: var(--negro);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--gris);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-rosa {
+            background: var(--rosa);
+            color: var(--blanco);
+        }
+
+        .btn-amarillo {
+            background: var(--amarillo);
+            color: var(--negro);
+        }
+
+        .btn-verde {
+            background: var(--verde);
+            color: var(--negro);
+        }
+
+        .btn-contacto {
+            background: var(--blanco);
+            border: 4px solid var(--rosa);
+            color: var(--rosa);
+            padding: 16px 38px;
+            box-shadow: 0 6px 20px rgba(255, 102, 196, 0.3);
+            font-weight: 600;
+        }
+
+        .btn-contacto:hover {
+            background: var(--rosa);
+            color: var(--blanco);
+            box-shadow: 0 8px 25px rgba(255, 102, 196, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gris);
+            color: var(--gris);
+            padding: 16px 38px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-note {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gris);
+            margin-top: 12px;
+            font-weight: 300;
+        }
+
+        /* OPCIONES / CARDS */
+        .options {
+            display: grid;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .option-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--rosa);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .option-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .option-card.verde { border-left-color: var(--verde); }
+        .option-card.amarillo { border-left-color: var(--amarillo); }
+        .option-card.rosa { border-left-color: var(--rosa); }
+        .option-card.gris { border-left-color: var(--gris); }
+
+        /* Tarjetas con iconos para perfiles */
+        .option-card.amarillo-icon { border-left-color: #f4cf3c; }
+        .option-card.rosa-icon { border-left-color: #ff66c4; }
+        .option-card.rosa-icon-2 { border-left-color: #ff66c4; }
+        .option-card.verde-icon { border-left-color: #c0d226; }
+        .option-card.gris-icon { border-left-color: #a6a6a6; }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        .option-card p {
+            font-size: 17px;
+            color: var(--negro);
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* COMPRENSIÓN */
+        .comprension-box {
+            background: var(--gris-fondo);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .comprension-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--negro);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .reassurance {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--rosa);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* PROGRAMA DESCRIPCIÓN */
+        .programa-intro {
+            background: var(--gris-fondo);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .programa-intro h2 {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--negro);
+        }
+
+        .programa-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--negro);
+        }
+
+        /* ÁRBOL DE PROGRAMA */
+        .tree-container {
+            margin: 60px 0;
+        }
+
+        .tree-title {
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris);
+            margin-bottom: 15px;
+        }
+
+        .tree-main-title {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--negro);
+        }
+
+        .tree-section {
+            margin-bottom: 50px;
+        }
+
+        .tree-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tree-timeline {
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .tree-node {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            border: 3px solid;
+        }
+
+        .tree-node.rosa { border-color: var(--rosa); }
+        .tree-node.amarillo { border-color: var(--amarillo); }
+        .tree-node.verde { border-color: var(--verde); }
+        .tree-node.gris { border-color: var(--gris); }
+
+        .tree-node-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .tree-node-badge.rosa { background: var(--rosa); }
+        .tree-node-badge.amarillo { background: var(--amarillo); color: var(--negro); }
+        .tree-node-badge.verde { background: var(--verde); color: var(--negro); }
+
+        .tree-node h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--negro);
+        }
+
+        .tree-node h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--negro);
+        }
+
+        .tree-node p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--negro);
+        }
+
+        .tree-node ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tree-node li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tree-node li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* FORMULARIO */
+        .form-container {
+            background: var(--gris-fondo);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--negro);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+            background: var(--blanco);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-input:focus {
+            outline: none;
+            border-color: var(--rosa);
+        }
+
+        /* NAVEGACIÓN */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 30px;
+            font-size: 14px;
+        }
+
+        /* SEPARADORES */
+        .separator {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 60px 0 40px;
+        }
+
+        .separator .line {
+            width: 60px;
+            height: 3px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .header.home .logo-img {
+                max-width: 90%;
+            }
+
+            .header:not(.home) .logo-img {
+                max-width: 280px;
+            }
+
+            .programa-intro,
+            .form-container {
+                padding: 30px 25px;
+            }
+
+            .tree-node {
+                padding: 25px 20px;
+            }
+
+            .tree-main-title {
+                font-size: 42px;
+            }
+        }
+
+        /* BARRA DE NAVEGACIÓN DE SERVICIOS */
+        .services-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+            background: var(--blanco);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-nav-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--blanco);
+            border: 2px solid;
+        }
+
+        .service-nav-btn.rosa { border-color: var(--rosa); color: var(--rosa); }
+        .service-nav-btn.amarillo { border-color: var(--amarillo); color: var(--amarillo); }
+        .service-nav-btn.verde { border-color: var(--verde); color: var(--verde); }
+        .service-nav-btn.gris { border-color: var(--gris); color: var(--gris); }
+
+        /* BOTONES HOME */
+        .home-buttons {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .btn-wide {
+            display: block;
+            width: 100%;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+            border: 3px solid;
+            cursor: pointer;
+            margin-bottom: 15px;
+            background: var(--blanco);
+            transition: all 0.3s ease;
+        }
+
+        .btn-wide.sobre-mi {
+            background: var(--amarillo);
+            border-color: var(--amarillo);
+            color: var(--negro);
+            font-weight: 400;
+        }
+
+        .btn-wide.tecnosfera {
+            background: var(--rosa);
+            border-color: var(--rosa);
+            color: var(--blanco);
+            font-family: 'Kaushan Script', cursive;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .home-intro-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--negro);
+            line-height: 1.6;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .home-intro-box {
+            border: 1px solid var(--negro);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 650px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .service-btn {
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            background: var(--blanco);
+            border: 3px solid;
+            text-align: center;
+            color: var(--negro);
+            transition: all 0.3s ease;
+        }
+
+        .service-btn.rosa { border-color: var(--rosa); }
+        .service-btn.amarillo { border-color: var(--amarillo); }
+        .service-btn.verde { border-color: var(--verde); }
+        .service-btn.gris { border-color: var(--gris); }
+
+        /* SOBRE MÍ */
+        .sobre-mi-container {
+            background: var(--gris-fondo);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .sobre-mi-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .sobre-mi-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--rosa);
+        }
+
+        .sobre-mi-intro h2 {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable-content.expanded {
+            max-height: 2000px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-info a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info a:hover {
+            color: var(--rosa);
+        }
+
+        .footer-partnership {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .partnership-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .partnership-link:hover {
+            opacity: 0.8;
+        }
+
+        .capsula-logo {
+            height: 35px;
+            width: auto;
+        }
+
+        .partnership-text {
+            font-size: 12px;
+            color: var(--blanco);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN (solo en pantallas internas, NO en home) -->
+    <div class="services-nav" id="services-nav" style="display:none">
+        <button class="service-nav-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias</button>
+        <button class="service-nav-btn amarillo" onclick="showServiceScreen('contenidos')">Contenidos</button>
+        <button class="service-nav-btn verde" onclick="showServiceScreen('identidad')">Identidad</button>
+        <button class="service-nav-btn gris" onclick="showServiceScreen('voceria')">Vocería</button>
+        <button class="service-nav-btn rosa" onclick="showServiceScreen('influencers')">Influencers</button>
+        <button class="service-nav-btn amarillo" onclick="showServiceScreen('brainstorming')">Brainstorming</button>
+    </div>
+
+    <!-- PANTALLA 1: BIENVENIDA -->
+    <div class="screen active" id="screen-home">
+        <div class="header home">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                <div class="logo-lines-bottom">
+                    <span class="line gris"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="home-buttons">
+                <button class="btn-wide sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
+
+                <div class="services-grid">
+                    <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias de comunicación</button>
+                    <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">Creación de contenidos</button>
+                    <button class="service-btn verde" onclick="showServiceScreen('identidad')">Identidad de marca</button>
+                    <button class="service-btn gris" onclick="showServiceScreen('voceria')">Vocería para empresas</button>
+                    <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">Acciones con influencers</button>
+                    <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
+                </div>
+
+                <button class="btn-wide tecnosfera" onclick="window.open('https://www.atom.bio/Tecnósfera', '_blank')">
+                    Tecnósfera Podcast
+                </button>
+            </div>
+
+            <div class="separator" style="margin-top: 50px;">
+                <span class="line amarillo"></span>
+                <span class="line rosa"></span>
+                <span class="line verde"></span>
+            </div>
+
+            <div class="home-intro-box">
+                <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS</p>
+                <p class="home-intro-text">REALIZÁ UN AUTODIAGNÓSTICO CON UN PAR DE CLICKS Y ENTERATE CÓMO TE PUEDO AYUDAR A OPTIMIZAR TU COMUNICACIÓN, LA DE TU MARCA O EMPRESA.</p>
+            </div>
+
+            <h1>¿Qué te está pasando?</h1>
+
+            <div class="btn-container">
+                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')">¡Empecemos!</button>
+                <span class="btn-note">(te llevará menos de 2 minutos)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 2: SELECCIÓN DE PERFIL -->
+    <div class="screen" id="screen-perfiles">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Con qué perfil te identificás?</h1>
+            <p class="subtitle">Elegí el que mejor te represente</p>
+
+            <div class="options">
+                <div class="option-card amarillo-icon" onclick="selectProfile('figuras')">
+                    <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
+                    <p>Figuras públicas / Periodistas / Referentes</p>
+                </div>
+                <div class="option-card rosa-icon" onclick="selectProfile('pymes')">
+                    <img src="icono_para_perfil_PyMEs.png" alt="" class="profile-icon">
+                    <p>PyMES familiares</p>
+                </div>
+                <div class="option-card verde-icon" onclick="selectProfile('emprendedores')">
+                    <img src="icono_para_perfil_emprendedores.png" alt="" class="profile-icon">
+                    <p>Emprendedores / Profesionales independientes</p>
+                </div>
+                <div class="option-card gris-icon" onclick="selectProfile('empresas')">
+                    <img src="icono_para_perfil_grandes_empresas.png" alt="" class="profile-icon">
+                    <p>Empresas medianas y grandes</p>
+                </div>
+                <div class="option-card rosa-icon-2" onclick="selectProfile('cotidiana')">
+                    <img src="icono_para_perfil_individuos_con_problemas.png" alt="" class="profile-icon">
+                    <p>Comunicación cotidiana (analógica y digital)</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: PROBLEMAS - FIGURAS PÚBLICAS -->
+    <div class="screen" id="screen-problemas-figuras">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Qué es lo que te está pasando?</h1>
+            <p class="subtitle">Elegí la situación con la que más te identifiques</p>
+
+            <div class="options">
+                <div class="option-card rosa" onclick="selectProblem('figuras', 'seguidores')">
+                    <p>Tengo muchos seguidores pero no gano dinero con mis redes</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('figuras', 'aleatorio')">
+                    <p>Subo contenido de forma aleatoria y no sé qué mostrar</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('figuras', 'marcas')">
+                    <p>Las marcas no me eligen o, si lo hacen, no vuelven a contactarme</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('figuras', 'acercamiento')">
+                    <p>Mi perfil está prolijo, pero no sé cómo acercarme a marcas</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('figuras', 'cobrar')">
+                    <p>Quiero ganar dinero con mis redes pero no sé cuánto cobrar ni cómo negociar</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: PROBLEMAS - PYMES -->
+    <div class="screen" id="screen-problemas-pymes">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Qué es lo que te está pasando?</h1>
+            <p class="subtitle">Elegí la situación con la que más te identifiques</p>
+
+            <div class="options">
+                <div class="option-card rosa" onclick="selectProblem('pymes', 'desactualizada')">
+                    <p>Somos una empresa con muchos años, pero nuestra comunicación quedó desactualizada</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('pymes', 'modernizar')">
+                    <p>Queremos modernizarnos, pero tenemos miedo de perder nuestros valores o identidad</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('pymes', 'diluye')">
+                    <p>Cada área o persona comunica distinto y el mensaje de la empresa se diluye</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('pymes', 'interna')">
+                    <p>La comunicación interna es confusa y genera roces o malos entendidos</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('pymes', 'digital')">
+                    <p>Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: PROBLEMAS - EMPRENDEDORES -->
+    <div class="screen" id="screen-problemas-emprendedores">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Qué es lo que te está pasando?</h1>
+            <p class="subtitle">Elegí la situación con la que más te identifiques</p>
+
+            <div class="options">
+                <div class="option-card rosa" onclick="selectProblem('emprendedores', 'explicar')">
+                    <p>Sé lo que hago, pero no sé cómo explicarlo de forma clara</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('emprendedores', 'diferencia')">
+                    <p>Comunico mucho, pero no se entiende qué me diferencia</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('emprendedores', 'nivel')">
+                    <p>Mi comunicación no refleja mi nivel profesional</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('emprendedores', 'mostrar')">
+                    <p>No sé qué mostrar, qué contar ni desde dónde hablar</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('emprendedores', 'sostener')">
+                    <p>Me cuesta sostener una comunicación coherente en el tiempo</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: PROBLEMAS - EMPRESAS -->
+    <div class="screen" id="screen-problemas-empresas">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Qué es lo que te está pasando?</h1>
+            <p class="subtitle">Elegí la situación con la que más te identifiques</p>
+
+            <div class="options">
+                <div class="option-card rosa" onclick="selectProblem('empresas', 'fricciones')">
+                    <p>La comunicación entre áreas es confusa y genera fricciones</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('empresas', 'cambian')">
+                    <p>Los mensajes cambian según quién los diga</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('empresas', 'decisiones')">
+                    <p>Hay decisiones que no se entienden y generan resistencia</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('empresas', 'crecimiento')">
+                    <p>La comunicación no acompaña el crecimiento de la empresa</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('empresas', 'estrategia')">
+                    <p>No hay una mirada estratégica sobre cómo comunicamos</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: PROBLEMAS - COTIDIANA -->
+    <div class="screen" id="screen-problemas-cotidiana">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h1>¿Qué es lo que te está pasando?</h1>
+            <p class="subtitle">Elegí la situación con la que más te identifiques</p>
+
+            <div class="options">
+                <div class="option-card rosa" onclick="selectProblem('cotidiana', 'expresarme')">
+                    <p>Me cuesta expresarme cara a cara</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('cotidiana', 'discutir')">
+                    <p>No sé discutir sin que escale</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('cotidiana', 'escuchan')">
+                    <p>Siento que no me escuchan</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('cotidiana', 'chat')">
+                    <p>Mis mensajes por chat se malinterpretan</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('cotidiana', 'audios')">
+                    <p>Uso muchos audios y siento que molestan</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('cotidiana', 'emojis')">
+                    <p>No sé cuándo usar emojis o stickers</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('cotidiana', 'visto')">
+                    <p>Me genera ansiedad el visto o la demora en responder</p>
+                </div>
+                <div class="option-card gris" onclick="selectProblem('cotidiana', 'mails')">
+                    <p>En mails quedo frío o duro</p>
+                </div>
+                <div class="option-card rosa" onclick="selectProblem('cotidiana', 'evito')">
+                    <p>Evito escribir cosas importantes por miedo a que se entienda mal</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLAS DE COMPRENSIÓN (se generan dinámicamente) -->
+    <div class="screen" id="screen-comprension"></div>
+
+    <!-- PANTALLAS DE PROGRAMAS -->
+    <div class="screen" id="screen-programa-figura-rentable"></div>
+    <div class="screen" id="screen-programa-pyme"></div>
+    <div class="screen" id="screen-programa-posicionamiento"></div>
+    <div class="screen" id="screen-programa-organizacional"></div>
+    <div class="screen" id="screen-programa-cotidiana"></div>
+
+    <!-- PANTALLAS DE DETALLE (ÁRBOLES) -->
+    <div class="screen" id="screen-detalle-figura-rentable"></div>
+    <div class="screen" id="screen-detalle-pyme"></div>
+    <div class="screen" id="screen-detalle-posicionamiento"></div>
+    <div class="screen" id="screen-detalle-organizacional"></div>
+    <div class="screen" id="screen-detalle-cotidiana"></div>
+
+    <!-- PANTALLA FORMULARIO -->
+    <div class="screen" id="screen-contacto"></div>
+
+    <!-- PANTALLA SOBRE MÍ -->
+    <div class="screen" id="screen-sobre-mi">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <div class="sobre-mi-container">
+                <div class="sobre-mi-header">
+                    <img src="perfil_amarillo.jpg" alt="Valeria Deliens" class="sobre-mi-photo">
+                    <div class="sobre-mi-intro">
+                        <h2>Valeria Deliens</h2>
+                        <p><strong>Licenciada en Comunicación Social.</strong> Especializándome en Comunicación Convergente y Locución en ISER.</p>
+                        <p>Comunicación estratégica | Contenidos | Vocería de marcas | Gestión de acuerdos entre marcas y figuras/influencers.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-amarillo" onclick="toggleExpand()">Quiero saber más</button>
+
+                <div class="expandable-content" id="expandable-sobre-mi">
+                    <p>Trabajo en la intersección entre comunicación, contenido y experiencia. Ayudo a marcas, proyectos y medios a definir qué decir, cómo decirlo y desde dónde.</p>
+                    <p><strong>¿Mi especialidad?</strong> Analizar contextos, audiencias, entornos y objetivos. Construir mensajes claros, humanos y consistentes.</p>
+                    <p>Vengo del mundo de la comunicación y la tecnología con 15 años de experiencia en Trade Marketing y Retail.</p>
+                    <p><strong>📍 CABA, Buenos Aires</strong></p>
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn btn-contacto" onclick="showContactScreen('sobre-mi')">Dejame tus datos y te contacto sin compromiso</button>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: ESTRATEGIAS -->
+    <div class="screen" id="screen-servicio-estrategias">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Estrategias de comunicación</h2>
+            <div class="solution-card">
+                <p>Diagnóstico y creación de estrategias de comunicación interna y externa: web, redes sociales, protocolos de atención, newsletter, correos de difusión interna, etc.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('estrategias')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: CONTENIDOS -->
+    <div class="screen" id="screen-servicio-contenidos">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Creación de contenidos</h2>
+            <div class="solution-card">
+                <p>Producción integral de contenidos escritos, gráficos y audiovisuales para comunicación interna y externa.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('contenidos')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: IDENTIDAD -->
+    <div class="screen" id="screen-servicio-identidad">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Identidad de marca</h2>
+            <div class="solution-card">
+                <p>Definición de identidad, estilo, tono y personalidad de la marca.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('identidad')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: VOCERÍA -->
+    <div class="screen" id="screen-servicio-voceria">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Vocería para empresas o emprendimientos</h2>
+            <div class="solution-card">
+                <p>Cara y voz profesional para transmitir los mensajes de marcas, empresas o emprendimientos que no cuentan con un cara visible interna que cubra este rol, sin tener que contratar a un influencer.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('voceria')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: INFLUENCERS -->
+    <div class="screen" id="screen-servicio-influencers">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Acciones con figuras e influencers</h2>
+            <div class="solution-card">
+                <p>Gestión estratégica de colaboraciones en redes sociales con figuras e influencers. End to end: desde el contacto, pasando por propuesta y negociación de acuerdo hasta la implementación de las publicaciones.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('influencers')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA SERVICIO: BRAINSTORMING -->
+    <div class="screen" id="screen-servicio-brainstorming">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+            </div>
+        </div>
+
+        <div class="separator">
+            <span class="line amarillo"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+        </div>
+
+        <div class="container">
+            <h2>Brainstorming Sessions</h2>
+            <div class="solution-card">
+                <p>Sesiones creativas para aporte de ideas, visiones y análisis para campañas, lanzamientos y definiciones de marketing de todo tipo. El diferencial es la visión desde el lugar de un cliente/usuario pero contando un bagaje de experiencia profesional en marketing y Trade que combina ambas líneas. Esto potencia las propuestas creativas y aporta la visión limpia y crítica que solo se puede tener desde "fuera" de la estructura de la empresa.</p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('brainstorming')">Dejame tus datos y te contacto sin compromiso</button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DATA
+        const problemsData = {
+            figuras: {
+                seguidores: {
+                    text: "Tiene sentido que te frustre: la fama atrae miradas, pero sin una estrategia clara las redes no se transforman solas en ingresos. Tener seguidores no es lo mismo que tener un modelo de monetización.",
+                    program: "figura-rentable"
+                },
+                aleatorio: {
+                    text: "Es lógico que pase: cuando no hay un criterio definido, el contenido se vuelve reactivo. El problema no es que publiques mucho o poco, sino que hoy no hay una lógica que ordene tu perfil.",
+                    program: "figura-rentable"
+                },
+                marcas: {
+                    text: "Esto no tiene que ver con tu alcance, sino con el riesgo que perciben. Cuando el perfil no comunica un posicionamiento claro, las marcas no saben qué esperar ni cómo encajar.",
+                    program: "figura-rentable"
+                },
+                acercamiento: {
+                    text: "Tener el perfil ordenado es solo la mitad del camino. Sin un método para presentarte y negociar, quedás esperando a que te llamen… y eso casi nunca pasa.",
+                    program: "figura-rentable"
+                },
+                cobrar: {
+                    text: "Es normal: nadie te enseñó a ponerle valor económico a tu imagen. Sin referencias ni estructura, negociar se vuelve incómodo y desparejo.",
+                    program: "figura-rentable"
+                }
+            },
+            pymes: {
+                desactualizada: {
+                    text: "Es muy común que empresas con historia y trayectoria se queden usando formas de comunicar que antes funcionaban, pero hoy ya no representan lo que realmente son. El problema no es la empresa, sino que el lenguaje cambió.",
+                    program: "pyme"
+                },
+                modernizar: {
+                    text: "Modernizar no significa romper con la historia ni traicionar la esencia. El desafío está en traducir los valores de siempre a los códigos actuales, sin disfrazarlos ni banalizarlos.",
+                    program: "pyme"
+                },
+                diluye: {
+                    text: "Cuando no hay criterios claros de comunicación, cada persona habla desde su intuición. Eso genera ruido interno y una imagen externa poco coherente, incluso cuando el trabajo es bueno.",
+                    program: "pyme"
+                },
+                interna: {
+                    text: "Muchas veces los conflictos internos no son personales, sino comunicacionales. Falta de claridad, de canales definidos o de criterios compartidos suele generar tensiones innecesarias.",
+                    program: "pyme"
+                },
+                digital: {
+                    text: "La tecnología no es solo una herramienta, también impone nuevos modos de comunicación. Integrarla sin forzar cambios bruscos requiere criterio, no improvisación.",
+                    program: "pyme"
+                }
+            },
+            emprendedores: {
+                explicar: {
+                    text: "A muchos profesionales les pasa que entienden perfectamente su trabajo, pero cuando tienen que explicarlo, se enredan o suenan genéricos. No es falta de conocimiento, es falta de orden comunicacional.",
+                    program: "posicionamiento"
+                },
+                diferencia: {
+                    text: "Comunicar seguido no garantiza claridad. Sin criterio, el mensaje se dispersa y el valor real del trabajo queda oculto.",
+                    program: "posicionamiento"
+                },
+                nivel: {
+                    text: "Muchas veces la forma de comunicar no acompaña la calidad real del trabajo. Eso genera una brecha entre lo que sos y lo que el otro percibe.",
+                    program: "posicionamiento"
+                },
+                mostrar: {
+                    text: "Cuando no hay un marco claro, cada mensaje se decide desde la duda. Eso desgasta y vuelve la comunicación forzada.",
+                    program: "posicionamiento"
+                },
+                sostener: {
+                    text: "Sin un sistema simple y propio, comunicar se vuelve una carga más, en lugar de una herramienta.",
+                    program: "posicionamiento"
+                }
+            },
+            empresas: {
+                fricciones: {
+                    text: "En organizaciones con estructura, cuando no hay criterios claros, cada área comunica desde su lógica. Eso genera roces que no son personales.",
+                    program: "organizacional"
+                },
+                cambian: {
+                    text: "Cuando el mensaje depende de la persona y no del criterio, la organización pierde coherencia interna y externa.",
+                    program: "organizacional"
+                },
+                decisiones: {
+                    text: "Muchas resistencias no se deben a la decisión en sí, sino a cómo se comunica.",
+                    program: "organizacional"
+                },
+                crecimiento: {
+                    text: "Cuando una empresa crece, la comunicación que antes funcionaba deja de ser suficiente.",
+                    program: "organizacional"
+                },
+                estrategia: {
+                    text: "Comunicar sin estrategia lleva a apagar incendios en lugar de prevenirlos.",
+                    program: "organizacional"
+                }
+            },
+            cotidiana: {
+                expresarme: {
+                    text: "La dificultad no suele estar en lo que sentís, sino en no tener un recorrido claro para decirlo.",
+                    program: "cotidiana"
+                },
+                discutir: {
+                    text: "Discutir sin herramientas comunicacionales suele volverse una pulseada emocional.",
+                    program: "cotidiana"
+                },
+                escuchan: {
+                    text: "Muchas veces el mensaje no llega por la forma, no por el contenido.",
+                    program: "cotidiana"
+                },
+                chat: {
+                    text: "En el texto plano no hay tono ni gesto. Si no se compensa, el otro completa los vacíos.",
+                    program: "cotidiana"
+                },
+                audios: {
+                    text: "El audio no es el problema: es no saber cuándo suma y cuándo invade.",
+                    program: "cotidiana"
+                },
+                emojis: {
+                    text: "Los emojis son marcadores de tono. Usarlos mal confunde, no usarlos endurece.",
+                    program: "cotidiana"
+                },
+                visto: {
+                    text: "Las plataformas introducen silencios que antes no existían.",
+                    program: "cotidiana"
+                },
+                mails: {
+                    text: "La escritura digital necesita señales de humanidad.",
+                    program: "cotidiana"
+                },
+                evito: {
+                    text: "No es falta de claridad, es intuición sin herramientas.",
+                    program: "cotidiana"
+                }
+            }
+        };
+
+        const profileNames = {
+            figuras: "Figuras públicas / Periodistas / Referentes",
+            pymes: "PyMES familiares",
+            emprendedores: "Emprendedores / Profesionales independientes",
+            empresas: "Empresas medianas y grandes",
+            cotidiana: "Comunicación cotidiana (analógica y digital)"
+        };
+
+        const problemNames = {
+            figuras: {
+                seguidores: "Tengo muchos seguidores pero no gano dinero con mis redes",
+                aleatorio: "Subo contenido de forma aleatoria y no sé qué mostrar",
+                marcas: "Las marcas no me eligen o, si lo hacen, no vuelven a contactarme",
+                acercamiento: "Mi perfil está prolijo, pero no sé cómo acercarme a marcas",
+                cobrar: "Quiero ganar dinero con mis redes pero no sé cuánto cobrar ni cómo negociar"
+            },
+            pymes: {
+                desactualizada: "Somos una empresa con muchos años, pero nuestra comunicación quedó desactualizada",
+                modernizar: "Queremos modernizarnos, pero tenemos miedo de perder nuestros valores o identidad",
+                diluye: "Cada área o persona comunica distinto y el mensaje de la empresa se diluye",
+                interna: "La comunicación interna es confusa y genera roces o malos entendidos",
+                digital: "Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo"
+            },
+            emprendedores: {
+                explicar: "Sé lo que hago, pero no sé cómo explicarlo de forma clara",
+                diferencia: "Comunico mucho, pero no se entiende qué me diferencia",
+                nivel: "Mi comunicación no refleja mi nivel profesional",
+                mostrar: "No sé qué mostrar, qué contar ni desde dónde hablar",
+                sostener: "Me cuesta sostener una comunicación coherente en el tiempo"
+            },
+            empresas: {
+                fricciones: "La comunicación entre áreas es confusa y genera fricciones",
+                cambian: "Los mensajes cambian según quién los diga",
+                decisiones: "Hay decisiones que no se entienden y generan resistencia",
+                crecimiento: "La comunicación no acompaña el crecimiento de la empresa",
+                estrategia: "No hay una mirada estratégica sobre cómo comunicamos"
+            },
+            cotidiana: {
+                expresarme: "Me cuesta expresarme cara a cara",
+                discutir: "No sé discutir sin que escale",
+                escuchan: "Siento que no me escuchan",
+                chat: "Mis mensajes por chat se malinterpretan",
+                audios: "Uso muchos audios y siento que molestan",
+                emojis: "No sé cuándo usar emojis o stickers",
+                visto: "Me genera ansiedad el visto o la demora en responder",
+                mails: "En mails quedo frío o duro",
+                evito: "Evito escribir cosas importantes por miedo a que se entienda mal"
+            }
+        };
+
+        const programNames = {
+            "figura-rentable": "Figura Rentable Express",
+            "pyme": "Modernización Comunicacional para PyMEs",
+            "posicionamiento": "Posicionamiento y Comunicación Personal",
+            "organizacional": "Consultoría Estratégica de Comunicación Organizacional",
+            "cotidiana": "Optimización de Comunicación Cotidiana"
+        };
+
+        let currentProfile = '';
+        let currentProblem = '';
+        let currentProgram = '';
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function selectProfile(profile) {
+            currentProfile = profile;
+            showScreen(`screen-problemas-${profile}`);
+        }
+
+        function selectProblem(profile, problem) {
+            currentProblem = problem;
+            const data = problemsData[profile][problem];
+            currentProgram = data.program;
+            
+            showComprensionScreen(data.text, data.program, profile);
+        }
+
+        function showComprensionScreen(text, program, profile) {
+            const screen = document.getElementById('screen-comprension');
+            screen.innerHTML = `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="container">
+                    <div class="comprension-box">
+                        <p class="comprension-text">${text}</p>
+                        <p class="reassurance">¡No te preocupes! Tengo un programa para ayudarte a resolverlo.</p>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-amarillo" onclick="showProgramScreen('${program}')">Ver solución sugerida para vos</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-problemas-${profile}')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+            showScreen('screen-comprension');
+        }
+
+        function showProgramScreen(program) {
+            const programContent = {
+                'figura-rentable': {
+                    title: 'Figura Rentable Express',
+                    description: 'Un programa de consultoría estratégica con 3 niveles a elegir según necesidad para transformar tu perfil en una herramienta coherente, atractiva para marcas y monetizable, sin improvisación ni desgaste.',
+                    screenId: 'screen-programa-figura-rentable'
+                },
+                'pyme': {
+                    title: 'Modernización Comunicacional para PyMEs',
+                    description: 'Un programa de consultoría estratégica de corto plazo para actualizar la comunicación interna y externa de empresas con historia, integrando lo digital sin perder su identidad, valores ni cultura organizacional.',
+                    screenId: 'screen-programa-pyme'
+                },
+                'posicionamiento': {
+                    title: 'Posicionamiento y Comunicación Personal',
+                    description: 'Un programa de consultoría estratégica para ordenar tu comunicación, clarificar qué ofrecés, cómo lo contás, y lograr coherencia entre lo que hacés, lo que decís y lo que los demás entienden.',
+                    screenId: 'screen-programa-posicionamiento'
+                },
+                'organizacional': {
+                    title: 'Consultoría Estratégica de Comunicación Organizacional',
+                    description: 'Un programa de consultoría estratégica diseñado para ordenar la arquitectura comunicacional de organizaciones con estructuras complejas. El objetivo es alinear el discurso institucional con la práctica diaria y la cultura interna, reduciendo fricciones operativas y ruidos innecesarios sin producir manuales extensos ni piezas irrelevantes.',
+                    screenId: 'screen-programa-organizacional'
+                },
+                'cotidiana': {
+                    title: 'Optimización de Comunicación Cotidiana',
+                    description: 'Un programa de consultoría comunicacional diseñado para recuperar el control y la claridad en tus interacciones diarias —cara a cara y digitales—. El objetivo es dotarte de criterios prácticos para decidir qué decir, cómo y por qué canal, reduciendo malentendidos y desgaste operativo sin entrar en abordajes terapéuticos.',
+                    screenId: 'screen-programa-cotidiana'
+                }
+            };
+
+            const prog = programContent[program];
+            const screen = document.getElementById(prog.screenId);
+            
+            screen.innerHTML = `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="container">
+                    <div class="programa-intro">
+                        <h2>${prog.title}</h2>
+                        <p>${prog.description}</p>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-verde" onclick="showDetailScreen('${program}')">Ver más detalle del programa</button>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('${program}')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-comprension')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+            
+            showScreen(prog.screenId);
+        }
+
+        function showDetailScreen(program) {
+            const detailScreens = {
+                'figura-rentable': generateFiguraRentableTree(),
+                'pyme': generatePymeTree(),
+                'posicionamiento': generatePosicionamientoTree(),
+                'organizacional': generateOrganizacionalTree(),
+                'cotidiana': generateCotidianaTree()
+            };
+
+            const screenMap = {
+                'figura-rentable': 'screen-detalle-figura-rentable',
+                'pyme': 'screen-detalle-pyme',
+                'posicionamiento': 'screen-detalle-posicionamiento',
+                'organizacional': 'screen-detalle-organizacional',
+                'cotidiana': 'screen-detalle-cotidiana'
+            };
+
+            const screen = document.getElementById(screenMap[program]);
+            screen.innerHTML = detailScreens[program];
+            showScreen(screenMap[program]);
+        }
+
+        function generateFiguraRentableTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">Figura Rentable Express</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Opción 1</div>
+                                <h3>Auditoría Express</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Diagnóstico completo de tu marca personal con recomendaciones accionables.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>1 sesión de diagnóstico profundo (90 minutos)</li>
+                                    <li>Auditoría completa de tus redes sociales y contenido</li>
+                                    <li>Análisis de tu audiencia y competencia</li>
+                                    <li>Documento estratégico</li>
+                                    <li>Identificación de 5 marcas objetivo para contactar</li>
+                                    <li>Recomendaciones priorizadas</li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Figuras que solo necesitan claridad y dirección, pero implementarán por su cuenta.</p>
+
+                                <h4>Resultado:</h4>
+                                <p>Roadmap claro de qué hacer para monetizar + estrategia documentada.</p>
+                            </div>
+
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Opción 2</div>
+                                <h3>Programa Express</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Programa intensivo de implementación completa: contenido + monetización.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Sesiones sincrónicas y asincrónicas (contenidos en video)</li>
+                                    <li>Estrategia de Marca Básica</li>
+                                    <li>Optimización de perfiles (Instagram, opcional LinkedIn)</li>
+                                    <li>Sistema de contenido simplificado (batching 90 min/semana)</li>
+                                    <li>Media Kit profesional</li>
+                                    <li>Templates de propuestas para marcas</li>
+                                    <li>Soporte por WhatsApp (8 semanas)</li>
+                                    <li>Revisión de hasta 5 propuestas antes de enviar</li>
+                                </ul>
+
+                                <h4>Estructura:</h4>
+                                <p><strong>Semanas 1-2:</strong> Fundamentos y estrategia<br>
+                                <strong>Semanas 3-5:</strong> Sistema de contenido + Media Kit<br>
+                                <strong>Semanas 6-7:</strong> Envío de propuestas y negociación<br>
+                                <strong>Semana 8:</strong> Cierre y plan de continuidad</p>
+
+                                <h4>Para quién:</h4>
+                                <p>Figuras que quieren sistema completo y planean gestionar su monetización ellos mismos.</p>
+
+                                <h4>Resultado esperado:</h4>
+                                <ul>
+                                    <li>12-18 posts publicados con el sistema presentado</li>
+                                    <li>5-10 propuestas enviadas a marcas reales</li>
+                                    <li>Media kit profesional listo</li>
+                                    <li>Primeros deals cerrados o en negociación</li>
+                                    <li>Sistema autónomo para continuar por tu cuenta</li>
+                                </ul>
+
+                                <p><strong>Tiempo requerido del cliente:</strong> 2-3 horas/semana</p>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Opción 3</div>
+                                <h3>Programa Express + Acompañamiento</h3>
+                                <p><strong>20 semanas (5 meses)</strong></p>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Programa Express + 3 meses adicionales de soporte para garantizar resultados sostenidos.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Todo del Nivel 2 (8 semanas iniciales)</li>
+                                    <li>+ 3 meses de acompañamiento post-programa:
+                                        <ul style="margin-left: 20px; margin-top: 10px;">
+                                            <li>Sesiones sincrónicas</li>
+                                            <li>Revisión de contenido</li>
+                                            <li>Análisis mensual de resultados</li>
+                                            <li>Sugerencias de estrategia según performance</li>
+                                            <li>Soporte vía WhatsApp</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Figuras/referentes que quieren garantizar implementación exitosa y resultados sostenidos.</p>
+
+                                <p><strong>Tiempo requerido del cliente:</strong> 2-3 horas/semana</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('figura-rentable')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('figura-rentable')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generatePymeTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">PyME Familiar</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Duración y Formato</div>
+                                <h3>7 semanas • Online</h3>
+                                <p><strong>Modalidad:</strong> Consultoría estratégica + acompañamiento</p>
+                                <p><strong>Sesiones sincrónicas y asincrónicas (contenidos en video)</strong></p>
+                            </div>
+
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Qué se trabaja</div>
+                                <ul>
+                                    <li>Diagnóstico de la comunicación interna y externa</li>
+                                    <li>Lectura de cultura, valores y formas históricas de la empresa</li>
+                                    <li>Traducción de esos valores a un lenguaje actual y comprensible</li>
+                                    <li>Estrategia de arquitectura y objetivos del Sitio Web</li>
+                                    <li>Definición de criterios de estilo comunicacional (tono y forma)</li>
+                                    <li>Orden de roles y mensajes para reducir ruido interno</li>
+                                    <li>Integración de herramientas digitales sin forzar cambios bruscos</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Entregables</div>
+                                <ul>
+                                    <li>Diagnóstico comunicacional estratégico (interno + externo)</li>
+                                    <li>Mini-Estrategia de Comunicación y Estilo (PDF)</li>
+                                    <li>Lineamientos de comunicación interna y externa</li>
+                                    <li>Recomendaciones prácticas para el uso de canales digitales y sitio web</li>
+                                    <li>Documento de criterios (qué hacer / qué evitar / cómo decidir)</li>
+                                    <li>Sistema simple replicable de contenidos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('pyme')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('pyme')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generatePosicionamientoTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">Posicionamiento Personal</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Duración y Formato</div>
+                                <h3>3 a 5 semanas • Online</h3>
+                                <p><strong>Modalidad:</strong></p>
+                                <ul>
+                                    <li>Sesiones sincrónicas</li>
+                                    <li>Contenidos en video (asincrónicos)</li>
+                                    <li>Acompañamiento breve entre sesiones (WhatsApp / mail)</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Qué se trabaja</div>
+                                <ul>
+                                    <li>Clarificación de propuesta profesional</li>
+                                    <li>Orden del mensaje: qué comunicar y cómo</li>
+                                    <li>Definición de ejes comunicacionales</li>
+                                    <li>Coherencia entre discurso, oferta y presencia digital</li>
+                                    <li>Sistema para creación de contenidos</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Entregables</div>
+                                <ul>
+                                    <li>Diagnóstico de comunicación personal</li>
+                                    <li>Definición clara de posicionamiento</li>
+                                    <li>Lineamientos de comunicación profesional</li>
+                                    <li>Guía práctica para sostener la comunicación en el tiempo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('posicionamiento')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('posicionamiento')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateOrganizacionalTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">Comunicación Organizacional</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge rosa">Duración y Formato</div>
+                                <h3>10 semanas • Online</h3>
+                                <p><strong>Modalidad:</strong></p>
+                                <ul>
+                                    <li>5 Sesiones Sincrónicas: Encuentros de alta carga estratégica</li>
+                                    <li>1 Contenido Asincrónico: Video Máster sobre "Marco de Criterios Comunicacionales"</li>
+                                    <li>Trabajo de Campo: Auditoría de flujos y entrevistas clave con referentes</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge amarillo">Qué se trabaja</div>
+                                <ul>
+                                    <li>Diagnóstico Estratégico: Identificación de brechas entre identidad, cultura, liderazgo y comunicación interna/externa</li>
+                                    <li>Identificación de puntos de fricción: Detección de ruidos entre áreas y mensajes contradictorios</li>
+                                    <li>Criterios de Comunicación: Definición del estilo institucional (qué se comunica, cómo y desde dónde)</li>
+                                    <li>Orden y Priorización: Decisión estratégica sobre qué áreas ajustar primero y qué puede resolverse internamente</li>
+                                    <li>Alineación Institucional: Sincronización del mensaje institucional con la práctica operativa diaria</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('organizacional')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('organizacional')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateCotidianaTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">Comunicación Cotidiana</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Duración y Formato</div>
+                                <h3>4 a 5 semanas • Online (Modalidad mixta)</h3>
+                                <p><strong>Modalidad:</strong></p>
+                                <ul>
+                                    <li>Sesiones sincrónicas</li>
+                                    <li>Sesiones asincrónicas (contenidos en video)</li>
+                                    <li>Soporte continuo: Seguimiento vía WhatsApp / mail entre sesiones</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Qué se trabaja</div>
+                                <h4>1. Estrategia Analógica (Cara a cara)</h4>
+                                <ul>
+                                    <li>Orden del mensaje: Qué decir, cuándo y cómo para evitar escalar conflictos</li>
+                                    <li>Argumentación básica: Cómo expresar necesidades sin sobreexplicarse ni callarse de más</li>
+                                    <li>Lectura de contexto: Análisis de situaciones comunicacionales reales y observación guiada</li>
+                                </ul>
+
+                                <h4>2. Criterio Digital (Mensajería y redes)</h4>
+                                <ul>
+                                    <li>Formatos y decisiones: Cuándo enviar texto, cuándo audio y cuándo llamar (o callar)</li>
+                                    <li>Gestión de la espera: Cómo interpretar (y no interpretar) silencios, vistos y tiempos de respuesta</li>
+                                    <li>Tono y Humanización: Uso estratégico de emojis y signos para dar claridad sin perder profesionalismo o calidez</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Entregables</div>
+                                <ul>
+                                    <li>Diagnóstico Comunicacional Personal: Mapeo de tus puntos de fricción y hábitos actuales</li>
+                                    <li>Guía Práctica de Comunicación Cotidiana: Manual con lineamientos aplicables a entornos digitales y presenciales</li>
+                                    <li>Marco de Criterios de Decisión: Tu propia hoja de ruta para elegir canal, tono y timing según la situación</li>
+                                    <li>Recomendaciones Personalizadas: Ajustes específicos basados en tus casos reales analizados en el programa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="btn btn-contacto" onclick="showContactScreen('cotidiana')">Dejame tus datos y te contacto sin compromiso</button>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('cotidiana')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showContactScreen(program) {
+            const screen = document.getElementById('screen-contacto');
+            screen.innerHTML = `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="logo-derecha.jpg" alt="Valeria Deliens" class="logo-img">
+                    </div>
+                </div>
+
+                <div class="separator">
+                    <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                </div>
+
+                <div class="container">
+                    <h1>¡Genial!</h1>
+                    <p class="subtitle">Dejame tus datos y te contacto sin compromiso a la brevedad</p>
+
+                    <div class="form-container">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" class="form-input">
+                            </div>
+
+                            <div class="btn-container">
+                                <button type="submit" class="btn btn-contacto" id="submitBtn">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline nav-btn" onclick="goBackFromContact()">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+            
+            showScreen('screen-contacto');
+            
+            // Agregar event listener al formulario
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nombre = document.getElementById('nombre').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const telefono = document.getElementById('telefono').value.trim();
+                
+                // Resetear bordes
+                document.querySelectorAll('.form-input').forEach(input => {
+                    input.style.borderColor = '#ddd';
+                });
+                
+                let isValid = true;
+                
+                // Validar nombre (obligatorio)
+                if (!nombre) {
+                    document.getElementById('nombre').style.borderColor = 'var(--rosa)';
+                    isValid = false;
+                }
+                
+                // Validar que haya al menos email o teléfono
+                if (!email && !telefono) {
+                    document.getElementById('email').style.borderColor = 'var(--amarillo)';
+                    document.getElementById('telefono').style.borderColor = 'var(--amarillo)';
+                    isValid = false;
+                }
+                
+                // Validar formato de email si está presente
+                if (email && !email.includes('@') || (email && !email.includes('.'))) {
+                    document.getElementById('email').style.borderColor = 'var(--rosa)';
+                    isValid = false;
+                }
+                
+                // Validar formato de teléfono si está presente (solo números)
+                if (telefono && !/^\d+$/.test(telefono.replace(/[\s\-\+\(\)]/g, ''))) {
+                    document.getElementById('telefono').style.borderColor = 'var(--rosa)';
+                    isValid = false;
+                }
+                
+                if (!isValid) {
+                    return;
+                }
+                
+                // Preparar datos para enviar
+                const perfil = profileNames[currentProfile] || 'No especificado';
+                const problema = (problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado';
+                const programaSugerido = programNames[program] || program || 'No especificado';
+                
+                // Crear el cuerpo del email
+                const mailtoBody = `Nuevo contacto%0D%0A%0D%0APerfil: ${encodeURIComponent(perfil)}%0D%0AProblema: ${encodeURIComponent(problema)}%0D%0APrograma sugerido: ${encodeURIComponent(programaSugerido)}%0D%0A%0D%0ANombre: ${encodeURIComponent(nombre)}%0D%0AEmail: ${encodeURIComponent(email || 'No proporcionado')}%0D%0ATeléfono: ${encodeURIComponent(telefono || 'No proporcionado')}`;
+                
+                // Abrir cliente de email
+                window.location.href = `mailto:valtodocomunica@gmail.com?subject=Nuevo%20contacto%20web&body=${mailtoBody}`;
+                
+                // Cambiar botón
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.textContent = 'Enviado. ¡Gracias!';
+                submitBtn.style.background = 'var(--verde)';
+                submitBtn.style.borderColor = 'var(--verde)';
+                submitBtn.disabled = true;
+                
+                // Volver al inicio después de 2 segundos
+                setTimeout(() => {
+                    showScreen('screen-home');
+                }, 2000);
+            });
+        }
+
+        function goBackFromContact() {
+            if (currentProgram) {
+                showProgramScreen(currentProgram);
+            } else {
+                showScreen('screen-home');
+            }
+        }
+
+        // Form submission handler
+        document.addEventListener('submit', function(e) {
+            if (e.target.id === 'contactForm') {
+                e.preventDefault();
+                
+                alert('¡Gracias! Te contactaré a la brevedad.');
+                
+                setTimeout(() => {
+                    showScreen('screen-home');
+                }, 1000);
+            }
+        });
+
+        // Función para expandir/contraer contenido en Sobre mí
+        function toggleExpand() {
+            const content = document.getElementById('expandable-sobre-mi');
+            content.classList.toggle('expanded');
+            event.target.textContent = content.classList.contains('expanded') ? 'Ver menos' : 'Quiero saber más';
+        }
+
+        // Función para mostrar pantallas de servicios
+        function showServiceScreen(serviceKey) {
+            const services = {
+                estrategias: {
+                    title: 'Estrategias de comunicación',
+                    description: 'Diagnóstico y creación de estrategias de comunicación interna y externa: web, redes sociales, protocolos de atención, piezas internas, etc.'
+                },
+                contenidos: {
+                    title: 'Creación de contenidos',
+                    description: 'Producción integral de contenidos escritos, gráficos y audiovisuales para comunicación interna y externa.'
+                },
+                identidad: {
+                    title: 'Identidad de marca',
+                    description: 'Definición de identidad, cultura, tono, y personalidad de la marca.'
+                },
+                voceria: {
+                    title: 'Vocería para empresas o emprendimientos',
+                    description: 'Cara y voz profesional para transmitir mensajes sin contratar influencer.'
+                },
+                influencers: {
+                    title: 'Acciones con figuras e influencers',
+                    description: 'Gestión estratégica de colaboraciones end to end.'
+                },
+                brainstorming: {
+                    title: 'Brainstorming Sessions',
+                    description: 'Sesiones creativas para campañas y lanzamientos desde visión externa profesional.'
+                }
+            };
+            
+            // Mostramos la pantalla del servicio específico
+            showScreen('screen-servicio-' + serviceKey);
+        }
+
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-info">
+                © 2026 Valeria Deliens | 
+                <a href="mailto:valtodocomunica@gmail.com">valtodocomunica@gmail.com</a> | 
+                <a href="https://www.linkedin.com/in/todocomunica/" target="_blank">LinkedIn</a> | 
+                Buenos Aires, Argentina
+            </p>
+            <div class="footer-partnership">
+                <a href="https://www.capsula.com.ar" target="_blank" class="partnership-link">
+                    <img src="logo_nuevo_capsula.png" alt="Cápsula" class="capsula-logo">
+                    <div class="partnership-text">Partnership con Productora Cápsula</div>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

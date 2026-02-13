@@ -235,14 +235,32 @@
             color: var(--blanco);
         }
 
+        .btn-rosa:hover {
+            background: var(--blanco);
+            color: var(--rosa);
+            border: 3px solid var(--rosa);
+        }
+
         .btn-amarillo {
             background: var(--amarillo);
             color: var(--negro);
         }
 
+        .btn-amarillo:hover {
+            background: var(--blanco);
+            color: var(--negro);
+            border: 3px solid var(--amarillo);
+        }
+
         .btn-verde {
             background: var(--verde);
             color: var(--negro);
+        }
+
+        .btn-verde:hover {
+            background: var(--blanco);
+            color: var(--negro);
+            border: 3px solid var(--verde);
         }
 
         .btn-contacto {
@@ -714,7 +732,12 @@
             background: var(--amarillo);
             border-color: var(--amarillo);
             color: var(--negro);
-            font-weight: 400;
+            font-weight: 600;
+        }
+
+        .btn-half.sobre-mi:hover {
+            background: var(--blanco);
+            color: var(--negro);
         }
 
         .btn-half.tecnosfera {
@@ -724,6 +747,11 @@
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
             font-weight: 600;
+        }
+
+        .btn-half.tecnosfera:hover {
+            background: var(--blanco);
+            color: var(--rosa);
         }
 
         /* Línea separadora */
@@ -751,6 +779,8 @@
         .btn-verde-servicios:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(192, 210, 38, 0.4);
+            background: var(--blanco);
+            color: var(--negro);
         }
 
         .btn-wide {
@@ -800,6 +830,19 @@
                 -2px -2px 8px rgba(244, 207, 60, 0.6),
                 2px -2px 8px rgba(244, 207, 60, 0.6),
                 -2px 2px 8px rgba(244, 207, 60, 0.6);
+        }
+
+        .home-intro-text.pulse-text {
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes text-pulse {
+            0%, 100% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.03); 
+            }
         }
 
         .home-intro-box {
@@ -870,6 +913,11 @@
         .service-btn.amarillo { border-color: var(--amarillo); }
         .service-btn.verde { border-color: var(--verde); }
         .service-btn.gris { border-color: var(--gris); }
+
+        .service-btn.rosa:hover { background: var(--rosa); color: var(--blanco); }
+        .service-btn.amarillo:hover { background: var(--amarillo); color: var(--negro); }
+        .service-btn.verde:hover { background: var(--verde); color: var(--negro); }
+        .service-btn.gris:hover { background: var(--gris); color: var(--blanco); }
 
         .service-btn:hover {
             transform: translateY(-3px);
@@ -1070,6 +1118,12 @@
             color: var(--negro);
         }
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("7R1yyz-xugee4FpUP");
+        })();
+    </script>
 </head>
 <body>
 
@@ -1106,17 +1160,17 @@
                 <button class="btn-verde-servicios" onclick="scrollToServicios()">¿Qué puedo aportar a tus proyectos?</button>
             </div>
 
+            <!-- Pregunta principal -->
+            <h1 class="glitch-text" style="margin-top: 45px; margin-bottom: 30px;">¿Qué está fallando?</h1>
+
             <!-- Cuadro de texto -->
             <div class="home-intro-box">
                 <p class="home-intro-text">NO HACE FALTA QUE SEPAS QUÉ SERVICIOS NECESITÁS.</p>
                 <p class="home-intro-text highlight-yellow">REALIZÁ UN AUTODIAGNÓSTICO CON UN PAR DE CLICKS Y ENTERATE CÓMO TE PUEDO AYUDAR A OPTIMIZAR TU COMUNICACIÓN, LA DE TU MARCA O EMPRESA.</p>
             </div>
 
-            <!-- Pregunta principal -->
-            <h1 class="glitch-text" style="margin-top: 45px;">¿Qué está fallando?</h1>
-
             <!-- Botón Empecemos -->
-            <div class="btn-container" style="margin-top: 47px;">
+            <div class="btn-container" style="margin-top: 40px;">
                 <button class="btn btn-rosa btn-pulse" onclick="showScreen('screen-perfiles')" style="padding: 27px 60px; font-size: 24px;">¡Empecemos!</button>
                 <span class="btn-note">(te llevará menos de 2 minutos)</span>
             </div>
@@ -1582,7 +1636,7 @@
 
     <!-- PANTALLA TECNÓSFERA -->
     <div class="screen" id="screen-tecnosfera">
-        <div class="container" style="padding-top: 40px;">
+        <div class="container" style="padding-top: 10px;">
             <div class="tecnosfera-container">
                 <!-- Logo Tecnósfera clickeable arriba -->
                 <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px;">
@@ -2564,18 +2618,15 @@
                     <p class="subtitle">Dejame tus datos y te contacto sin compromiso a la brevedad</p>
 
                     <div class="form-container">
-                        <form action="https://formspree.io/f/mlgwjlno" method="POST" id="contactForm">
-                            <input type="hidden" name="_next" value="#gracias">
-                            <input type="hidden" name="_subject" value="Nuevo contacto desde la web">
-                            
+                        <form id="contactForm">
                             <div class="form-group">
                                 <label for="nombre">Nombre *</label>
-                                <input type="text" id="nombre" name="nombre" class="form-input" required>
+                                <input type="text" id="nombre" name="from_name" class="form-input" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-input">
+                                <input type="email" id="email" name="reply_to" class="form-input">
                             </div>
 
                             <div class="form-group">
@@ -2583,9 +2634,9 @@
                                 <input type="tel" id="telefono" name="telefono" class="form-input">
                             </div>
 
-                            <input type="hidden" name="perfil" value="${profileNames[currentProfile] || 'Directo'}">
-                            <input type="hidden" name="problema" value="${(problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado'}">
-                            <input type="hidden" name="programa" value="${programNames[program] || program || 'Consulta general'}">
+                            <input type="hidden" name="perfil" id="perfil" value="${profileNames[currentProfile] || 'Directo'}">
+                            <input type="hidden" name="problema" id="problema" value="${(problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado'}">
+                            <input type="hidden" name="programa" id="programa" value="${programNames[program] || program || 'Consulta general'}">
 
                             <div class="btn-container">
                                 <button type="submit" class="btn btn-contacto" id="submitBtn">Enviar</button>
@@ -2602,9 +2653,9 @@
             
             showScreen('screen-contacto');
             
-            // Enviar formulario con AJAX
+            // Enviar formulario con EmailJS
             const form = document.getElementById('contactForm');
-            form.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 const email = document.getElementById('email').value.trim();
@@ -2617,37 +2668,22 @@
                     return;
                 }
                 
-                // Enviar con AJAX
-                const formData = new FormData(form);
                 const submitBtn = document.getElementById('submitBtn');
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.disabled = true;
                 
-                try {
-                    submitBtn.textContent = 'Enviando...';
-                    submitBtn.disabled = true;
-                    
-                    const response = await fetch('https://formspree.io/f/mlgwjlno', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
+                // Enviar con EmailJS
+                emailjs.sendForm('service_u4anqid', 'template_jbef29g', form)
+                    .then(function() {
                         submitBtn.textContent = '¡Enviado! Gracias';
                         submitBtn.style.background = 'var(--verde)';
                         submitBtn.style.borderColor = 'var(--verde)';
                         setTimeout(() => showScreen('screen-home'), 2000);
-                    } else {
-                        alert('Hubo un error. Por favor intentá de nuevo.');
+                    }, function(error) {
+                        alert('Hubo un error: ' + error.text);
                         submitBtn.textContent = 'Enviar';
                         submitBtn.disabled = false;
-                    }
-                } catch (error) {
-                    alert('Hubo un error. Por favor intentá de nuevo.');
-                    submitBtn.textContent = 'Enviar';
-                    submitBtn.disabled = false;
-                }
+                    });
             });
         }
 

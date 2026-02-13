@@ -1146,11 +1146,11 @@
         </div>
 
         <!-- Línea sutil debajo del logo (solo ancho del texto) -->
-        <div id="home-line" style="width: 600px; margin: 10px auto 30px; border-bottom: 1px solid #e0e0e0;"></div>
+        <div id="home-line" style="width: 600px; margin: 10px auto 0; border-bottom: 1px solid #e0e0e0;"></div>
 
         <div class="container" style="padding-top: 0; padding-bottom: 20px;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
-            <div class="top-buttons" style="margin-bottom: 12px;">
+            <div class="top-buttons" style="margin-bottom: 12px; margin-top: 0;">
                 <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
                 <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
             </div>
@@ -1199,7 +1199,7 @@
             </div>
 
             <!-- Botón Programas de auditoría -->
-            <div class="btn-container" style="margin-top: 40px;">
+            <div class="btn-container" style="margin-top: 40px; padding: 0 20px;">
                 <button class="btn-verde-servicios" onclick="showScreen('screen-programas')">Programas de auditoría y optimización</button>
             </div>
 
@@ -1273,7 +1273,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -2722,6 +2723,15 @@
             serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
+        // Función para volver al botón de auditoría
+        function scrollToAuditoria() {
+            showScreen('screen-home');
+            setTimeout(() => {
+                const serviciosSection = document.getElementById('servicios-section');
+                serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
         function showServiceScreen(serviceKey) {
             const services = {
                 estrategias: {
@@ -2776,3 +2786,4 @@
 
 </body>
 </html>
+         

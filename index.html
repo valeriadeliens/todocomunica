@@ -547,9 +547,8 @@
             }
 
             /* Reducir espacio antes de la línea en portada móvil */
-            .header.home + div {
-                margin-top: 5px !important;
-                margin-bottom: 15px !important;
+            #home-line {
+                margin: 5px auto 15px !important;
             }
 
             .header:not(.home) .logo-img {
@@ -1005,7 +1004,7 @@
         </div>
 
         <!-- Línea sutil debajo del logo (solo ancho del texto) -->
-        <div style="width: 600px; margin: 10px auto 30px; border-bottom: 1px solid #e0e0e0;"></div>
+        <div id="home-line" style="width: 600px; margin: 10px auto 30px; border-bottom: 1px solid #e0e0e0;"></div>
 
         <div class="container" style="padding-top: 0;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
@@ -2448,6 +2447,8 @@
 
                     <div class="form-container">
                         <form action="https://formspree.io/f/mlgwjlno" method="POST" id="contactForm">
+                            <input type="hidden" name="_next" value="#gracias">
+                            
                             <div class="form-group">
                                 <label for="nombre">Nombre *</label>
                                 <input type="text" id="nombre" name="nombre" class="form-input" required>
@@ -2587,4 +2588,3 @@
 
 </body>
 </html>
-

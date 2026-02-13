@@ -126,6 +126,68 @@
             line-height: 1.2;
         }
 
+        /* Efecto glitch en blanco y negro */
+        .glitch-text {
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: "¿Qué está fallando?";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2.5px;
+            text-shadow: -2.5px 0 #000, 2.5px 0 #000;
+            clip: rect(44px, 9999px, 56px, 0);
+            animation: glitch-anim 2.3s infinite linear alternate-reverse;
+            opacity: 0.7;
+        }
+
+        .glitch-text::after {
+            left: -2.5px;
+            text-shadow: 2.5px 0 #fff, -2.5px 0 #fff;
+            clip: rect(44px, 9999px, 56px, 0);
+            animation: glitch-anim2 2.1s infinite linear alternate-reverse;
+            opacity: 0.7;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            10% { clip: rect(60px, 9999px, 36px, 0); }
+            20% { clip: rect(88px, 9999px, 2px, 0); }
+            30% { clip: rect(11px, 9999px, 64px, 0); }
+            40% { clip: rect(45px, 9999px, 78px, 0); }
+            50% { clip: rect(70px, 9999px, 15px, 0); }
+            60% { clip: rect(25px, 9999px, 90px, 0); }
+            70% { clip: rect(5px, 9999px, 50px, 0); }
+            80% { clip: rect(85px, 9999px, 20px, 0); }
+            90% { clip: rect(40px, 9999px, 75px, 0); }
+            100% { clip: rect(65px, 9999px, 10px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 10px, 0); }
+            10% { clip: rect(40px, 9999px, 75px, 0); }
+            20% { clip: rect(85px, 9999px, 20px, 0); }
+            30% { clip: rect(5px, 9999px, 50px, 0); }
+            40% { clip: rect(25px, 9999px, 90px, 0); }
+            50% { clip: rect(70px, 9999px, 15px, 0); }
+            60% { clip: rect(45px, 9999px, 78px, 0); }
+            70% { clip: rect(11px, 9999px, 64px, 0); }
+            80% { clip: rect(88px, 9999px, 2px, 0); }
+            90% { clip: rect(60px, 9999px, 36px, 0); }
+            100% { clip: rect(31px, 9999px, 94px, 0); }
+        }
+
         h2 {
             font-size: 28px;
             color: var(--negro);
@@ -154,7 +216,7 @@
             padding: 18px 40px;
             border-radius: 50px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
             border: none;
             cursor: pointer;
@@ -740,11 +802,24 @@
             max-width: 650px;
             transition: all 0.3s ease;
             cursor: default;
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% {
+                border-width: 1px;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+            50% {
+                border-width: 4px;
+                box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+            }
         }
 
         .home-intro-box:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            animation: none;
         }
 
         /* Animación para botón Empecemos cuando hover en cuadro */
@@ -770,10 +845,10 @@
         }
 
         .service-btn {
-            padding: 12px 20px;
+            padding: 18px 30px;
             border-radius: 50px;
-            font-size: 14px;
-            font-weight: 300;
+            font-size: 17px;
+            font-weight: 600;
             font-family: 'Poppins', sans-serif;
             cursor: pointer;
             background: var(--blanco);
@@ -1011,7 +1086,7 @@
         <!-- Línea sutil debajo del logo (solo ancho del texto) -->
         <div id="home-line" style="width: 600px; margin: 10px auto 30px; border-bottom: 1px solid #e0e0e0;"></div>
 
-        <div class="container" style="padding-top: 0;">
+        <div class="container" style="padding-top: 0; padding-bottom: 20px;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
             <div class="top-buttons" style="margin-bottom: 12px;">
                 <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
@@ -1030,10 +1105,10 @@
             </div>
 
             <!-- Pregunta principal -->
-            <h1>¿Qué está fallando?</h1>
+            <h1 class="glitch-text" style="margin-top: 45px;">¿Qué está fallando?</h1>
 
             <!-- Botón Empecemos -->
-            <div class="btn-container">
+            <div class="btn-container" style="margin-top: 47px;">
                 <button class="btn btn-rosa btn-pulse" onclick="showScreen('screen-perfiles')" style="padding: 27px 60px; font-size: 24px;">¡Empecemos!</button>
                 <span class="btn-note">(te llevará menos de 2 minutos)</span>
             </div>
@@ -1067,12 +1142,12 @@
             </div>
 
             <!-- Botón Hablemos -->
-            <div class="btn-container" style="margin-top: 40px; margin-bottom: 15px;">
+            <div class="btn-container" style="margin-top: 40px; margin-bottom: 30px;">
                 <button class="btn btn-contacto" onclick="showContactScreen('home')">¡Hablemos!</button>
             </div>
 
             <!-- Botón Volver a inicio -->
-            <div class="btn-container" style="margin-top: 0; margin-bottom: 30px;">
+            <div class="btn-container" style="margin-top: 0; margin-bottom: 0;">
                 <button class="btn btn-outline" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -1459,7 +1534,9 @@
         <div class="container">
             <div class="sobre-mi-container">
                 <div class="sobre-mi-header">
-                    <img src="perfil_amarillo.jpg" alt="Valeria Deliens" class="sobre-mi-photo">
+                    <a href="https://www.linkedin.com/in/todocomunica/" target="_blank" rel="noopener noreferrer" style="cursor: pointer;">
+                        <img src="perfil_amarillo.jpg" alt="Valeria Deliens" class="sobre-mi-photo">
+                    </a>
                     <div class="sobre-mi-intro">
                         <h2>Valeria Deliens</h2>
                         <p><strong>Licenciada en Comunicación Social.</strong> Especializándome en <strong>Comunicación Convergente y Locución</strong> en ISER.</p>
@@ -1497,15 +1574,7 @@
 
     <!-- PANTALLA TECNÓSFERA -->
     <div class="screen" id="screen-tecnosfera">
-        <!-- Líneas de colores arriba de todo -->
-        <div class="separator" style="margin-top: 30px; margin-bottom: 30px;">
-            <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
-        </div>
-
-        <div class="container" style="padding-top: 0;">
+        <div class="container" style="padding-top: 40px;">
             <div class="tecnosfera-container">
                 <!-- Logo Tecnósfera clickeable arriba -->
                 <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px;">

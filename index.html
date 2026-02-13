@@ -541,7 +541,8 @@
             }
 
             .header.home .logo-img {
-                max-width: 90%;
+                max-width: 180%;
+                width: 180%;
             }
 
             .header:not(.home) .logo-img {
@@ -2469,7 +2470,7 @@
             
             showScreen('screen-contacto');
             
-            // Validación simple
+            // Validación simple - solo verificar email o teléfono
             const form = document.getElementById('contactForm');
             form.addEventListener('submit', function(e) {
                 const email = document.getElementById('email').value.trim();
@@ -2480,8 +2481,8 @@
                     document.getElementById('email').style.borderColor = 'var(--amarillo)';
                     document.getElementById('telefono').style.borderColor = 'var(--amarillo)';
                     alert('Por favor completá al menos el email o el teléfono');
-                    return false;
                 }
+                // Si pasa la validación, el form se envía automáticamente a Formspree
             });
         }
 
@@ -2574,5 +2575,6 @@
 
 </body>
 </html>
+
 
 

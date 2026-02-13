@@ -560,6 +560,19 @@
             .tree-main-title {
                 font-size: 42px;
             }
+
+            /* Grid de Tecnósfera apilado en móvil */
+            .tecnosfera-content-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .top-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* BARRA DE NAVEGACIÓN DE SERVICIOS */
@@ -730,6 +743,11 @@
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+
+        /* Animación constante para botón Empecemos */
+        .btn-pulse {
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
         .services-grid {
@@ -995,11 +1013,11 @@
             </div>
 
             <!-- Pregunta principal -->
-            <h1>¿Qué te está pasando?</h1>
+            <h1>¿Qué está fallando?</h1>
 
             <!-- Botón Empecemos -->
             <div class="btn-container">
-                <button class="btn btn-rosa" onclick="showScreen('screen-perfiles')" style="padding: 27px 60px; font-size: 24px;">¡Empecemos!</button>
+                <button class="btn btn-rosa btn-pulse" onclick="showScreen('screen-perfiles')" style="padding: 27px 60px; font-size: 24px;">¡Empecemos!</button>
                 <span class="btn-note">(te llevará menos de 2 minutos)</span>
             </div>
 
@@ -1161,7 +1179,7 @@
         </div>
 
         <div class="container">
-            <h1>¿Qué es lo que te está pasando?</h1>
+            <h1>¿Qué es lo que está fallando?</h1>
             <p class="subtitle">Elegí la situación con la que más te identifiques</p>
 
             <div class="options">
@@ -1204,7 +1222,7 @@
         </div>
 
         <div class="container">
-            <h1>¿Qué es lo que te está pasando?</h1>
+            <h1>¿Qué es lo que está fallando?</h1>
             <p class="subtitle">Elegí la situación con la que más te identifiques</p>
 
             <div class="options">
@@ -1247,7 +1265,7 @@
         </div>
 
         <div class="container">
-            <h1>¿Qué es lo que te está pasando?</h1>
+            <h1>¿Qué es lo que está fallando?</h1>
             <p class="subtitle">Elegí la situación con la que más te identifiques</p>
 
             <div class="options">
@@ -1290,7 +1308,7 @@
         </div>
 
         <div class="container">
-            <h1>¿Qué es lo que te está pasando?</h1>
+            <h1>¿Qué es lo que está fallando?</h1>
             <p class="subtitle">Elegí la situación con la que más te identifiques</p>
 
             <div class="options">
@@ -1333,7 +1351,7 @@
         </div>
 
         <div class="container">
-            <h1>¿Qué es lo que te está pasando?</h1>
+            <h1>¿Qué es lo que está fallando?</h1>
             <p class="subtitle">Elegí la situación con la que más te identifiques</p>
 
             <div class="options">
@@ -1460,7 +1478,7 @@
                 <h2 style="text-align: center; margin: 30px 0; font-size: 20px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</h2>
 
                 <!-- Grid: texto izquierda, video derecha -->
-                <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; margin: 40px 0;">
+                <div class="tecnosfera-content-grid" style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; margin: 40px 0;">
                     <!-- Texto a la izquierda -->
                     <div style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--negro);">
                         <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
@@ -2606,3 +2624,4 @@
 
 </body>
 </html>
+

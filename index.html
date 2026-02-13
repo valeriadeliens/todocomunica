@@ -2434,10 +2434,10 @@
                     <p class="subtitle">Dejame tus datos y te contacto sin compromiso a la brevedad</p>
 
                     <div class="form-container">
-                        <form id="contactForm">
+                        <form action="https://formspree.io/f/mlgwjlno" method="POST" id="contactForm">
                             <div class="form-group">
                                 <label for="nombre">Nombre *</label>
-                                <input type="text" id="nombre" name="nombre" class="form-input">
+                                <input type="text" id="nombre" name="nombre" class="form-input" required>
                             </div>
 
                             <div class="form-group">
@@ -2449,6 +2449,10 @@
                                 <label for="telefono">Teléfono</label>
                                 <input type="tel" id="telefono" name="telefono" class="form-input">
                             </div>
+
+                            <input type="hidden" name="perfil" value="${profileNames[currentProfile] || 'Directo'}">
+                            <input type="hidden" name="problema" value="${(problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado'}">
+                            <input type="hidden" name="programa" value="${programNames[program] || program || 'Consulta general'}">
 
                             <div class="btn-container">
                                 <button type="submit" class="btn btn-contacto" id="submitBtn">Enviar</button>
@@ -2465,73 +2469,19 @@
             
             showScreen('screen-contacto');
             
-            // Agregar event listener al formulario
+            // Validación simple
             const form = document.getElementById('contactForm');
             form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const nombre = document.getElementById('nombre').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const telefono = document.getElementById('telefono').value.trim();
                 
-                // Resetear bordes
-                document.querySelectorAll('.form-input').forEach(input => {
-                    input.style.borderColor = '#ddd';
-                });
-                
-                let isValid = true;
-                
-                // Validar nombre (obligatorio)
-                if (!nombre) {
-                    document.getElementById('nombre').style.borderColor = 'var(--rosa)';
-                    isValid = false;
-                }
-                
-                // Validar que haya al menos email o teléfono
                 if (!email && !telefono) {
+                    e.preventDefault();
                     document.getElementById('email').style.borderColor = 'var(--amarillo)';
                     document.getElementById('telefono').style.borderColor = 'var(--amarillo)';
-                    isValid = false;
+                    alert('Por favor completá al menos el email o el teléfono');
+                    return false;
                 }
-                
-                // Validar formato de email si está presente
-                if (email && !email.includes('@') || (email && !email.includes('.'))) {
-                    document.getElementById('email').style.borderColor = 'var(--rosa)';
-                    isValid = false;
-                }
-                
-                // Validar formato de teléfono si está presente (solo números)
-                if (telefono && !/^\d+$/.test(telefono.replace(/[\s\-\+\(\)]/g, ''))) {
-                    document.getElementById('telefono').style.borderColor = 'var(--rosa)';
-                    isValid = false;
-                }
-                
-                if (!isValid) {
-                    return;
-                }
-                
-                // Preparar datos para enviar
-                const perfil = profileNames[currentProfile] || 'No especificado';
-                const problema = (problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado';
-                const programaSugerido = programNames[program] || program || 'No especificado';
-                
-                // Crear el cuerpo del email
-                const mailtoBody = `Nuevo contacto%0D%0A%0D%0APerfil: ${encodeURIComponent(perfil)}%0D%0AProblema: ${encodeURIComponent(problema)}%0D%0APrograma sugerido: ${encodeURIComponent(programaSugerido)}%0D%0A%0D%0ANombre: ${encodeURIComponent(nombre)}%0D%0AEmail: ${encodeURIComponent(email || 'No proporcionado')}%0D%0ATeléfono: ${encodeURIComponent(telefono || 'No proporcionado')}`;
-                
-                // Abrir cliente de email
-                window.location.href = `mailto:valtodocomunica@gmail.com?subject=Nuevo%20contacto%20web&body=${mailtoBody}`;
-                
-                // Cambiar botón
-                const submitBtn = document.getElementById('submitBtn');
-                submitBtn.textContent = 'Enviado. ¡Gracias!';
-                submitBtn.style.background = 'var(--verde)';
-                submitBtn.style.borderColor = 'var(--verde)';
-                submitBtn.disabled = true;
-                
-                // Volver al inicio después de 2 segundos
-                setTimeout(() => {
-                    showScreen('screen-home');
-                }, 2000);
             });
         }
 
@@ -2624,4 +2574,5 @@
 
 </body>
 </html>
+
 

@@ -1136,7 +1136,7 @@
         </div>
 
         <!-- Línea fina gris centrada -->
-        <div style="width: 600px; margin: 40px auto; border-bottom: 1px solid #d0d0d0;"></div>
+        <div style="width: 700px; max-width: calc(100% - 40px); margin: 40px auto; border-bottom: 1px solid #d0d0d0;"></div>
 
         <div class="container" style="padding-top: 0; padding-bottom: 20px;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
@@ -1627,10 +1627,10 @@
 
     <!-- PANTALLA TECNÓSFERA -->
     <div class="screen" id="screen-tecnosfera">
-        <div class="container" style="padding-top: 10px;">
+        <div class="container" style="padding-top: 20px;">
             <div class="tecnosfera-container">
                 <!-- Logo Tecnósfera clickeable arriba -->
-                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px;">
+                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px; margin-top: 20px;">
                     <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo" onclick="showScreen('screen-home')" style="cursor: pointer;">
                     <p class="tecnosfera-signature" onclick="showScreen('screen-sobre-mi')" style="cursor: pointer;">by Valeria Deliens.</p>
                 </div>
@@ -2741,7 +2741,7 @@
 
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" class="form-input">
+                                <input type="tel" id="telefono" name="telefono" class="form-input" pattern="[0-9+\-\(\)\s]{6,20}" title="Ingresá un número de teléfono válido (solo números, espacios, +, -, paréntesis)">
                             </div>
 
                             <input type="hidden" name="perfil" id="perfil" value="${currentProfile && profileNames[currentProfile] ? profileNames[currentProfile] : ''}">
@@ -2772,11 +2772,36 @@
                 const email = document.getElementById('email').value.trim();
                 const telefono = document.getElementById('telefono').value.trim();
                 
+                // Resetear bordes
+                document.getElementById('email').style.borderColor = '';
+                document.getElementById('telefono').style.borderColor = '';
+                
+                // Validar que al menos uno esté completado
                 if (!email && !telefono) {
                     document.getElementById('email').style.borderColor = 'var(--amarillo)';
                     document.getElementById('telefono').style.borderColor = 'var(--amarillo)';
                     alert('Por favor completá al menos el email o el teléfono');
                     return;
+                }
+                
+                // Validar formato de email si está completado
+                if (email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        document.getElementById('email').style.borderColor = 'var(--amarillo)';
+                        alert('Por favor ingresá un email válido');
+                        return;
+                    }
+                }
+                
+                // Validar formato de teléfono si está completado
+                if (telefono) {
+                    const telRegex = /^[0-9+\-\(\)\s]{6,20}$/;
+                    if (!telRegex.test(telefono)) {
+                        document.getElementById('telefono').style.borderColor = 'var(--amarillo)';
+                        alert('Por favor ingresá un número de teléfono válido');
+                        return;
+                    }
                 }
                 
                 const submitBtn = document.getElementById('submitBtn');

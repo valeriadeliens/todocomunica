@@ -41,7 +41,7 @@
         }
 
         .header.home {
-            padding: 80px 20px 60px;
+            padding: 60px 20px 0;
         }
 
         .logo-container {
@@ -88,8 +88,8 @@
         }
 
         .header.home .logo-lines-bottom {
-            margin-top: 60px;
-            margin-bottom: 60px;
+            margin-top: 80px;
+            margin-bottom: 80px;
         }
 
         /* CONTAINER */
@@ -856,26 +856,10 @@
             border-radius: 15px;
             margin: 30px auto;
             max-width: 650px;
-            transition: all 0.3s ease;
-            cursor: default;
-            animation: pulse-border 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse-border {
-            0%, 100% {
-                border-width: 1px;
-                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-            }
-            50% {
-                border-width: 4px;
-                box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-            }
         }
 
         .home-intro-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            animation: none;
+            /* Sin efectos */
         }
 
         /* Animación para botón Empecemos cuando hover en cuadro */
@@ -969,6 +953,7 @@
 
         .expandable-content.expanded {
             max-height: 2000px;
+            margin-top: 30px;
         }
 
         /* Botón LinkedIn */
@@ -1150,8 +1135,8 @@
             </div>
         </div>
 
-        <!-- Línea sutil debajo del logo (solo ancho del texto) -->
-        <div id="home-line" style="width: 600px; margin: 10px auto 0; border-bottom: 1px solid #e0e0e0;"></div>
+        <!-- Línea fina gris centrada -->
+        <div style="width: 600px; margin: 40px auto; border-bottom: 1px solid #d0d0d0;"></div>
 
         <div class="container" style="padding-top: 0; padding-bottom: 20px;">
             <!-- Botones Sobre mí y Tecnósfera lado a lado -->
@@ -1204,7 +1189,7 @@
             </div>
 
             <!-- Botón Programas de auditoría -->
-            <div class="btn-container" style="margin-top: 40px; padding: 0 20px;">
+            <div class="btn-container" style="margin-top: 40px;">
                 <button class="btn-verde-servicios" onclick="showScreen('screen-programas')">Programas de auditoría y optimización</button>
             </div>
 
@@ -2074,8 +2059,13 @@
         let currentProfile = '';
         let currentProblem = '';
         let currentProgram = '';
+        let previousScreen = 'screen-home';
 
         function showScreen(screenId) {
+            const currentActive = document.querySelector('.screen.active');
+            if (currentActive && screenId !== 'screen-contacto') {
+                previousScreen = currentActive.id;
+            }
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0, 0);
@@ -2339,8 +2329,8 @@
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('figura-rentable-personalizada')">Me interesa una propuesta personalizada</button>
-                        <button class="btn btn-contacto" onclick="showContactScreen('figura-rentable')">Dejame tus datos y te contacto sin compromiso</button>
+                        <button class="btn btn-outline" style="display: block; width: 100%; max-width: 700px; margin: 0 auto 15px auto;" onclick="showContactScreen('figura-rentable-personalizada')">Me interesa una propuesta personalizada</button>
+                        <button class="btn btn-contacto" style="display: block; width: 100%; max-width: 700px; margin: 0 auto;" onclick="showContactScreen('figura-rentable')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
                     <div class="nav-buttons">
@@ -2431,8 +2421,8 @@
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('pyme-personalizada')">Me interesa una propuesta personalizada</button>
-                        <button class="btn btn-contacto" onclick="showContactScreen('pyme')">Dejame tus datos y te contacto sin compromiso</button>
+                        <button class="btn btn-outline" style="display: block; width: 100%; max-width: 700px; margin: 0 auto 15px auto;" onclick="showContactScreen('pyme-personalizada')">Me interesa una propuesta personalizada</button>
+                        <button class="btn btn-contacto" style="display: block; width: 100%; max-width: 700px; margin: 0 auto;" onclick="showContactScreen('pyme')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
                     <div class="nav-buttons">
@@ -2523,8 +2513,8 @@
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('posicionamiento-personalizada')">Me interesa una propuesta personalizada</button>
-                        <button class="btn btn-contacto" onclick="showContactScreen('posicionamiento')">Dejame tus datos y te contacto sin compromiso</button>
+                        <button class="btn btn-outline" style="display: block; width: 100%; max-width: 700px; margin: 0 auto 15px auto;" onclick="showContactScreen('posicionamiento-personalizada')">Me interesa una propuesta personalizada</button>
+                        <button class="btn btn-contacto" style="display: block; width: 100%; max-width: 700px; margin: 0 auto;" onclick="showContactScreen('posicionamiento')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
                     <div class="nav-buttons">
@@ -2607,8 +2597,8 @@
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('organizacional-personalizada')">Me interesa una propuesta personalizada</button>
-                        <button class="btn btn-contacto" onclick="showContactScreen('organizacional')">Dejame tus datos y te contacto sin compromiso</button>
+                        <button class="btn btn-outline" style="display: block; width: 100%; max-width: 700px; margin: 0 auto 15px auto;" onclick="showContactScreen('organizacional-personalizada')">Me interesa una propuesta personalizada</button>
+                        <button class="btn btn-contacto" style="display: block; width: 100%; max-width: 700px; margin: 0 auto;" onclick="showContactScreen('organizacional')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
                     <div class="nav-buttons">
@@ -2705,8 +2695,8 @@
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('cotidiana-personalizada')">Me interesa una propuesta personalizada</button>
-                        <button class="btn btn-contacto" onclick="showContactScreen('cotidiana')">Dejame tus datos y te contacto sin compromiso</button>
+                        <button class="btn btn-outline" style="display: block; width: 100%; max-width: 700px; margin: 0 auto 15px auto;" onclick="showContactScreen('cotidiana-personalizada')">Me interesa una propuesta personalizada</button>
+                        <button class="btn btn-contacto" style="display: block; width: 100%; max-width: 700px; margin: 0 auto;" onclick="showContactScreen('cotidiana')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
                     <div class="nav-buttons">
@@ -2809,11 +2799,7 @@
         }
 
         function goBackFromContact() {
-            if (currentProgram) {
-                showProgramScreen(currentProgram);
-            } else {
-                showScreen('screen-home');
-            }
+            showScreen(previousScreen);
         }
 
         // Form submission handler

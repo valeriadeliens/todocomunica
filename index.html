@@ -87,6 +87,11 @@
             margin-top: 30px;
         }
 
+        .header.home .logo-lines-bottom {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
         /* CONTAINER */
         .container {
             max-width: 900px;
@@ -1698,7 +1703,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -1729,7 +1735,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -1760,7 +1767,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -1791,7 +1799,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -1822,7 +1831,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -1853,7 +1863,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -2041,10 +2052,23 @@
 
         const programNames = {
             "figura-rentable": "Programa Perfil Rentable",
+            "figura-rentable-personalizada": "Programa Perfil Rentable - Propuesta personalizada",
             "pyme": "Modernización Comunicacional para PyMEs",
+            "pyme-personalizada": "Modernización Comunicacional para PyMEs - Propuesta personalizada",
             "posicionamiento": "Posicionamiento y Comunicación Personal",
+            "posicionamiento-personalizada": "Posicionamiento y Comunicación Personal - Propuesta personalizada",
             "organizacional": "Consultoría Estratégica de Comunicación Organizacional",
-            "cotidiana": "Optimización de Comunicación Cotidiana"
+            "organizacional-personalizada": "Consultoría Estratégica de Comunicación Organizacional - Propuesta personalizada",
+            "cotidiana": "Optimización de Comunicación Cotidiana",
+            "cotidiana-personalizada": "Optimización de Comunicación Cotidiana - Propuesta personalizada",
+            "estrategias": "Estrategias de comunicación",
+            "contenidos": "Creación de contenidos",
+            "identidad": "Identidad de marca",
+            "voceria": "Vocería para empresas o emprendimientos",
+            "influencers": "Acciones con figuras e influencers",
+            "brainstorming": "Brainstorming Sessions",
+            "sobre-mi": "Sobre mí",
+            "home": "Portada / Hablemos"
         };
 
         let currentProfile = '';
@@ -2315,6 +2339,7 @@
                     </div>
 
                     <div class="btn-container">
+                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('figura-rentable-personalizada')">Me interesa una propuesta personalizada</button>
                         <button class="btn btn-contacto" onclick="showContactScreen('figura-rentable')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
@@ -2349,15 +2374,39 @@
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Duración y Formato</div>
-                                <h3>7 semanas • Online</h3>
-                                <p><strong>Modalidad:</strong> Consultoría estratégica + acompañamiento</p>
-                                <p><strong>Sesiones sincrónicas y asincrónicas (contenidos en video)</strong></p>
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Opción 1</div>
+                                <h3>Diagnóstico de Identidad y Comunicación</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Un análisis estratégico de la comunicación histórica y actual de la empresa para proyectar su modernización sin perder la esencia.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>1 sesión de relevamiento profundo (90 minutos) con fundadores y sucesores</li>
+                                    <li>Auditoría de activos: Revisión de logos, sitio web, señalética y redes</li>
+                                    <li>Mapeo de ruidos internos: Identificación de fricciones en la transmisión de decisiones</li>
+                                    <li>Traducción cultural: Identificación de valores históricos a conservar</li>
+                                    <li>Documento: Mini-Estrategia de Estilo</li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Empresas familiares que se sienten "antiguas" frente a lo digital y necesitan un norte claro antes de invertir en cambios.</p>
+
+                                <h4>Resultado:</h4>
+                                <p>Claridad sobre qué modernizar y qué prácticas de identidad preservar para una transición generacional fluida.</p>
                             </div>
 
-                            <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Qué se trabaja</div>
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Opción 2</div>
+                                <h3>Programa Completo</h3>
+                                
+                                <h4>Duración y Formato:</h4>
+                                <p>7 semanas • Online</p>
+                                <p><strong>Modalidad:</strong> Consultoría estratégica + acompañamiento</p>
+                                <p><strong>Sesiones sincrónicas y asincrónicas (contenidos en video)</strong></p>
+                                
+                                <h4>Qué se trabaja:</h4>
                                 <ul>
                                     <li>Diagnóstico de la comunicación interna y externa</li>
                                     <li>Lectura de cultura, valores y formas históricas de la empresa</li>
@@ -2367,10 +2416,8 @@
                                     <li>Orden de roles y mensajes para reducir ruido interno</li>
                                     <li>Integración de herramientas digitales sin forzar cambios bruscos</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Entregables</div>
+                                
+                                <h4>Entregables:</h4>
                                 <ul>
                                     <li>Diagnóstico comunicacional estratégico (interno + externo)</li>
                                     <li>Mini-Estrategia de Comunicación y Estilo (PDF)</li>
@@ -2384,6 +2431,7 @@
                     </div>
 
                     <div class="btn-container">
+                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('pyme-personalizada')">Me interesa una propuesta personalizada</button>
                         <button class="btn btn-contacto" onclick="showContactScreen('pyme')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
@@ -2418,19 +2466,43 @@
                         </div>
 
                         <div class="tree-timeline">
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Opción 1</div>
+                                <h3>Auditoría de Claridad</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Diagnóstico de tu propuesta profesional para alinear lo que sos, lo que decís y lo que el mercado entiende.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>1 sesión estratégica (90 minutos) de clarificación de oferta</li>
+                                    <li>Auditoría digital en vivo: Revisión de bio, LinkedIn y últimos contenidos</li>
+                                    <li>Definición de "Superpoder": Identificación de tu diferenciador de nicho</li>
+                                    <li>Documento estratégico: Definición de propuesta de valor en 10 palabras y 3 ejes comunicacionales</li>
+                                    <li>Recomendaciones de sistema: Primeros pasos para el método "Benching de Domingo"</li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Emprendedores e independientes que sienten que su comunicación es dispersa y no les ayuda a vender servicios de alto valor.</p>
+
+                                <h4>Resultado:</h4>
+                                <p>Un discurso de venta coherente y un sistema de contenido que no te quite tiempo operativo.</p>
+                            </div>
+
                             <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Duración y Formato</div>
-                                <h3>3 a 5 semanas • Online</h3>
+                                <div class="tree-node-badge amarillo">Opción 2</div>
+                                <h3>Programa Completo</h3>
+                                
+                                <h4>Duración y Formato:</h4>
+                                <p>3 a 5 semanas • Online</p>
                                 <p><strong>Modalidad:</strong></p>
                                 <ul>
                                     <li>Sesiones sincrónicas</li>
                                     <li>Contenidos en video (asincrónicos)</li>
                                     <li>Acompañamiento breve entre sesiones (WhatsApp / mail)</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Qué se trabaja</div>
+                                
+                                <h4>Qué se trabaja:</h4>
                                 <ul>
                                     <li>Clarificación de propuesta profesional</li>
                                     <li>Orden del mensaje: qué comunicar y cómo</li>
@@ -2438,10 +2510,8 @@
                                     <li>Coherencia entre discurso, oferta y presencia digital</li>
                                     <li>Sistema para creación de contenidos</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Entregables</div>
+                                
+                                <h4>Entregables:</h4>
                                 <ul>
                                     <li>Diagnóstico de comunicación personal</li>
                                     <li>Definición clara de posicionamiento</li>
@@ -2453,6 +2523,7 @@
                     </div>
 
                     <div class="btn-container">
+                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('posicionamiento-personalizada')">Me interesa una propuesta personalizada</button>
                         <button class="btn btn-contacto" onclick="showContactScreen('posicionamiento')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
@@ -2487,19 +2558,43 @@
                         </div>
 
                         <div class="tree-timeline">
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Opción 1</div>
+                                <h3>Consultoría Estratégica de Comunicación Organizacional</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Visión externa y honesta sobre cómo la empresa se comunica con sus usuarios y empleados para detectar brechas de eficiencia.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Kick-off meeting con C-levels para definir KPIs y accesos</li>
+                                    <li>Entrevistas internas: Diagnóstico de la percepción de marca desde adentro</li>
+                                    <li>Experiencia como usuario: Testeo real de onboarding, soporte y navegación</li>
+                                    <li>Benchmarking competencia: Análisis de 3-5 competidores directos</li>
+                                    <li>Entregable: Reporte Ejecutivo con matriz de priorización (Crítico/Importante/Menor)</li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Empresas con equipos grandes y presupuestos altos que han perdido la conexión real con su audiencia por burocracia interna.</p>
+
+                                <h4>Resultado:</h4>
+                                <p>Mapeo de puntos de fricción reales y una hoja de ruta de mejoras comunicacionales.</p>
+                            </div>
+
                             <div class="tree-node gris">
-                                <div class="tree-node-badge rosa">Duración y Formato</div>
-                                <h3>10 semanas • Online</h3>
+                                <div class="tree-node-badge verde">Opción 2</div>
+                                <h3>Programa Completo</h3>
+                                
+                                <h4>Duración y Formato:</h4>
+                                <p>10 semanas • Online</p>
                                 <p><strong>Modalidad:</strong></p>
                                 <ul>
                                     <li>5 Sesiones Sincrónicas: Encuentros de alta carga estratégica</li>
                                     <li>1 Contenido Asincrónico: Video Máster sobre "Marco de Criterios Comunicacionales"</li>
                                     <li>Trabajo de Campo: Auditoría de flujos y entrevistas clave con referentes</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node gris">
-                                <div class="tree-node-badge amarillo">Qué se trabaja</div>
+                                
+                                <h4>Qué se trabaja:</h4>
                                 <ul>
                                     <li>Diagnóstico Estratégico: Identificación de brechas entre identidad, cultura, liderazgo y comunicación interna/externa</li>
                                     <li>Identificación de puntos de fricción: Detección de ruidos entre áreas y mensajes contradictorios</li>
@@ -2512,6 +2607,7 @@
                     </div>
 
                     <div class="btn-container">
+                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('organizacional-personalizada')">Me interesa una propuesta personalizada</button>
                         <button class="btn btn-contacto" onclick="showContactScreen('organizacional')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
@@ -2547,35 +2643,57 @@
 
                         <div class="tree-timeline">
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Duración y Formato</div>
-                                <h3>4 a 5 semanas • Online (Modalidad mixta)</h3>
+                                <div class="tree-node-badge rosa">Opción 1</div>
+                                <h3>Auditoría de Hábitos y Conflictos</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>Un diagnóstico profundo de tus interacciones diarias para identificar dónde pierdes claridad y cómo recuperar el control frente al desgaste digital.</p>
+                                
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>1 sesión de diagnóstico profundo (90 minutos): Mapeo de conflictos recurrentes, tanto analógicos como digitales</li>
+                                    <li>Auditoría digital en vivo: Revisión de hilos de WhatsApp, audios y mails para detectar ruidos, sobreexplicaciones o falta de límites</li>
+                                    <li>Análisis de "Agencia Comunicacional": Evaluación de cómo gestionas los vistos, los silencios y la ansiedad de respuesta</li>
+                                    <li>Documento: Diagnóstico Comunicacional Personal: Mapeo de puntos de fricción y hábitos detectados</li>
+                                    <li>Entregable técnico: Árbol de decisión preliminar (¿cuándo llamar, cuándo escribir, cuándo callar?)</li>
+                                </ul>
+
+                                <h4>Para quién:</h4>
+                                <p>Personas que experimentan desgaste por malentendidos, que evitan conversaciones difíciles o que se sienten atrapadas por la mensajería instantánea.</p>
+
+                                <h4>Resultado:</h4>
+                                <p>Un roadmap claro para reducir el desgaste cotidiano y criterios prácticos para recuperar la claridad en tus vínculos.</p>
+                            </div>
+
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Opción 2</div>
+                                <h3>Programa Completo</h3>
+                                
+                                <h4>Duración y Formato:</h4>
+                                <p>4 a 5 semanas • Online (Modalidad mixta)</p>
                                 <p><strong>Modalidad:</strong></p>
                                 <ul>
                                     <li>Sesiones sincrónicas</li>
                                     <li>Sesiones asincrónicas (contenidos en video)</li>
                                     <li>Soporte continuo: Seguimiento vía WhatsApp / mail entre sesiones</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Qué se trabaja</div>
-                                <h4>1. Estrategia Analógica (Cara a cara)</h4>
+                                
+                                <h4>Qué se trabaja:</h4>
+                                <p><strong>1. Estrategia Analógica (Cara a cara)</strong></p>
                                 <ul>
                                     <li>Orden del mensaje: Qué decir, cuándo y cómo para evitar escalar conflictos</li>
                                     <li>Argumentación básica: Cómo expresar necesidades sin sobreexplicarse ni callarse de más</li>
                                     <li>Lectura de contexto: Análisis de situaciones comunicacionales reales y observación guiada</li>
                                 </ul>
 
-                                <h4>2. Criterio Digital (Mensajería y redes)</h4>
+                                <p><strong>2. Criterio Digital (Mensajería y redes)</strong></p>
                                 <ul>
                                     <li>Formatos y decisiones: Cuándo enviar texto, cuándo audio y cuándo llamar (o callar)</li>
                                     <li>Gestión de la espera: Cómo interpretar (y no interpretar) silencios, vistos y tiempos de respuesta</li>
                                     <li>Tono y Humanización: Uso estratégico de emojis y signos para dar claridad sin perder profesionalismo o calidez</li>
                                 </ul>
-                            </div>
-
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Entregables</div>
+                                
+                                <h4>Entregables:</h4>
                                 <ul>
                                     <li>Diagnóstico Comunicacional Personal: Mapeo de tus puntos de fricción y hábitos actuales</li>
                                     <li>Guía Práctica de Comunicación Cotidiana: Manual con lineamientos aplicables a entornos digitales y presenciales</li>
@@ -2587,6 +2705,7 @@
                     </div>
 
                     <div class="btn-container">
+                        <button class="btn btn-outline" style="margin-bottom: 15px;" onclick="showContactScreen('cotidiana-personalizada')">Me interesa una propuesta personalizada</button>
                         <button class="btn btn-contacto" onclick="showContactScreen('cotidiana')">Dejame tus datos y te contacto sin compromiso</button>
                     </div>
 
@@ -2635,9 +2754,10 @@
                                 <input type="tel" id="telefono" name="telefono" class="form-input">
                             </div>
 
-                            <input type="hidden" name="perfil" id="perfil" value="${profileNames[currentProfile] || 'Directo'}">
-                            <input type="hidden" name="problema" id="problema" value="${(problemNames[currentProfile] && problemNames[currentProfile][currentProblem]) || 'No especificado'}">
-                            <input type="hidden" name="programa" id="programa" value="${programNames[program] || program || 'Consulta general'}">
+                            <input type="hidden" name="perfil" id="perfil" value="${currentProfile && profileNames[currentProfile] ? profileNames[currentProfile] : ''}">
+                            <input type="hidden" name="problema" id="problema" value="${currentProfile && currentProblem && problemNames[currentProfile] && problemNames[currentProfile][currentProblem] ? problemNames[currentProfile][currentProblem] : ''}">
+                            <input type="hidden" name="programa" id="programa" value="${programNames[program] || ''}">
+                            <input type="hidden" name="pagina_origen" id="pagina_origen" value="${!(currentProfile && profileNames[currentProfile]) ? (programNames[program] || program || 'Consulta general') : ''}">
 
                             <div class="btn-container">
                                 <button type="submit" class="btn btn-contacto" id="submitBtn">Enviar</button>
@@ -2771,19 +2891,11 @@
         <div class="footer-content">
             <p class="footer-info">
                 © 2026 Valeria Deliens | 
-                <a href="mailto:valtodocomunica@gmail.com">valtodocomunica@gmail.com</a> | 
+                <a href="/cdn-cgi/l/email-protection#7f091e130b101b101c10120a11161c1e3f18121e1613511c1012"><span class="__cf_email__" data-cfemail="b0c6d1dcc4dfd4dfd3dfddc5ded9d3d1f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></a> | 
                 <a href="https://www.linkedin.com/in/todocomunica/" target="_blank">LinkedIn</a> | 
                 Buenos Aires, Argentina
             </p>
             <div class="footer-partnership">
                 <a href="https://www.capsula.com.ar" target="_blank" class="partnership-link">
                     <img src="logo_nuevo_capsula.png" alt="Cápsula" class="capsula-logo">
-                    <div class="partnership-text">Partnership con Productora Cápsula</div>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
-         
+                    <div class=

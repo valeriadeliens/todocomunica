@@ -620,7 +620,7 @@
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             h1 {
                 font-size: 48px;
             }
@@ -672,17 +672,17 @@
                 grid-template-columns: 1fr;
             }
 
-            /* En móvil: 1 columna, todos los botones apilados verticalmente */
+            /* En móvil: 1 columna FORZADO con !important */
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 12px;
             }
             
             .service-btn {
-                font-size: 16px;
-                padding: 16px 30px;
-                width: 100%;
-                max-width: 100%;
+                font-size: 16px !important;
+                padding: 16px 30px !important;
+                width: 100% !important;
+                max-width: 100% !important;
             }
         }
 

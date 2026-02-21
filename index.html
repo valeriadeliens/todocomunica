@@ -1177,6 +1177,75 @@
             font-size: 14px;
             color: var(--negro);
         }
+        /* MUSIC PLAYER */
+        .music-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid #efefef;
+        }
+        .music-bar.bottom {
+            bottom: 0;
+            border-bottom: none;
+            border-top: 1px solid #efefef;
+        }
+        .music-bar.top {
+            top: 0;
+        }
+        .music-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            color: var(--gris);
+            transition: color 0.2s;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            gap: 6px;
+        }
+        .music-btn:hover { color: var(--rosa); }
+        .music-btn svg { width: 18px; height: 18px; }
+        .music-label {
+            font-size: 11px;
+            color: var(--gris);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .music-volume {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 70px;
+            height: 3px;
+            border-radius: 2px;
+            background: #ddd;
+            outline: none;
+            cursor: pointer;
+        }
+        .music-volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gris);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .music-volume::-webkit-slider-thumb:hover { background: var(--rosa); }
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -1186,6 +1255,29 @@
     </script>
 </head>
 <body>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop>
+        <source src="dance-until-dark-329026.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC BAR TOP -->
+    <div class="music-bar top" id="musicBarTop">
+        <span class="music-label">♪ música</span>
+        <button class="music-btn" id="playBtnTop" onclick="toggleMusic()" title="Reproducir / Pausar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <input type="range" class="music-volume" id="volTop" min="0" max="1" step="0.05" value="0.4" oninput="setVolume(this.value)">
+    </div>
+
+    <!-- MUSIC BAR BOTTOM -->
+    <div class="music-bar bottom" id="musicBarBottom">
+        <span class="music-label">♪ música</span>
+        <button class="music-btn" id="playBtnBottom" onclick="toggleMusic()" title="Reproducir / Pausar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <input type="range" class="music-volume" id="volBottom" min="0" max="1" step="0.05" value="0.4" oninput="setVolume(this.value)">
+    </div>
 
     <!-- BARRA DE NAVEGACIÓN (solo en pantallas internas, NO en home) -->
     <div class="services-nav" id="services-nav" style="display:none">
@@ -3170,5 +3262,44 @@
             </div>
         </div>
     </footer>
+    <script>
+        const music = document.getElementById('bgMusic');
+        music.volume = 0.4;
+        let isPlaying = false;
+
+        // Iconos SVG como strings
+        const iconPlay = 'points="5,3 19,12 5,21"';
+        const iconPause = 'points="6,3 6,21 6,3"'; // se reemplaza con doble barra
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                setIcon('play');
+            } else {
+                music.play();
+                setIcon('pause');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function setIcon(state) {
+            const playIconSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>';
+            const pauseIconSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor"/></svg>';
+            const svg = state === 'play' ? playIconSVG : pauseIconSVG;
+            document.getElementById('playBtnTop').innerHTML = svg;
+            document.getElementById('playBtnBottom').innerHTML = svg;
+        }
+
+        function setVolume(val) {
+            music.volume = val;
+            document.getElementById('volTop').value = val;
+            document.getElementById('volBottom').value = val;
+            if (val > 0 && !isPlaying) {
+                music.play();
+                isPlaying = true;
+                setIcon('pause');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -3155,7 +3155,7 @@
         <div class="footer-content">
             <p class="footer-info">
                 © 2026 Valeria Deliens | 
-                <a href="/cdn-cgi/l/email-protection#f284939e869d969d919d9f879c9b9193b2959f939b9edc919d9f"><span class="__cf_email__" data-cfemail="e791868b9388838884888a92898e8486a7808a868e8bc984888a">[email&#160;protected]</span></a> | 
+                <a id="footer-email" href="#">valtodocomunica@gmail.com</a> | 
                 <a href="https://www.linkedin.com/in/todocomunica/" target="_blank">LinkedIn</a> | 
                 Buenos Aires, Argentina
             </p>
@@ -3167,5 +3167,16 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function() {
+            var u = 'valtodocomunica';
+            var d = 'gmail.com';
+            var el = document.getElementById('footer-email');
+            if (el) {
+                el.href = 'mailto:' + u + '@' + d;
+                el.textContent = u + '@' + d;
+            }
+        })();
+    </script>
 </body>
 </html>

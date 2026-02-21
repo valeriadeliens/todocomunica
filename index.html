@@ -620,7 +620,7 @@
         }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             h1 {
                 font-size: 48px;
             }
@@ -680,10 +680,25 @@
             
             .service-btn {
                 font-size: 16px !important;
-                padding: 16px 30px !important;
+                padding: 16px 20px !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 grid-column: 1 / -1 !important;
+                min-height: 90px !important;
+                gap: 15px !important;
+            }
+
+            .service-btn-icon {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .service-btn-title {
+                font-size: 12px !important;
+            }
+
+            .service-btn-benefit {
+                font-size: 15px !important;
             }
         }
 
@@ -902,7 +917,7 @@
         }
 
         .service-btn {
-            padding: 18px 30px;
+            padding: 18px 25px;
             border-radius: 50px;
             font-size: 17px;
             font-weight: 600;
@@ -913,6 +928,41 @@
             text-align: center;
             color: var(--negro);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 18px;
+            min-height: 95px;
+        }
+
+        .service-btn-icon {
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+        }
+
+        .service-btn-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center;
+        }
+
+        .service-btn-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gris);
+            line-height: 1.2;
+        }
+
+        .service-btn-benefit {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--negro);
+            line-height: 1.3;
         }
 
         .service-btn.rosa { border-color: var(--rosa); }
@@ -1191,18 +1241,94 @@
             </div>
 
             <!-- Título antes de servicios -->
-            <h2 style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">¿Qué puedo aportar a tus proyectos?</h2>
+            <h2 style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">Transformemos tu comunicación en resultados.</h2>
 
             <!-- 6 botones de servicios (scroll) -->
             <div id="servicios-section">
                 <div class="services-grid">
-                    <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">Estrategias de comunicación</button>
-                    <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">Creación de contenidos</button>
-                    <button class="service-btn verde" onclick="showServiceScreen('identidad')">Identidad de marca</button>
-                    <button class="service-btn rosa" onclick="showServiceScreen('voceria')">Vocería para empresas</button>
-                    <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">Acciones con influencers</button>
-                    <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">Brainstorming Sessions</button>
-                    <button class="service-btn gris" style="grid-column: span 2;" onclick="showScreen('screen-programas')">Programas de auditoría y optimización</button>
+                    <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#ff66c4" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 2v20M2 12h20"/>
+                            <path d="M12 12l7-7"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Estrategias de comunicación</div>
+                            <div class="service-btn-benefit">Compartí mensajes que conecten y vendan.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn amarillo" onclick="showServiceScreen('contenidos')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#f4cf3c" stroke-width="1.5">
+                            <path d="M20 14l-8-8-8 8"/>
+                            <path d="M12 6v12"/>
+                            <path d="M16 10l-4 4-4-4"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Creación de contenidos</div>
+                            <div class="service-btn-benefit">Transmití historias que atrapen a tu audiencia.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn verde" onclick="showServiceScreen('identidad')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#c0d226" stroke-width="1.5">
+                            <circle cx="12" cy="8" r="6"/>
+                            <path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/>
+                            <circle cx="12" cy="8" r="2"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Identidad de marca</div>
+                            <div class="service-btn-benefit">Diferenciate y generá confianza total.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn rosa" onclick="showServiceScreen('voceria')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#ff66c4" stroke-width="1.5">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <path d="M12 19v3"/>
+                            <path d="M8 22h8"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Vocería para empresas</div>
+                            <div class="service-btn-benefit">Humanizá tu marca con voz experta.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn amarillo" onclick="showServiceScreen('influencers')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#f4cf3c" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="2"/>
+                            <circle cx="12" cy="5" r="2"/>
+                            <circle cx="12" cy="19" r="2"/>
+                            <circle cx="5" cy="12" r="2"/>
+                            <circle cx="19" cy="12" r="2"/>
+                            <path d="M12 7v3M12 14v3M7 12h3M14 12h3"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Acciones con influencers</div>
+                            <div class="service-btn-benefit">Multiplicá tu alcance de forma orgánica.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn verde" onclick="showServiceScreen('brainstorming')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#c0d226" stroke-width="1.5">
+                            <circle cx="12" cy="9" r="7"/>
+                            <path d="M9 18h6"/>
+                            <path d="M10 22h4"/>
+                            <path d="M12 16v2"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Brainstorming Sessions</div>
+                            <div class="service-btn-benefit">Ideas frescas y disruptivas para generar impacto.</div>
+                        </div>
+                    </button>
+                    <button class="service-btn gris" style="grid-column: span 2;" onclick="showScreen('screen-programas')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#a6a6a6" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                            <path d="M11 8v6"/>
+                            <path d="M8 11h6"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Programas de auditoría y optimización</div>
+                            <div class="service-btn-benefit">Optimizá la comunicación y maximizá la rentabilidad de tu inversión.</div>
+                        </div>
+                    </button>
                 </div>
             </div>
 
@@ -2922,7 +3048,7 @@
             <div class="footer-partnership">
                 <a href="https://www.capsula.com.ar" target="_blank" class="partnership-link">
                     <img src="logo_nuevo_capsula.png" alt="Cápsula" class="capsula-logo">
-                    <div class="partnership-text" style="font-size: 12px;">Partnership con Productora Cápsula</div>
+                    <div class="partnership-text">Partnership con Productora Cápsula</div>
                 </a>
             </div>
         </div>
@@ -2930,5 +3056,3 @@
 
 </body>
 </html>
-
-    

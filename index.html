@@ -209,10 +209,10 @@
 
         .subtitle {
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
             color: var(--gris);
             margin-bottom: 50px;
-            font-weight: 300;
+            font-weight: 600;
         }
 
         /* BOTONES */
@@ -228,6 +228,8 @@
             transition: all 0.3s ease;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
@@ -1246,6 +1248,213 @@
             padding-top: 40px;
             padding-bottom: 40px;
         }
+
+        /* ══════════════════════════════════════════
+           EFECTO 3D + BRILLO PLÁSTICO — LUNA CRECIENTE REAL
+           Técnica: óvalo más ancho que el contenedor, posicionado
+           con top negativo — solo asoma el arco inferior del óvalo,
+           formando una curva que sigue el borde del botón/card.
+           ══════════════════════════════════════════ */
+
+        /* PILLS: btn, btn-half, btn-verde-servicios */
+        .btn::after,
+        .btn-half::after,
+        .btn-verde-servicios::after {
+            content: '';
+            position: absolute;
+            /* óvalo que desborda por arriba y los lados — solo se ve el arco inferior */
+            top: -55%;
+            left: -5%;
+            right: -5%;
+            height: 80%;
+            background: radial-gradient(ellipse at 50% 100%,
+                rgba(255,255,255,0.72) 0%,
+                rgba(255,255,255,0.40) 45%,
+                transparent 72%
+            );
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Service-btn: misma luna pero arrancando desde el 28% para no tapar icono */
+        .service-btn::after {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: 25%;
+            right: -5%;
+            height: 90%;
+            background: radial-gradient(ellipse at 50% 100%,
+                rgba(255,255,255,0.68) 0%,
+                rgba(255,255,255,0.35) 45%,
+                transparent 72%
+            );
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* CARDS y boxes: mismo efecto adaptado a forma rectangular */
+        .option-card::after,
+        .program-card::after,
+        .comprension-box::after,
+        .home-intro-box::after {
+            content: '';
+            position: absolute;
+            top: -70%;
+            left: -3%;
+            right: -3%;
+            height: 95%;
+            background: radial-gradient(ellipse at 50% 100%,
+                rgba(255,255,255,0.65) 0%,
+                rgba(255,255,255,0.30) 50%,
+                transparent 75%
+            );
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* position y overflow en los que aún no los tienen */
+        .btn-half,
+        .btn-verde-servicios {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-btn {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 0 #c0c0c0, 0 7px 15px rgba(0,0,0,0.10),
+                        inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+
+        .option-card {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 0 #d0d0d0, 0 8px 18px rgba(0,0,0,0.09),
+                        inset 0 1px 0 rgba(255,255,255,0.85);
+        }
+
+        .program-card {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 0 #d0d0d0, 0 8px 18px rgba(0,0,0,0.09),
+                        inset 0 1px 0 rgba(255,255,255,0.85);
+        }
+
+        .comprension-box {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 0 #c8c8c8, 0 8px 18px rgba(0,0,0,0.09),
+                        inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+
+        .home-intro-box {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 0 #c0c0c0, 0 8px 18px rgba(0,0,0,0.09),
+                        inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+
+        /* — Botones coloreados: gradiente 3D + sombra inferior — */
+        .btn-rosa {
+            background: linear-gradient(180deg, #ff85d4 0%, #ff66c4 55%, #e050b0 100%);
+            box-shadow: 0 6px 0 #c0408a, 0 8px 18px rgba(255,102,196,0.35),
+                        inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-rosa:hover { background: var(--blanco); color: var(--rosa); border: 3px solid var(--rosa); box-shadow: 0 4px 0 #c0408a; }
+        .btn-rosa:active { transform: translateY(4px); box-shadow: 0 2px 0 #c0408a; }
+
+        .btn-amarillo {
+            background: linear-gradient(180deg, #f8dc6a 0%, #f4cf3c 55%, #d8b530 100%);
+            box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.35),
+                        inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-amarillo:hover { background: var(--blanco); color: var(--negro); border: 3px solid var(--amarillo); box-shadow: 0 4px 0 #b09020; }
+        .btn-amarillo:active { transform: translateY(4px); box-shadow: 0 2px 0 #b09020; }
+
+        .btn-verde {
+            background: linear-gradient(180deg, #d0db50 0%, #c0d226 55%, #a8ba20 100%);
+            box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.35),
+                        inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-verde:hover { background: var(--blanco); color: var(--negro); border: 3px solid var(--verde); box-shadow: 0 4px 0 #88981a; }
+        .btn-verde:active { transform: translateY(4px); box-shadow: 0 2px 0 #88981a; }
+
+        .btn-contacto {
+            background: linear-gradient(180deg, #ffffff 0%, #fff0fa 55%, #ffe0f5 100%);
+            box-shadow: 0 6px 0 #cc4499, 0 8px 18px rgba(255,102,196,0.25),
+                        inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+        .btn-contacto:hover { background: var(--rosa); color: var(--blanco); box-shadow: 0 4px 0 #cc4499; }
+        .btn-contacto:active { transform: translateY(4px); box-shadow: 0 2px 0 #cc4499; }
+
+        .btn-outline {
+            background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 55%, #e2e2e2 100%);
+            box-shadow: 0 6px 0 #aaa, 0 8px 18px rgba(0,0,0,0.10),
+                        inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+        .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #999, 0 10px 22px rgba(0,0,0,0.13); }
+        .btn-outline:active { transform: translateY(4px); box-shadow: 0 2px 0 #aaa; }
+
+        .btn-half.sobre-mi {
+            background: linear-gradient(180deg, #f8dc6a 0%, #f4cf3c 55%, #d8b530 100%);
+            box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-half.sobre-mi:hover { background: var(--blanco); color: var(--negro); box-shadow: 0 4px 0 #b09020; }
+        .btn-half.sobre-mi:active { transform: translateY(4px); box-shadow: 0 2px 0 #b09020; }
+
+        .btn-half.tecnosfera {
+            background: linear-gradient(180deg, #ff85d4 0%, #ff66c4 55%, #e050b0 100%);
+            box-shadow: 0 6px 0 #c0408a, 0 8px 18px rgba(255,102,196,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-half.tecnosfera:hover { background: var(--blanco); color: var(--rosa); box-shadow: 0 4px 0 #c0408a; }
+        .btn-half.tecnosfera:active { transform: translateY(4px); box-shadow: 0 2px 0 #c0408a; }
+
+        .btn-verde-servicios {
+            background: linear-gradient(180deg, #d0db50 0%, #c0d226 55%, #a8ba20 100%);
+            box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .btn-verde-servicios:hover { transform: translateY(-2px); background: var(--blanco); box-shadow: 0 8px 0 #88981a; }
+        .btn-verde-servicios:active { transform: translateY(4px); box-shadow: 0 2px 0 #88981a; }
+
+        /* — Service-btn colores — */
+        .service-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #b0b0b0, 0 10px 20px rgba(0,0,0,0.13); }
+        .service-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #c0c0c0; }
+        .service-btn.rosa { box-shadow: 0 5px 0 #c0408a, 0 7px 15px rgba(255,102,196,0.2), inset 0 1px 0 rgba(255,255,255,0.8); }
+        .service-btn.rosa:hover { background: var(--rosa); box-shadow: 0 7px 0 #c0408a; }
+        .service-btn.amarillo { box-shadow: 0 5px 0 #b09020, 0 7px 15px rgba(244,207,60,0.2), inset 0 1px 0 rgba(255,255,255,0.8); }
+        .service-btn.amarillo:hover { background: var(--amarillo); box-shadow: 0 7px 0 #b09020; }
+        .service-btn.verde { box-shadow: 0 5px 0 #88981a, 0 7px 15px rgba(192,210,38,0.2), inset 0 1px 0 rgba(255,255,255,0.8); }
+        .service-btn.verde:hover { background: var(--verde); box-shadow: 0 7px 0 #88981a; }
+        .service-btn.gris { box-shadow: 0 5px 0 #808080, 0 7px 15px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.8); }
+        .service-btn.gris:hover { background: var(--gris); box-shadow: 0 7px 0 #606060; }
+        .service-btn:hover .service-btn-icon { filter: brightness(0) invert(1); }
+        .service-btn.gris:hover .service-btn-title { color: var(--blanco); }
+
+        /* — Tarjetas coloreadas — */
+        .option-card:hover { transform: translateX(5px); box-shadow: 0 8px 0 #c8c8c8, 0 10px 22px rgba(0,0,0,0.13); }
+        .option-card:active { transform: translateY(3px); box-shadow: 0 2px 0 #d0d0d0; }
+        .option-card.verde { box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.amarillo { box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.rosa { box-shadow: 0 6px 0 #c0408a, 0 8px 18px rgba(255,102,196,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.gris { box-shadow: 0 6px 0 #808080, 0 8px 18px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.amarillo-icon { box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.rosa-icon, .option-card.rosa-icon-2 { box-shadow: 0 6px 0 #c0408a, 0 8px 18px rgba(255,102,196,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.verde-icon { box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .option-card.gris-icon { box-shadow: 0 6px 0 #808080, 0 8px 18px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.85); }
+
+        .program-card:hover { transform: translateX(5px); box-shadow: 0 8px 0 #c8c8c8, 0 10px 22px rgba(0,0,0,0.13); }
+        .program-card.amarillo-icon { box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .program-card.rosa-icon, .program-card.rosa-icon-2 { box-shadow: 0 6px 0 #c0408a, 0 8px 18px rgba(255,102,196,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .program-card.verde-icon { box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.18), inset 0 1px 0 rgba(255,255,255,0.85); }
+        .program-card.gris-icon { box-shadow: 0 6px 0 #808080, 0 8px 18px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.85); }
+
+        /* — Transformemos más grande — */
+        .transformemos-title { font-size: 44px !important; }
+
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -1336,7 +1545,7 @@
             </div>
 
             <!-- Título antes de servicios -->
-            <h2 style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">Transformemos tu comunicación en resultados.</h2>
+            <h2 class="transformemos-title" style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">Transformemos tu comunicación en resultados.</h2>
 
             <!-- 6 botones de servicios (scroll) -->
             <div id="servicios-section">
@@ -3254,9 +3463,15 @@
                 <a href="https://www.linkedin.com/in/todocomunica/" target="_blank">LinkedIn</a> | 
                 Buenos Aires, Argentina
             </p>
+            <div class="footer-partnership">
+                <a href="https://www.capsula.com.ar" target="_blank" class="partnership-link">
+                    <img src="logo_nuevo_capsula.png" alt="Cápsula" class="capsula-logo">
+                    <p style="font-size:11px;font-style:italic;color:var(--gris);margin:0;">Partnership con Productora Cápsula</p>
+                </a>
+            </div>
         </div>
     </footer>
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const music = document.getElementById('bgMusic');
         music.volume = 0.4;
         let isPlaying = false;

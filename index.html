@@ -1062,7 +1062,7 @@
         /* TECNÓSFERA */
         .tecnosfera-container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 8px auto;
             text-align: center;
         }
 
@@ -2228,21 +2228,21 @@
 
     <!-- PANTALLA TECNÓSFERA -->
     <div class="screen" id="screen-tecnosfera">
-        <div class="container" style="padding-top: 10px;">
+        <div class="container" style="padding-top: 0;">
             <div class="tecnosfera-container">
                 <!-- Logo Tecnósfera clickeable arriba -->
-                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 30px; margin-top: 10px;">
-                    <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo" onclick="showScreen('screen-home')" style="cursor: pointer;">
-                    <p class="tecnosfera-signature" onclick="showScreen('screen-sobre-mi')" style="cursor: pointer;">by Valeria Deliens.</p>
+                <div class="tecnosfera-logo-container" style="text-align: center; margin-bottom: 0; margin-top: -12px; position: relative; display: inline-block; width: 100%;">
+                    <img src="logo_simple.png" alt="Tecnósfera Podcast" class="tecnosfera-logo" onclick="showScreen('screen-home')" style="cursor: pointer; display: block; margin: 0 auto;">
+                    <p class="tecnosfera-signature" onclick="showScreen('screen-sobre-mi')" style="cursor: pointer; position: absolute; bottom: 16px; right: calc(50% - 33.75%); margin: 0; white-space: nowrap;">by Valeria Deliens.</p>
                 </div>
 
                 <!-- Título centrado -->
-                <h2 style="text-align: center; margin: 30px 0; font-size: 20px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</h2>
+                <h2 style="text-align: center; margin: 32px 0 10px; font-size: 18px; font-weight: 500;">¿Qué es Tecnósfera Podcast? Te lo cuento en este video.</h2>
 
                 <!-- Grid: texto izquierda, video derecha -->
-                <div class="tecnosfera-content-grid" style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; margin: 40px 0;">
+                <div class="tecnosfera-content-grid" style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; align-items: center; margin: 10px 0 20px;">
                     <!-- Texto a la izquierda -->
-                    <div style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 300; line-height: 1.8; color: var(--negro);">
+                    <div style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--negro);">
                         <p><span class="tecnosfera-highlight">Tecnósfera Podcast</span> es un proyecto independiente resultado de mi pasión por la tecnología y la comunicación. Lo produzco de manera integral a modo de hobby y práctica profesional para perfeccionarme en creación de contenidos, locución, edición de audio y video, estrategia de redes sociales, etc. Es un contenido de nicho por lo que el desafío es grande. Pero disfruto mucho hacerlo y los invito a conocerlo.</p>
                     </div>
                     
@@ -2252,7 +2252,7 @@
                     </div>
                 </div>
 
-                <div class="btn-container" style="margin-top: 50px; text-align: center;">
+                <div class="btn-container" style="margin-top: 20px; text-align: center;">
                     <a href="https://www.atom.bio/Tecnósfera" target="_blank" class="btn btn-tecnosfera-episodes">¡Mirá todos los episodios!</a>
                 </div>
             </div>

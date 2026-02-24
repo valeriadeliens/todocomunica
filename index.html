@@ -511,8 +511,9 @@
         }
 
         .tree-node-badge.rosa { background: var(--rosa); }
-        .tree-node-badge.amarillo { background: var(--amarillo); color: var(--negro); }
-        .tree-node-badge.verde { background: var(--verde); color: var(--negro); }
+        .tree-node-badge.amarillo { background: var(--amarillo); color: var(--blanco); }
+        .tree-node-badge.verde { background: var(--verde); color: var(--blanco); }
+        .tree-toggle-icon { margin-left: 10px; font-size: 11px; }
 
         .tree-node h3 {
             font-size: 24px;
@@ -1467,6 +1468,136 @@
         /* — Transformemos más grande — */
         .transformemos-title { font-size: 44px !important; }
 
+        /* ── TEXTOS BLANCOS EN BOTONES DE PORTADA ARRIBA ── */
+        /* btn-half sobre-mi (amarillo) y btn-verde-servicios ya tienen color negro — los dejamos.
+           Solo los 3 de portada que son btn-rosa, btn-verde, btn-amarillo: texto blanco */
+        .btn-rosa,
+        .btn-verde,
+        .btn-amarillo { color: var(--blanco) !important; }
+        /* al hover vuelven a su color original */
+        .btn-rosa:hover { color: var(--rosa) !important; }
+        .btn-verde:hover { color: var(--negro) !important; }
+        .btn-amarillo:hover { color: var(--negro) !important; }
+
+        /* ── SERVICE-BTN: título superior blanco al hover (todos los colores) ── */
+        .service-btn.rosa:hover .service-btn-title,
+        .service-btn.amarillo:hover .service-btn-title,
+        .service-btn.verde:hover .service-btn-title { color: var(--blanco); }
+        /* gris ya lo tenía — refuerzo */
+        .service-btn.gris:hover .service-btn-title { color: var(--blanco); }
+
+        /* ── SERVICE-NAV-BTN: se pintan de color + brillo + texto blanco al hover ── */
+        .service-nav-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-nav-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 55%;
+            background: radial-gradient(ellipse 90% 55% at 50% 0%,
+                rgba(255,255,255,0.65) 0%,
+                rgba(255,255,255,0.28) 45%,
+                transparent 72%
+            );
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .service-nav-btn.rosa:hover  { background: var(--rosa);     color: var(--blanco); box-shadow: 0 4px 0 #c0408a; }
+        .service-nav-btn.amarillo:hover { background: var(--amarillo); color: var(--blanco); box-shadow: 0 4px 0 #b09020; }
+        .service-nav-btn.verde:hover { background: var(--verde);    color: var(--blanco); box-shadow: 0 4px 0 #88981a; }
+        .service-nav-btn.gris:hover  { background: var(--gris);     color: var(--blanco); box-shadow: 0 4px 0 #606060; }
+
+        /* ── PROGRAM-CARD: se pintan de color + texto blanco al hover ── */
+        .program-card:hover .program-title { color: var(--blanco); }
+        .program-card:hover .program-profile { color: rgba(255,255,255,0.75); }
+        .program-card.amarillo-icon:hover { background: #f4cf3c; box-shadow: 0 8px 0 #b09020; }
+        .program-card.rosa-icon:hover, .program-card.rosa-icon-2:hover { background: #ff66c4; box-shadow: 0 8px 0 #c0408a; }
+        .program-card.verde-icon:hover { background: #c0d226; box-shadow: 0 8px 0 #88981a; }
+        .program-card.gris-icon:hover { background: var(--gris); box-shadow: 0 8px 0 #606060; }
+        /* icono blanco en program-card hover */
+        .program-card:hover svg { filter: brightness(0) invert(1); }
+
+        /* ── OPTION-CARD: se pintan + texto blanco al hover ── */
+        .option-card:hover p { color: var(--blanco); }
+        .option-card:hover .profile-icon { filter: brightness(0) invert(1); }
+        .option-card.verde:hover, .option-card.verde-icon:hover { background: #c0d226; }
+        .option-card.amarillo:hover, .option-card.amarillo-icon:hover { background: #f4cf3c; }
+        .option-card.rosa:hover, .option-card.rosa-icon:hover, .option-card.rosa-icon-2:hover { background: #ff66c4; }
+        .option-card.gris:hover, .option-card.gris-icon:hover { background: var(--gris); }
+
+        /* Texto NEGRO en Sobre mí y Transformemos (revertido) */
+        .btn-half.sobre-mi { color: var(--negro) !important; }
+        .btn-half.sobre-mi:hover { color: var(--negro) !important; }
+        .btn-verde-servicios { color: var(--negro) !important; }
+        .btn-verde-servicios:hover { color: var(--negro) !important; }
+
+        /* ── DESTELLO EN ¡Genial! ── */
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .genial-shimmer {
+            background: linear-gradient(
+                90deg,
+                var(--negro) 0%,
+                var(--negro) 35%,
+                rgba(255,255,255,0.9) 48%,
+                var(--negro) 60%,
+                var(--negro) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2.8s linear infinite;
+        }
+
+        /* ── TEXTOS NEGROS + HOVER COLOR/BLANCO ── */
+
+        /* Tecnosfera: texto negro, hover blanco */
+        .btn-half.tecnosfera { color: var(--negro) !important; }
+        .btn-half.tecnosfera:hover { color: var(--blanco) !important; }
+
+        /* Ver solución sugerida (amarillo) y Ver más detalle (verde): texto negro */
+        .btn-amarillo { color: var(--negro) !important; }
+        .btn-verde    { color: var(--negro) !important; }
+        .btn-amarillo:hover { color: var(--negro) !important; }
+        .btn-verde:hover    { color: var(--negro) !important; }
+
+        /* Botones outline: borde gris, texto negro, hover fondo gris medio + blanco */
+        .btn-outline { color: var(--negro) !important; }
+        .btn-outline:hover { background: var(--gris) !important; color: var(--blanco) !important; border-color: var(--gris) !important; }
+
+        /* Mirá todos los episodios: texto negro, hover blanco */
+        .btn-tecnosfera-episodes { color: var(--negro) !important; }
+        .btn-tecnosfera-episodes:hover { color: var(--blanco) !important; }
+
+        /* ── TREE-NODE-BADGE: brillo plástico igual que botones ── */
+        .tree-node-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        .tree-node-badge::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 55%;
+            background: radial-gradient(ellipse 90% 55% at 50% 0%,
+                rgba(255,255,255,0.65) 0%,
+                rgba(255,255,255,0.28) 45%,
+                transparent 72%
+            );
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .tree-node-badge.rosa     { box-shadow: 0 4px 0 #c0408a; }
+        .tree-node-badge.amarillo { box-shadow: 0 4px 0 #b09020; }
+        .tree-node-badge.verde    { box-shadow: 0 4px 0 #88981a; }
+
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -1729,7 +1860,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -1821,7 +1952,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -1865,7 +1996,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -1909,7 +2040,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -1953,7 +2084,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2009,7 +2140,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-perfiles')">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2161,7 +2292,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2200,7 +2331,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2239,7 +2370,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2279,7 +2410,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2321,7 +2452,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2361,7 +2492,7 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="scrollToAuditoria()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                 <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
@@ -2573,15 +2704,26 @@
         let currentProblem = '';
         let currentProgram = '';
         let previousScreen = 'screen-home';
+        let previousScrollY = 0;
 
         function showScreen(screenId) {
             const currentActive = document.querySelector('.screen.active');
             if (currentActive && screenId !== 'screen-contacto') {
                 previousScreen = currentActive.id;
+                previousScrollY = window.scrollY;
             }
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            const scrollY = previousScrollY;
+            // Activar pantalla anterior sin sobreescribir previousScreen/previousScrollY
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(previousScreen).classList.add('active');
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
         }
 
         function selectProfile(profile) {
@@ -2624,7 +2766,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-problemas-${profile}')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -2693,7 +2835,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showScreen('screen-comprension')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -2722,6 +2864,53 @@
             const screen = document.getElementById(screenMap[program]);
             screen.innerHTML = detailScreens[program];
             showScreen(screenMap[program]);
+            setTimeout(() => initTreeCollapse(screen), 0);
+        }
+
+        function initTreeCollapse(container) {
+            container.querySelectorAll('.tree-node').forEach(node => {
+                const badge = node.querySelector('.tree-node-badge');
+                const h3 = node.querySelector('h3');
+                if (!badge || !h3) return;
+
+                const allChildren = Array.from(node.children);
+                const h3Idx = allChildren.indexOf(h3);
+                let queesPIdx = -1;
+                for (let i = h3Idx + 1; i < allChildren.length; i++) {
+                    if (allChildren[i].tagName === 'P') { queesPIdx = i; break; }
+                }
+                if (queesPIdx === -1) return;
+
+                const collapsibleItems = allChildren.slice(queesPIdx + 1);
+                if (collapsibleItems.length === 0) return;
+
+                // Wrapper collapsible
+                const wrapper = document.createElement('div');
+                wrapper.className = 'tree-collapsible';
+                wrapper.style.cssText = 'overflow:hidden; max-height:0; transition: max-height 0.4s ease;';
+                collapsibleItems.forEach(el => wrapper.appendChild(el));
+
+                node.appendChild(wrapper);
+
+                // Badge clickeable con flecha separada
+                badge.style.cursor = 'pointer';
+                badge.style.userSelect = 'none';
+                const indicator = document.createElement('span');
+                indicator.className = 'tree-toggle-icon';
+                indicator.textContent = '▼';
+                badge.appendChild(indicator);
+
+                badge.addEventListener('click', () => {
+                    const isOpen = wrapper.style.maxHeight && wrapper.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        wrapper.style.maxHeight = '0';
+                        indicator.textContent = '▼';
+                    } else {
+                        wrapper.style.maxHeight = wrapper.scrollHeight + 200 + 'px';
+                        indicator.textContent = '▲';
+                    }
+                });
+            });
         }
 
         function generateFiguraRentableTree() {
@@ -2847,7 +3036,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('figura-rentable')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -2939,7 +3128,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('pyme')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -3031,7 +3220,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('posicionamiento')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -3115,7 +3304,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('organizacional')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -3213,7 +3402,7 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <button class="btn btn-outline nav-btn" onclick="showProgramScreen('cotidiana')">← Volver</button>
+                        <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                     </div>
                 </div>
@@ -3221,6 +3410,14 @@
         }
 
         function showContactScreen(program) {
+            // Capturar la pantalla y scroll actuales ANTES de cualquier cambio de DOM
+            const sourceScreen = document.querySelector('.screen.active');
+            const sourceScrollY = window.scrollY;
+            if (sourceScreen) {
+                previousScreen = sourceScreen.id;
+                previousScrollY = sourceScrollY;
+            }
+
             const screen = document.getElementById('screen-contacto');
             screen.innerHTML = `
                 <div class="header">
@@ -3237,7 +3434,7 @@
                 </div>
 
                 <div class="container">
-                    <h1>¡Genial!</h1>
+                    <h1 class="genial-shimmer">¡Genial!</h1>
                     <p class="subtitle">Dejame tus datos y te contacto sin cargo para conversar sobre tu caso y la solución sugerida.</p>
 
                     <!-- Selector WhatsApp / Mail -->
@@ -3393,7 +3590,7 @@
         }
 
         function goBackFromContact() {
-            showScreen(previousScreen);
+            goBack();
         }
 
         // Form submission handler

@@ -709,18 +709,14 @@
 
             /* Barras de música centradas en mobile */
             .music-bar {
-                justify-content: center;
                 gap: 8px;
                 padding: 6px 10px;
-                width: 100%;
-                box-sizing: border-box;
+                overflow: hidden;
             }
             .music-label { font-size: 11px; white-space: nowrap; }
             .music-volume {
-                width: 90px !important;
-                max-width: 90px;
-                min-width: 0;
-                flex-shrink: 0;
+                flex: 0 0 80px;
+                width: 80px !important;
             }
         }
 

@@ -3617,7 +3617,8 @@
         // Función para scroll suave a servicios
         function scrollToServicios() {
             const serviciosSection = document.getElementById('servicios-section');
-            serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const top = serviciosSection.getBoundingClientRect().top + window.scrollY - 50;
+            window.scrollTo({ top, behavior: 'smooth' });
         }
 
         // Función para volver al botón de auditoría

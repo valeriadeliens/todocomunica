@@ -710,11 +710,11 @@
             /* Barras de música centradas en mobile */
             .music-bar {
                 justify-content: center;
-                gap: 10px;
-                padding: 7px 12px;
+                gap: 8px;
+                padding: 6px 10px;
             }
             .music-volume {
-                width: 55px;
+                width: 70px;
             }
         }
 
@@ -3686,21 +3686,18 @@
             </div>
         </div>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         const music = document.getElementById('bgMusic');
         music.volume = 0.4;
         let isPlaying = false;
-
-        // Iconos SVG como strings
-        const iconPlay = 'points="5,3 19,12 5,21"';
-        const iconPause = 'points="6,3 6,21 6,3"'; // se reemplaza con doble barra
 
         function toggleMusic() {
             if (isPlaying) {
                 music.pause();
                 setIcon('play');
             } else {
-                music.play();
+                music.play().catch(() => {});
                 setIcon('pause');
             }
             isPlaying = !isPlaying;
@@ -3719,7 +3716,7 @@
             document.getElementById('volTop').value = val;
             document.getElementById('volBottom').value = val;
             if (val > 0 && !isPlaying) {
-                music.play();
+                music.play().catch(() => {});
                 setIcon('pause');
                 isPlaying = true;
             }

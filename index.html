@@ -1470,7 +1470,7 @@
 
         @media (max-width: 768px) {
             .transformemos-title { font-size: 28px !important; text-align: center !important; padding: 0 16px; }
-            .tecnosfera-signature { position: relative !important; bottom: auto !important; right: auto !important; display: block; text-align: right; margin-top: 2px !important; margin-right: 8px !important; white-space: nowrap; font-size: 13px !important; }
+            .tecnosfera-signature { position: relative !important; bottom: auto !important; right: auto !important; display: block; text-align: right; margin-top: 2px !important; margin-right: 8px !important; white-space: nowrap; font-size: 11px !important; }
         }
 
         /* ── TEXTOS BLANCOS EN BOTONES DE PORTADA ARRIBA ── */
@@ -3718,4 +3718,12 @@
             music.volume = val;
             document.getElementById('volTop').value = val;
             document.getElementById('volBottom').value = val;
-            if (val > 0 && !isPla
+            if (val > 0 && !isPlaying) {
+                music.play();
+                setIcon('pause');
+                isPlaying = true;
+            }
+        }
+    </script>
+</body>
+</html>

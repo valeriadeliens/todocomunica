@@ -705,6 +705,16 @@
             .service-btn-benefit {
                 font-size: 15px !important;
             }
+
+            /* Barras de música centradas en mobile */
+            .music-bar {
+                justify-content: center;
+                gap: 10px;
+                padding: 7px 12px;
+            }
+            .music-volume {
+                width: 55px;
+            }
         }
 
         /* BARRA DE NAVEGACIÓN DE SERVICIOS */
@@ -1252,68 +1262,70 @@
         /* ══════════════════════════════════════════
            EFECTO 3D + BRILLO PLÁSTICO — LUNA CRECIENTE REAL
            Técnica: óvalo más ancho que el contenedor, posicionado
-           con top negativo — solo asoma el arco inferior del óvalo,
-           formando una curva que sigue el borde del botón/card.
            ══════════════════════════════════════════ */
 
-        /* PILLS: btn, btn-half, btn-verde-servicios */
+        /* PILLS: franja fina en la parte superior, no tapa texto
+           Óvalo achatado posicionado en top:0 con height pequeño */
         .btn::after,
         .btn-half::after,
         .btn-verde-servicios::after {
             content: '';
             position: absolute;
-            /* óvalo que desborda por arriba y los lados — solo se ve el arco inferior */
-            top: -55%;
-            left: -5%;
-            right: -5%;
-            height: 80%;
-            background: radial-gradient(ellipse at 50% 100%,
-                rgba(255,255,255,0.72) 0%,
-                rgba(255,255,255,0.40) 45%,
-                transparent 72%
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background: radial-gradient(ellipse 90% 55% at 50% 0%,
+                rgba(255,255,255,0.68) 0%,
+                rgba(255,255,255,0.35) 40%,
+                transparent 70%
             );
-            border-radius: 50%;
+            border-radius: 50px;
             pointer-events: none;
             z-index: 1;
         }
 
-        /* Service-btn: misma luna pero arrancando desde el 28% para no tapar icono */
+        /* Service-btn: brillo solo en mitad derecha para no tapar icono */
         .service-btn::after {
             content: '';
             position: absolute;
-            top: -60%;
-            left: 25%;
-            right: -5%;
-            height: 90%;
-            background: radial-gradient(ellipse at 50% 100%,
-                rgba(255,255,255,0.68) 0%,
-                rgba(255,255,255,0.35) 45%,
-                transparent 72%
+            top: 0;
+            left: 30%;
+            right: 0;
+            height: 50%;
+            background: radial-gradient(ellipse 90% 55% at 50% 0%,
+                rgba(255,255,255,0.65) 0%,
+                rgba(255,255,255,0.30) 40%,
+                transparent 70%
             );
-            border-radius: 50%;
+            border-radius: 0 50px 0 0;
             pointer-events: none;
             z-index: 1;
         }
 
-        /* CARDS y boxes: mismo efecto adaptado a forma rectangular */
+        /* CARDS de perfiles y programas: brillo curvo arriba */
         .option-card::after,
-        .program-card::after,
-        .comprension-box::after,
-        .home-intro-box::after {
+        .program-card::after {
             content: '';
             position: absolute;
-            top: -70%;
-            left: -3%;
-            right: -3%;
-            height: 95%;
-            background: radial-gradient(ellipse at 50% 100%,
-                rgba(255,255,255,0.65) 0%,
-                rgba(255,255,255,0.30) 50%,
-                transparent 75%
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: radial-gradient(ellipse 90% 60% at 50% 0%,
+                rgba(255,255,255,0.62) 0%,
+                rgba(255,255,255,0.25) 45%,
+                transparent 72%
             );
-            border-radius: 50%;
+            border-radius: 20px 20px 0 0;
             pointer-events: none;
             z-index: 1;
+        }
+
+        /* comprension-box y home-intro-box: SIN brillo, solo sombra 3D */
+        .comprension-box::after,
+        .home-intro-box::after {
+            display: none;
         }
 
         /* position y overflow en los que aún no los tienen */

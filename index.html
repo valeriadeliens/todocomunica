@@ -709,6 +709,11 @@
 
             /* Barras de música centradas en mobile */
             .music-bar {
+                /* Forzar ancho del viewport para evitar descentrado por overflow */
+                left: 50% !important;
+                right: auto !important;
+                width: 100vw !important;
+                transform: translateX(-50%) !important;
                 gap: 6px !important;
                 padding: 6px 8px !important;
                 justify-content: center !important;

@@ -24,12 +24,21 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--blanco);
             color: var(--negro);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
         }
 
         /* HEADER */
@@ -638,13 +647,14 @@
 
             /* Reducir padding del header para eliminar espacio arriba */
             .header.home {
-                padding: 20px 20px 10px !important;
+                padding: 20px 20px 30px !important;
             }
 
             .header.home .logo-img {
-                max-width: 180%;
-                width: 180%;
-                margin-left: -40%;
+                max-width: 100%;
+                width: 100%;
+                transform: scale(1.5);
+                transform-origin: center center;
             }
 
             /* Reducir espacio a la mitad del actual */

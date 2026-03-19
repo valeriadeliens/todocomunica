@@ -522,6 +522,7 @@
         .tree-node-badge.rosa { background: var(--rosa); }
         .tree-node-badge.amarillo { background: var(--amarillo); color: var(--blanco); }
         .tree-node-badge.verde { background: var(--verde); color: var(--blanco); }
+        .tree-node-badge.gris { background: var(--gris); color: var(--blanco); }
         .tree-toggle-icon { margin-left: 10px; font-size: 11px; }
 
         .tree-node h3 {
@@ -1648,6 +1649,30 @@
         .tree-node-badge.rosa     { box-shadow: 0 4px 0 #c0408a; }
         .tree-node-badge.amarillo { box-shadow: 0 4px 0 #b09020; }
         .tree-node-badge.verde    { box-shadow: 0 4px 0 #88981a; }
+        .tree-node-badge.gris     { box-shadow: 0 4px 0 #808080; }
+
+        /* Efecto Flash para Auditoría Flash */
+        .flash-title {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(90deg, 
+                var(--gris) 0%, 
+                var(--gris) 40%, 
+                rgba(255,255,255,0.4) 50%, 
+                var(--gris) 60%, 
+                var(--gris) 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
 
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1690,6 +1715,7 @@
         <button class="service-nav-btn gris" onclick="showServiceScreen('voceria')">Vocería</button>
         <button class="service-nav-btn rosa" onclick="showServiceScreen('influencers')">Influencers</button>
         <button class="service-nav-btn amarillo" onclick="showServiceScreen('brainstorming')">Brainstorming</button>
+        <button class="service-nav-btn gris" onclick="showServiceScreen('pauta')">Pauta</button>
     </div>
 
     <!-- PANTALLA 1: BIENVENIDA -->
@@ -1815,6 +1841,17 @@
                             <div class="service-btn-benefit">Desbloqueá ideas frescas y disruptivas para generar impacto.</div>
                         </div>
                     </button>
+                    <button class="service-btn rosa" style="grid-column: span 2;" onclick="showServiceScreen('pauta')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#ff66c4" stroke-width="1.5">
+                            <path d="M18 8a6 6 0 0 1 0 8"/>
+                            <path d="M21 5a12 12 0 0 1 0 14"/>
+                            <path d="M3 11v2a1 1 0 0 0 1 1h2l4.3 3.8a1 1 0 0 0 1.7-.7V6.9a1 1 0 0 0-1.7-.7L6 10H4a1 1 0 0 0-1 1Z"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Pauta digital estratégica</div>
+                            <div class="service-btn-benefit">Invertí mejor y convertí más.</div>
+                        </div>
+                    </button>
                     <button class="service-btn gris" style="grid-column: span 2;" onclick="showScreen('screen-programas')">
                         <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#a6a6a6" stroke-width="1.5">
                             <circle cx="11" cy="11" r="8"/>
@@ -1877,7 +1914,7 @@
                     <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
                     <div class="program-info">
                         <p class="program-title">Programa Perfil Rentable</p>
-                        <p class="program-profile">Figuras / Periodistas / Referentes</p>
+                        <p class="program-profile">Figuras / Periodistas / Creadores de Contenidos / Referentes</p>
                     </div>
                 </div>
                 <div class="program-card rosa-icon" onclick="showProgramScreen('pyme')">
@@ -1939,7 +1976,7 @@
             <div class="options">
                 <div class="option-card amarillo-icon" onclick="selectProfile('figuras')">
                     <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
-                    <p>Figura pública / Periodista / Referente</p>
+                    <p>Figura pública / Periodista / Creador de Contenidos / Referente</p>
                 </div>
                 <div class="option-card rosa-icon" onclick="selectProfile('pymes')">
                     <img src="icono_PyMEs.png" alt="" class="profile-icon">
@@ -2000,6 +2037,12 @@
                 <div class="option-card rosa" onclick="selectProblem('figuras', 'cobrar')">
                     <p>Quiero ganar dinero con mis redes pero no sé cuánto cobrar ni cómo negociar</p>
                 </div>
+                <div class="option-card amarillo" onclick="selectProblem('figuras', 'pauta-rendimiento')">
+                    <p>Estoy invirtiendo en pauta pero no veo resultados claros</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('figuras', 'pauta-dinero')">
+                    <p>Siento que estoy gastando en publicidad sin entender qué funciona</p>
+                </div>
             </div>
 
             <div class="nav-buttons">
@@ -2043,6 +2086,12 @@
                 </div>
                 <div class="option-card rosa" onclick="selectProblem('pymes', 'digital')">
                     <p>Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('pymes', 'pauta-rendimiento')">
+                    <p>Estoy invirtiendo en pauta pero no veo resultados claros</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('pymes', 'pauta-dinero')">
+                    <p>Siento que estoy gastando en publicidad sin entender qué funciona</p>
                 </div>
             </div>
 
@@ -2088,6 +2137,15 @@
                 <div class="option-card rosa" onclick="selectProblem('emprendedores', 'sostener')">
                     <p>Me cuesta sostener una comunicación coherente en el tiempo</p>
                 </div>
+                <div class="option-card gris" onclick="selectProblem('emprendedores', 'flash')">
+                    <p>Necesito claridad rápida sobre qué ajustar en mi comunicación</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('emprendedores', 'pauta-rendimiento')">
+                    <p>Estoy invirtiendo en pauta pero no veo resultados claros</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('emprendedores', 'pauta-dinero')">
+                    <p>Siento que estoy gastando en publicidad sin entender qué funciona</p>
+                </div>
             </div>
 
             <div class="nav-buttons">
@@ -2131,6 +2189,12 @@
                 </div>
                 <div class="option-card rosa" onclick="selectProblem('empresas', 'estrategia')">
                     <p>No hay una mirada estratégica sobre cómo comunicamos</p>
+                </div>
+                <div class="option-card amarillo" onclick="selectProblem('empresas', 'pauta-rendimiento')">
+                    <p>Estoy invirtiendo en pauta pero no veo resultados claros</p>
+                </div>
+                <div class="option-card verde" onclick="selectProblem('empresas', 'pauta-dinero')">
+                    <p>Siento que estoy gastando en publicidad sin entender qué funciona</p>
                 </div>
             </div>
 
@@ -2206,6 +2270,7 @@
     <div class="screen" id="screen-programa-posicionamiento"></div>
     <div class="screen" id="screen-programa-organizacional"></div>
     <div class="screen" id="screen-programa-cotidiana"></div>
+    <div class="screen" id="screen-programa-pauta"></div>
 
     <!-- PANTALLAS DE DETALLE (ÁRBOLES) -->
     <div class="screen" id="screen-detalle-figura-rentable"></div>
@@ -2213,6 +2278,7 @@
     <div class="screen" id="screen-detalle-posicionamiento"></div>
     <div class="screen" id="screen-detalle-organizacional"></div>
     <div class="screen" id="screen-detalle-cotidiana"></div>
+    <div class="screen" id="screen-detalle-pauta"></div>
 
     <!-- PANTALLA FORMULARIO -->
     <div class="screen" id="screen-contacto"></div>
@@ -2549,6 +2615,51 @@
         </div>
     </div>
 
+    <!-- PANTALLA SERVICIO: PAUTA -->
+    <div class="screen" id="screen-servicio-pauta">
+        <div class="header">
+            <div class="logo-container">
+                <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
+            </div>
+        </div>
+        <div class="separator" style="margin-top: 20px;">
+            <span class="line gris"></span>
+            <span class="line rosa"></span>
+            <span class="line verde"></span>
+            <span class="line amarillo"></span>
+        </div>
+        <div class="container">
+            <h2 style="display:flex;align-items:center;justify-content:center;gap:14px;text-align:center;">
+                📊 Pauta digital con criterio estratégico
+            </h2>
+            <div class="solution-card">
+                <p>
+                    Invertir en pauta sin estrategia es <strong>gastar dinero más rápido</strong>, no es crecer.
+                    Muchas campañas no fallan por falta de presupuesto sino por <strong>mala segmentación, mensajes débiles o falta de coherencia con los objetivos de la marca</strong>.
+                </p>
+                <p>
+                    Mi enfoque combina <strong>lectura estratégica + ejecución técnica</strong> para que cada peso/dólar invertido tenga sentido:
+                    llegar a las personas correctas, con el mensaje indicado y en el momento preciso.
+                </p>
+                <p>
+                    El resultado no es solo más alcance sino <strong>más conversiones, más claridad y mejores resultados alineados con el objetivo</strong>.
+                </p>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-verde" onclick="showProgramScreen('pauta')">Ver programa completo</button>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-contacto" onclick="showContactScreen('pauta')">
+                    Quiero optimizar mi inversión en pauta
+                </button>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // DATA
         const problemsData = {
@@ -2572,6 +2683,14 @@
                 cobrar: {
                     text: "Es normal: nadie te enseñó a ponerle valor económico a tu imagen. Sin referencias ni estructura, negociar se vuelve incómodo y desparejo.",
                     program: "figura-rentable"
+                },
+                "pauta-rendimiento": {
+                    text: "Estás invirtiendo en pauta, pero los resultados no son claros ni sostenibles.",
+                    program: "pauta"
+                },
+                "pauta-dinero": {
+                    text: "Sentís que estás gastando dinero en publicidad sin entender qué está funcionando.",
+                    program: "pauta"
                 }
             },
             pymes: {
@@ -2594,6 +2713,14 @@
                 digital: {
                     text: "La tecnología no es solo una herramienta, también impone nuevos modos de comunicación. Integrarla sin forzar cambios bruscos requiere criterio, no improvisación.",
                     program: "pyme"
+                },
+                "pauta-rendimiento": {
+                    text: "Estás invirtiendo en pauta, pero los resultados no son claros ni sostenibles.",
+                    program: "pauta"
+                },
+                "pauta-dinero": {
+                    text: "Sentís que estás gastando dinero en publicidad sin entender qué está funcionando.",
+                    program: "pauta"
                 }
             },
             emprendedores: {
@@ -2616,6 +2743,18 @@
                 sostener: {
                     text: "Sin un sistema simple y propio, comunicar se vuelve una carga más, en lugar de una herramienta.",
                     program: "posicionamiento"
+                },
+                flash: {
+                    text: "A veces lo que necesitás no es un programa largo, sino claridad inmediata sobre qué está frenando tu comunicación y cómo empezar a destrabarlo.",
+                    program: "posicionamiento"
+                },
+                "pauta-rendimiento": {
+                    text: "Estás invirtiendo en pauta, pero los resultados no son claros ni sostenibles.",
+                    program: "pauta"
+                },
+                "pauta-dinero": {
+                    text: "Sentís que estás gastando dinero en publicidad sin entender qué está funcionando.",
+                    program: "pauta"
                 }
             },
             empresas: {
@@ -2638,6 +2777,14 @@
                 estrategia: {
                     text: "Comunicar sin estrategia lleva a apagar incendios en lugar de prevenirlos.",
                     program: "organizacional"
+                },
+                "pauta-rendimiento": {
+                    text: "Estás invirtiendo en pauta, pero los resultados no son claros ni sostenibles.",
+                    program: "pauta"
+                },
+                "pauta-dinero": {
+                    text: "Sentís que estás gastando dinero en publicidad sin entender qué está funcionando.",
+                    program: "pauta"
                 }
             },
             cotidiana: {
@@ -2681,7 +2828,7 @@
         };
 
         const profileNames = {
-            figuras: "Figuras públicas / Periodistas / Referentes",
+            figuras: "Figuras públicas / Periodistas / Creadores de Contenidos / Referentes",
             pymes: "PyMEs",
             emprendedores: "Emprendedores / Profesionales independientes",
             empresas: "Grandes empresas",
@@ -2747,6 +2894,7 @@
             "voceria": "Vocería para empresas o emprendimientos",
             "influencers": "Acciones con figuras e influencers",
             "brainstorming": "Brainstorming Sessions",
+            "pauta": "Pauta digital estratégica",
             "sobre-mi": "Sobre mí",
             "home": "Portada / Hablemos"
         };
@@ -2769,12 +2917,29 @@
         }
 
         function goBack() {
-            const scrollY = previousScrollY;
-            // Activar pantalla anterior sin sobreescribir previousScreen/previousScrollY
+            if (!previousScreen) {
+                showScreen('screen-home');
+                return;
+            }
+            // Guardar la pantalla a la que vamos a volver
+            const targetScreenId = previousScreen;
+            const targetScrollY = previousScrollY;
+            
+            // Buscar la pantalla anterior a esa (si existe en el historial)
+            // Para simplificar, limpiamos previousScreen para evitar loops
+            previousScreen = null;
+            previousScrollY = 0;
+            
+            // Activar la pantalla objetivo
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.getElementById(previousScreen).classList.add('active');
+            const targetScreen = document.getElementById(targetScreenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            } else {
+                document.getElementById('screen-home').classList.add('active');
+            }
             window.scrollTo(0, 0);
-            requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
+            requestAnimationFrame(() => window.scrollTo({ top: targetScrollY, behavior: 'instant' }));
         }
 
         function selectProfile(profile) {
@@ -2829,7 +2994,7 @@
             const programContent = {
                 'figura-rentable': {
                     title: 'Programa Perfil Rentable',
-                    description: 'Un programa de consultoría estratégica con 3 niveles a elegir según necesidad para transformar tu perfil en una herramienta coherente, atractiva para marcas y monetizable, sin improvisación ni desgaste.',
+                    description: 'Un programa de consultoría estratégica con diferentes niveles a elegir según necesidad para transformar tu perfil en una herramienta coherente, atractiva para marcas y monetizable, sin improvisación ni desgaste.',
                     screenId: 'screen-programa-figura-rentable'
                 },
                 'pyme': {
@@ -2851,6 +3016,11 @@
                     title: 'Optimización de Comunicación Cotidiana',
                     description: 'Un programa de consultoría comunicacional diseñado para recuperar el control y la claridad en tus interacciones diarias —cara a cara y digitales—. El objetivo es dotarte de criterios prácticos para decidir qué decir, cómo y por qué canal, reduciendo malentendidos y desgaste operativo sin entrar en abordajes terapéuticos.',
                     screenId: 'screen-programa-cotidiana'
+                },
+                'pauta': {
+                    title: 'Pauta Digital con Criterio Estratégico',
+                    description: 'Un programa de consultoría estratégica para que cada peso invertido en publicidad tenga sentido y resultados medibles. Transformamos inversiones erráticas en campañas coherentes que llegan a las personas correctas, con el mensaje correcto y en el momento correcto.',
+                    screenId: 'screen-programa-pauta'
                 }
             };
 
@@ -2901,7 +3071,8 @@
                 'pyme': generatePymeTree(),
                 'posicionamiento': generatePosicionamientoTree(),
                 'organizacional': generateOrganizacionalTree(),
-                'cotidiana': generateCotidianaTree()
+                'cotidiana': generateCotidianaTree(),
+                'pauta': generatePautaTree()
             };
 
             const screenMap = {
@@ -2909,7 +3080,8 @@
                 'pyme': 'screen-detalle-pyme',
                 'posicionamiento': 'screen-detalle-posicionamiento',
                 'organizacional': 'screen-detalle-organizacional',
-                'cotidiana': 'screen-detalle-cotidiana'
+                'cotidiana': 'screen-detalle-cotidiana',
+                'pauta': 'screen-detalle-pauta'
             };
 
             const screen = document.getElementById(screenMap[program]);
@@ -2922,17 +3094,40 @@
             container.querySelectorAll('.tree-node').forEach(node => {
                 const badge = node.querySelector('.tree-node-badge');
                 const h3 = node.querySelector('h3');
-                if (!badge || !h3) return;
+                if (!h3) return;
 
                 const allChildren = Array.from(node.children);
                 const h3Idx = allChildren.indexOf(h3);
-                let queesPIdx = -1;
+                
+                // Buscar elementos a mantener visibles después del h3
+                let visibleUntilIdx = h3Idx;
+                let foundQueEs = false;
+                
                 for (let i = h3Idx + 1; i < allChildren.length; i++) {
-                    if (allChildren[i].tagName === 'P') { queesPIdx = i; break; }
+                    const el = allChildren[i];
+                    
+                    // Si es un <p> con <strong> justo después de h3, es la duración
+                    if (i === h3Idx + 1 && el.tagName === 'P' && el.querySelector('strong')) {
+                        visibleUntilIdx = i;
+                        continue;
+                    }
+                    
+                    // Si es un h4 con "¿Qué es?"
+                    if (el.tagName === 'H4' && (el.textContent.includes('¿Qué es?') || el.textContent.includes('Qué es'))) {
+                        visibleUntilIdx = i;
+                        foundQueEs = true;
+                        continue;
+                    }
+                    
+                    // Si ya encontramos "¿Qué es?" y esto es el primer <p> después
+                    if (foundQueEs && el.tagName === 'P') {
+                        visibleUntilIdx = i;
+                        break;
+                    }
                 }
-                if (queesPIdx === -1) return;
-
-                const collapsibleItems = allChildren.slice(queesPIdx + 1);
+                
+                // Los elementos a colapsar son todo lo que viene después
+                const collapsibleItems = allChildren.slice(visibleUntilIdx + 1);
                 if (collapsibleItems.length === 0) return;
 
                 // Wrapper collapsible
@@ -2943,15 +3138,19 @@
 
                 node.appendChild(wrapper);
 
-                // Badge clickeable con flecha separada
-                badge.style.cursor = 'pointer';
-                badge.style.userSelect = 'none';
+                // Crear botón de expansión clickeable
+                const toggleBtn = badge || h3;
+                toggleBtn.style.cursor = 'pointer';
+                toggleBtn.style.userSelect = 'none';
+                
+                // Agregar flecha indicadora
                 const indicator = document.createElement('span');
                 indicator.className = 'tree-toggle-icon';
                 indicator.textContent = '▼';
-                badge.appendChild(indicator);
+                indicator.style.cssText = 'margin-left: 8px; display: inline-block; transition: transform 0.3s ease;';
+                toggleBtn.appendChild(indicator);
 
-                badge.addEventListener('click', () => {
+                toggleBtn.addEventListener('click', () => {
                     const isOpen = wrapper.style.maxHeight && wrapper.style.maxHeight !== '0px';
                     if (isOpen) {
                         wrapper.style.maxHeight = '0';
@@ -2987,6 +3186,21 @@
                         </div>
 
                         <div class="tree-timeline">
+                            <div class="tree-node gris">
+                                <h3 class="flash-title">Auditoría Flash</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>En una sesión 1:1 vemos tu caso y te digo exactamente qué está frenando que tu comunicación te genere resultados reales, y qué ajustar para empezar a destrabarlo.</p>
+                                
+                                <h4>Incluye:</h4>
+                                <ul>
+                                    <li>1 llamada de 60 minutos</li>
+                                    <li>Diagnóstico claro y directo</li>
+                                    <li>3–5 ajustes concretos</li>
+                                    <li>Pasos accionables para los próximos 15–30 días</li>
+                                </ul>
+                            </div>
+
                             <div class="tree-node rosa">
                                 <div class="tree-node-badge rosa">Opción 1</div>
                                 <h3>Auditoría Express</h3>
@@ -3016,11 +3230,27 @@
                                 <h3>Programa Express</h3>
                                 
                                 <h4>¿Qué es?</h4>
+                                <p>Trabajo con vos durante un mes para ordenar tu comunicación, definir un enfoque claro y acompañarte a implementar cambios que empiecen a generar oportunidades reales.</p>
+                                
+                                <h4>Incluye:</h4>
+                                <ul>
+                                    <li>1 llamada semanal (4 en total)</li>
+                                    <li>Seguimiento por WhatsApp / mensajes</li>
+                                    <li>Ajustes sobre lo que vayas haciendo</li>
+                                    <li>Guía estratégica aplicada a tu caso real</li>
+                                </ul>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Opción 3</div>
+                                <h3>Programa Full</h3>
+                                
+                                <h4>¿Qué es?</h4>
                                 <p>Programa intensivo de implementación completa: contenido + monetización.</p>
                                 
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesiones sincrónicas y asincrónicas (contenidos en video)</li>
+                                    <li>Sesiones sincrónicas</li>
                                     <li>Estrategia de Marca Básica</li>
                                     <li>Optimización de perfiles (Instagram, opcional LinkedIn)</li>
                                     <li>Sistema de contenido simplificado (batching 90 min/semana)</li>
@@ -3029,12 +3259,6 @@
                                     <li>Soporte por WhatsApp (8 semanas)</li>
                                     <li>Revisión de hasta 5 propuestas antes de enviar</li>
                                 </ul>
-
-                                <h4>Estructura:</h4>
-                                <p><strong>Semanas 1-2:</strong> Fundamentos y estrategia<br>
-                                <strong>Semanas 3-5:</strong> Sistema de contenido + Media Kit<br>
-                                <strong>Semanas 6-7:</strong> Envío de propuestas y negociación<br>
-                                <strong>Semana 8:</strong> Cierre y plan de continuidad</p>
 
                                 <h4>Para quién:</h4>
                                 <p>Figuras que quieren sistema completo y planean gestionar su monetización ellos mismos.</p>
@@ -3051,17 +3275,17 @@
                                 <p><strong>Tiempo requerido del cliente:</strong> 2-3 horas/semana</p>
                             </div>
 
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Opción 3</div>
-                                <h3>Programa Express + Acompañamiento</h3>
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge gris">Opción 4</div>
+                                <h3>Programa VIP (Full + Acompañamiento)</h3>
                                 <p><strong>20 semanas (5 meses)</strong></p>
                                 
                                 <h4>¿Qué es?</h4>
-                                <p>Programa Express + 3 meses adicionales de soporte para garantizar resultados sostenidos.</p>
+                                <p>Programa Full + 3 meses adicionales de soporte para garantizar resultados sostenidos.</p>
                                 
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Todo del Nivel 2 (8 semanas iniciales)</li>
+                                    <li>Todo del Programa Full (8 semanas iniciales)</li>
                                     <li>+ 3 meses de acompañamiento post-programa:
                                         <ul style="margin-left: 20px; margin-top: 10px;">
                                             <li>Sesiones sincrónicas</li>
@@ -3147,7 +3371,7 @@
                                 <h4>Duración y Formato:</h4>
                                 <p>7 semanas • Online</p>
                                 <p><strong>Modalidad:</strong> Consultoría estratégica + acompañamiento</p>
-                                <p><strong>Sesiones sincrónicas y asincrónicas (contenidos en video)</strong></p>
+                                <p><strong>Sesiones sincrónicas</strong></p>
                                 
                                 <h4>Qué se trabaja:</h4>
                                 <ul>
@@ -3209,6 +3433,21 @@
                         </div>
 
                         <div class="tree-timeline">
+                            <div class="tree-node gris">
+                                <h3 class="flash-title">Auditoría Flash</h3>
+                                
+                                <h4>¿Qué es?</h4>
+                                <p>En una sesión 1:1 vemos tu caso y te digo exactamente qué está frenando que tu comunicación te genere resultados reales, y qué ajustar para empezar a destrabarlo.</p>
+                                
+                                <h4>Incluye:</h4>
+                                <ul>
+                                    <li>1 llamada de 60 minutos</li>
+                                    <li>Diagnóstico claro y directo</li>
+                                    <li>3–5 ajustes concretos</li>
+                                    <li>Pasos accionables para los próximos 15–30 días</li>
+                                </ul>
+                            </div>
+
                             <div class="tree-node rosa">
                                 <div class="tree-node-badge rosa">Opción 1</div>
                                 <h3>Auditoría de Claridad</h3>
@@ -3417,7 +3656,6 @@
                                 <p><strong>Modalidad:</strong></p>
                                 <ul>
                                     <li>Sesiones sincrónicas</li>
-                                    <li>Sesiones asincrónicas (contenidos en video)</li>
                                     <li>Soporte continuo: Seguimiento vía WhatsApp / mail entre sesiones</li>
                                 </ul>
                                 
@@ -3455,6 +3693,97 @@
                     <div class="nav-buttons">
                         <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                         <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generatePautaTree() {
+            return `
+                <div class="header">
+                    <div class="logo-container">
+                        <img src="titulo_vd_grande.jpg" alt="Valeria Deliens" class="logo-img" onclick="showScreen('screen-home')" style="cursor: pointer;">
+                    </div>
+                </div>
+
+                <div class="separator" style="margin-top: 20px;">
+                    <span class="line gris"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
+                </div>
+
+                <div class="wide-container">
+                    <div class="tree-container">
+                        <div class="tree-header">
+                            <div class="tree-title">Estructura del Programa</div>
+                            <h1 class="tree-main-title">Pauta Digital con Criterio Estratégico</h1>
+                        </div>
+
+                        <div class="tree-timeline">
+                            <div class="tree-node rosa">
+                                <div class="tree-node-badge rosa">Fase 1</div>
+                                <h3>Diagnóstico Estratégico</h3>
+                            </div>
+
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">Fase 2</div>
+                                <h3>Diseño de Estrategia de Inversión</h3>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">Fase 3</div>
+                                <h3>Implementación y Optimización</h3>
+                            </div>
+
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge gris">Fase 4</div>
+                                <h3>Análisis de Resultados y Aprendizajes</h3>
+                            </div>
+                        </div>
+
+                        <div class="tree-section">
+                            <h2>¿Qué hace diferente a este Programa?</h2>
+                            <div class="solution-card">
+                                <p><strong>No es solo ejecución técnica.</strong> Cualquiera puede activar campañas. La diferencia está en el criterio estratégico: entender qué mensaje necesita cada audiencia en cada momento y cómo medir lo que realmente importa para tu negocio.</p>
+                                <p><strong>No trabajamos con recetas genéricas.</strong> Cada negocio tiene su propia lógica. Lo que funciona para uno puede no funcionar para otro. Este programa se adapta a tu realidad y no al revés.</p>
+                                <p><strong>Transparencia total.</strong> Vas a entender cada decisión: por qué invertimos acá y no allá, por qué este mensaje y no otro, qué esperamos de cada campaña. Sin caja negra, sin "confiá en mí".</p>
+                            </div>
+                        </div>
+
+                        <div class="tree-section">
+                            <h2>¿Qué NO es este programa?</h2>
+                            <div class="solution-card">
+                                <p>❌ No es una agencia de pauta tradicional que aplica opciones genéricas para todos.</p>
+                                <p>❌ No es un servicio de diseño de piezas publicitarias (aunque revisamos la coherencia de tus creatividades).</p>
+                                <p>❌ No es magia: si tu producto o servicio no tiene demanda, la pauta no lo va a resolver.</p>
+                            </div>
+                        </div>
+
+                        <div class="tree-section">
+                            <div class="solution-card">
+                                <p><strong>Plataformas:</strong> Meta (Facebook/Instagram), Google Ads, LinkedIn Ads (según necesidad)</p>
+                            </div>
+                        </div>
+
+                        <div class="tree-section">
+                            <h2>¿Cómo saber si este programa es para vos?</h2>
+                            <div class="solution-card">
+                                <p>✅ Estás invirtiendo en pauta pero no entendés si funciona o no.</p>
+                                <p>✅ Querés empezar a pautar pero no sabés por dónde arrancar sin desperdiciar dinero.</p>
+                                <p>✅ Tenés resultados, pero sentís que podrías estar gastando menos y logrando más.</p>
+                                <p>✅ Necesitás claridad: entender qué está pasando con tu inversión y por qué.</p>
+                            </div>
+                        </div>
+
+                        <div class="btn-container">
+                            <button class="btn btn-contacto" onclick="showContactScreen('pauta')">Quiero optimizar mi inversión en pauta</button>
+                        </div>
+
+                        <div class="nav-buttons">
+                            <button class="btn btn-outline nav-btn" onclick="showScreen('screen-programa-pauta')">← Volver</button>
+                            <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -3706,6 +4035,10 @@
                 brainstorming: {
                     title: 'Brainstorming Sessions',
                     description: 'Sesiones creativas para campañas y lanzamientos desde visión externa profesional.'
+                },
+                pauta: {
+                    title: 'Pauta digital estratégica',
+                    description: 'Inversión publicitaria con criterio estratégico para mejores resultados.'
                 }
             };
             

@@ -2902,44 +2902,51 @@
         let currentProfile = '';
         let currentProblem = '';
         let currentProgram = '';
-        let previousScreen = 'screen-home';
-        let previousScrollY = 0;
+        // Stack de navegación estructural: cada pantalla visitada se apila.
+        // goBack() siempre desapila la anterior real, sin importar cuántas veces se use.
+        let navigationStack = [];
 
         function showScreen(screenId) {
             const currentActive = document.querySelector('.screen.active');
-            if (currentActive && screenId !== 'screen-contacto') {
-                previousScreen = currentActive.id;
-                previousScrollY = window.scrollY;
+
+            if (screenId === 'screen-home') {
+                // Ir a home siempre limpia el historial completo
+                navigationStack = [];
+            } else if (currentActive) {
+                // Apilamos la pantalla actual antes de salir de ella
+                navigationStack.push({
+                    id: currentActive.id,
+                    scrollY: window.scrollY
+                });
             }
+
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0, 0);
         }
 
         function goBack() {
-            if (!previousScreen) {
-                showScreen('screen-home');
+            if (navigationStack.length === 0) {
+                // Sin historial: volver a home de forma directa (sin apilar nada)
+                document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+                document.getElementById('screen-home').classList.add('active');
+                window.scrollTo(0, 0);
                 return;
             }
-            // Guardar la pantalla a la que vamos a volver
-            const targetScreenId = previousScreen;
-            const targetScrollY = previousScrollY;
-            
-            // Buscar la pantalla anterior a esa (si existe en el historial)
-            // Para simplificar, limpiamos previousScreen para evitar loops
-            previousScreen = null;
-            previousScrollY = 0;
-            
-            // Activar la pantalla objetivo
+
+            const prev = navigationStack.pop();
+
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            const targetScreen = document.getElementById(targetScreenId);
+            const targetScreen = document.getElementById(prev.id);
             if (targetScreen) {
                 targetScreen.classList.add('active');
             } else {
+                // Fallback: si la pantalla no existe, vamos a home y limpiamos
+                navigationStack = [];
                 document.getElementById('screen-home').classList.add('active');
             }
             window.scrollTo(0, 0);
-            requestAnimationFrame(() => window.scrollTo({ top: targetScrollY, behavior: 'instant' }));
+            requestAnimationFrame(() => window.scrollTo({ top: prev.scrollY, behavior: 'instant' }));
         }
 
         function selectProfile(profile) {
@@ -3781,7 +3788,7 @@
                         </div>
 
                         <div class="nav-buttons">
-                            <button class="btn btn-outline nav-btn" onclick="showScreen('screen-programa-pauta')">← Volver</button>
+                            <button class="btn btn-outline nav-btn" onclick="goBack()">← Volver</button>
                             <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
                         </div>
                     </div>
@@ -3791,13 +3798,6 @@
 
         function showContactScreen(program) {
             // Capturar la pantalla y scroll actuales ANTES de cualquier cambio de DOM
-            const sourceScreen = document.querySelector('.screen.active');
-            const sourceScrollY = window.scrollY;
-            if (sourceScreen) {
-                previousScreen = sourceScreen.id;
-                previousScrollY = sourceScrollY;
-            }
-
             const screen = document.getElementById('screen-contacto');
             screen.innerHTML = `
                 <div class="header">

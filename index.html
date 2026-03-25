@@ -1729,16 +1729,32 @@
         <!-- Línea fina gris centrada -->
         <div style="width: 700px; max-width: calc(100% - 40px); margin: 40px auto; border-bottom: 1px solid #d0d0d0;"></div>
 
-        <div class="container" style="padding-top: 0; padding-bottom: 20px;">
-            <!-- Botones Sobre mí y Tecnósfera lado a lado -->
-            <div class="top-buttons" style="margin-bottom: 12px; margin-top: 0;">
-                <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
-                <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
+        <!-- Marquesina -->
+        <div style="width: 100%; overflow: hidden; height: 54px; display: flex; align-items: center; background: transparent; margin: 0; padding: 0;">
+            <div id="marquee-text" style="white-space: nowrap; will-change: transform; font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; color: var(--negro); line-height: 1.2; display: inline-block;">
+                Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
+        </div>
+        <script>
+        (function() {
+            var el = document.getElementById('marquee-text');
+            var pos = 0;
+            var speed = 1.2;
+            function animate() {
+                pos -= speed;
+                var half = el.scrollWidth / 2;
+                if (Math.abs(pos) >= half) pos = 0;
+                el.style.transform = 'translateX(' + pos + 'px)';
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+        </script>
 
+        <div class="container" style="padding-top: 0; padding-bottom: 20px;">
             <!-- Botón verde nuevo (más junto) -->
             <div class="btn-container" style="margin-top: 0; margin-bottom: 30px;">
-                <button class="btn-verde-servicios" onclick="scrollToServicios()">Transformemos tu comunicación en resultados.</button>
+                <button class="btn-verde-servicios" onclick="scrollToServicios()">Transformemos tu comunicación en resultados monetizables</button>
             </div>
 
             <!-- Pregunta principal -->
@@ -1765,11 +1781,23 @@
             </div>
 
             <!-- Título antes de servicios -->
-            <h2 class="transformemos-title" style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">Transformemos tu comunicación en resultados.</h2>
+            <h2 class="transformemos-title" style="text-align: center; margin: 40px 0 30px; font-size: 24px; font-weight: 600;">Transformemos tu comunicación en resultados monetizables.</h2>
 
             <!-- 6 botones de servicios (scroll) -->
             <div id="servicios-section">
                 <div class="services-grid">
+                    <button class="service-btn gris" style="grid-column: span 2;" onclick="showScreen('screen-programas')">
+                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#a6a6a6" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                            <path d="M11 8v6"/>
+                            <path d="M8 11h6"/>
+                        </svg>
+                        <div class="service-btn-content">
+                            <div class="service-btn-title">Programas de auditoría y optimización</div>
+                            <div class="service-btn-benefit">Optimizá la comunicación y maximizá la rentabilidad de tu inversión.</div>
+                        </div>
+                    </button>
                     <button class="service-btn rosa" onclick="showServiceScreen('estrategias')">
                         <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#ff66c4" stroke-width="1.5">
                             <circle cx="12" cy="12" r="10"/>
@@ -1852,23 +1880,17 @@
                             <div class="service-btn-benefit">Invertí mejor y convertí más.</div>
                         </div>
                     </button>
-                    <button class="service-btn gris" style="grid-column: span 2;" onclick="showScreen('screen-programas')">
-                        <svg class="service-btn-icon" viewBox="0 0 24 24" fill="none" stroke="#a6a6a6" stroke-width="1.5">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                            <path d="M11 8v6"/>
-                            <path d="M8 11h6"/>
-                        </svg>
-                        <div class="service-btn-content">
-                            <div class="service-btn-title">Programas de auditoría y optimización</div>
-                            <div class="service-btn-benefit">Optimizá la comunicación y maximizá la rentabilidad de tu inversión.</div>
-                        </div>
-                    </button>
                 </div>
             </div>
 
+            <!-- Botones Sobre mí y Tecnósfera (movidos aquí) -->
+            <div class="top-buttons" style="margin-bottom: 12px; margin-top: 40px;">
+                <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
+                <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
+            </div>
+
             <!-- Botón Hablemos -->
-            <div class="btn-container" style="margin-top: 40px; margin-bottom: 30px;">
+            <div class="btn-container" style="margin-top: 12px; margin-bottom: 30px;">
                 <button class="btn btn-contacto" onclick="showContactScreen('home')">¡Hablemos!</button>
             </div>
 
@@ -1920,22 +1942,22 @@
                 <div class="program-card rosa-icon" onclick="showProgramScreen('pyme')">
                     <img src="icono_PyMEs.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Modernización Comunicacional para PyMEs</p>
-                        <p class="program-profile">PyMEs</p>
+                        <p class="program-title">PyME Moderna y Rentable</p>
+                        <p class="program-profile">Pequeñas y Medianas Empresas / Negocios familiares</p>
                     </div>
                 </div>
                 <div class="program-card verde-icon" onclick="showProgramScreen('posicionamiento')">
                     <img src="icono_emprendedores.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Posicionamiento y Comunicación Personal</p>
-                        <p class="program-profile">Emprendedores e Independientes</p>
+                        <p class="program-title">Posicionamiento y Rentabilidad Sostenibles</p>
+                        <p class="program-profile">Emprendedores / Profesionales / Independientes</p>
                     </div>
                 </div>
                 <div class="program-card gris-icon" onclick="showProgramScreen('organizacional')">
                     <img src="iconograndesempresas.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Consultoría Estratégica de Comunicación Organizacional</p>
-                        <p class="program-profile">Grandes empresas</p>
+                        <p class="program-title">Comunicación Rentable Empresarial</p>
+                        <p class="program-profile">Grandes Empresas</p>
                     </div>
                 </div>
                 <div class="program-card rosa-icon-2" onclick="showProgramScreen('cotidiana')">
@@ -2880,12 +2902,12 @@
         const programNames = {
             "figura-rentable": "Programa Perfil Rentable",
             "figura-rentable-personalizada": "Programa Perfil Rentable - Propuesta personalizada",
-            "pyme": "Modernización Comunicacional para PyMEs",
-            "pyme-personalizada": "Modernización Comunicacional para PyMEs - Propuesta personalizada",
-            "posicionamiento": "Posicionamiento y Comunicación Personal",
-            "posicionamiento-personalizada": "Posicionamiento y Comunicación Personal - Propuesta personalizada",
-            "organizacional": "Consultoría Estratégica de Comunicación Organizacional",
-            "organizacional-personalizada": "Consultoría Estratégica de Comunicación Organizacional - Propuesta personalizada",
+            "pyme": "PyME Moderna y Rentable",
+            "pyme-personalizada": "PyME Moderna y Rentable - Propuesta personalizada",
+            "posicionamiento": "Posicionamiento y Rentabilidad Sostenibles",
+            "posicionamiento-personalizada": "Posicionamiento y Rentabilidad Sostenibles - Propuesta personalizada",
+            "organizacional": "Comunicación Rentable Empresarial",
+            "organizacional-personalizada": "Comunicación Rentable Empresarial - Propuesta personalizada",
             "cotidiana": "Optimización de Comunicación Cotidiana",
             "cotidiana-personalizada": "Optimización de Comunicación Cotidiana - Propuesta personalizada",
             "estrategias": "Estrategias de comunicación",
@@ -3007,17 +3029,17 @@
                     screenId: 'screen-programa-figura-rentable'
                 },
                 'pyme': {
-                    title: 'Modernización Comunicacional para PyMEs',
+                    title: 'PyME Moderna y Rentable',
                     description: 'Un programa de consultoría estratégica de corto plazo para actualizar la comunicación interna y externa de empresas con historia, integrando lo digital sin perder su identidad, valores ni cultura organizacional.',
                     screenId: 'screen-programa-pyme'
                 },
                 'posicionamiento': {
-                    title: 'Posicionamiento y Comunicación Personal',
+                    title: 'Posicionamiento y Rentabilidad Sostenibles',
                     description: 'Un programa de consultoría estratégica para ordenar tu comunicación, clarificar qué ofrecés, cómo lo contás, y lograr coherencia entre lo que hacés, lo que decís y lo que los demás entienden.',
                     screenId: 'screen-programa-posicionamiento'
                 },
                 'organizacional': {
-                    title: 'Consultoría Estratégica de Comunicación Organizacional',
+                    title: 'Comunicación Rentable Empresarial',
                     description: 'Un programa de consultoría estratégica diseñado para ordenar la arquitectura comunicacional de organizaciones con estructuras complejas. El objetivo es alinear el discurso institucional con la práctica diaria y la cultura interna, reduciendo fricciones operativas y ruidos innecesarios sin producir manuales extensos ni piezas irrelevantes.',
                     screenId: 'screen-programa-organizacional'
                 },
@@ -3109,28 +3131,27 @@
                 const h3Idx = allChildren.indexOf(h3);
                 
                 // Buscar elementos a mantener visibles después del h3
+                // Nuevo formato: h3 → p (bajada) → p con <strong> (duración) → h4 → ...
+                // Mantenemos visibles la bajada y la duración; el resto colapsa
                 let visibleUntilIdx = h3Idx;
-                let foundQueEs = false;
                 
                 for (let i = h3Idx + 1; i < allChildren.length; i++) {
                     const el = allChildren[i];
                     
-                    // Si es un <p> con <strong> justo después de h3, es la duración
-                    if (i === h3Idx + 1 && el.tagName === 'P' && el.querySelector('strong')) {
+                    // Primer <p> después de h3: es la bajada — siempre visible
+                    if (i === h3Idx + 1 && el.tagName === 'P') {
                         visibleUntilIdx = i;
                         continue;
                     }
                     
-                    // Si es un h4 con "¿Qué es?"
-                    if (el.tagName === 'H4' && (el.textContent.includes('¿Qué es?') || el.textContent.includes('Qué es'))) {
+                    // Segundo <p> con <strong>: es la duración — también visible
+                    if (i === h3Idx + 2 && el.tagName === 'P' && el.querySelector('strong')) {
                         visibleUntilIdx = i;
-                        foundQueEs = true;
-                        continue;
+                        break;
                     }
                     
-                    // Si ya encontramos "¿Qué es?" y esto es el primer <p> después
-                    if (foundQueEs && el.tagName === 'P') {
-                        visibleUntilIdx = i;
+                    // Si llegamos a un h4, paramos
+                    if (el.tagName === 'H4') {
                         break;
                     }
                 }
@@ -3182,9 +3203,9 @@
 
                 <div class="separator" style="margin-top: 20px;">
                     <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
                 </div>
 
                 <div class="wide-container">
@@ -3195,121 +3216,65 @@
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node gris">
-                                <h3 class="flash-title">Auditoría Flash</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>En una sesión 1:1 vemos tu caso y te digo exactamente qué está frenando que tu comunicación te genere resultados reales, y qué ajustar para empezar a destrabarlo.</p>
-                                
-                                <h4>Incluye:</h4>
-                                <ul>
-                                    <li>1 llamada de 60 minutos</li>
-                                    <li>Diagnóstico claro y directo</li>
-                                    <li>3–5 ajustes concretos</li>
-                                    <li>Pasos accionables para los próximos 15–30 días</li>
-                                </ul>
-                            </div>
-
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Opción 1</div>
-                                <h3>Auditoría Express</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Diagnóstico completo de tu marca personal con recomendaciones accionables.</p>
-                                
+                                <div class="tree-node-badge rosa">NIVEL 1</div>
+                                <h3>Auditoría Flash</h3>
+                                <p>Entendé cómo te ven las marcas hoy — y qué cambiar para que empiecen a escribirte.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>1 sesión de diagnóstico profundo (90 minutos)</li>
-                                    <li>Auditoría completa de tus redes sociales y contenido</li>
-                                    <li>Análisis de tu audiencia y competencia</li>
-                                    <li>Documento estratégico</li>
-                                    <li>Identificación de 5 marcas objetivo para contactar</li>
-                                    <li>Recomendaciones priorizadas</li>
+                                    <li>Análisis completo del perfil</li>
+                                    <li>Auditoría de los últimos 10 posts</li>
+                                    <li>Reporte con 5 cambios específicos para atraer marcas y monetizar el perfil</li>
+                                    <li>Reescritura conjunta de bio y propuesta de valor como creador/a</li>
+                                    <li>1 sesión de 60 min + documento entregable</li>
                                 </ul>
-
-                                <h4>Para quién:</h4>
-                                <p>Figuras que solo necesitan claridad y dirección, pero implementarán por su cuenta.</p>
-
-                                <h4>Resultado:</h4>
-                                <p>Roadmap claro de qué hacer para monetizar + estrategia documentada.</p>
                             </div>
 
                             <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Opción 2</div>
-                                <h3>Programa Express</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Trabajo con vos durante un mes para ordenar tu comunicación, definir un enfoque claro y acompañarte a implementar cambios que empiecen a generar oportunidades reales.</p>
-                                
-                                <h4>Incluye:</h4>
+                                <div class="tree-node-badge amarillo">NIVEL 2</div>
+                                <h3>Optimización de Perfil para Monetización</h3>
+                                <p>Tu perfil listo para que las marcas quieran trabajar con vos. Estrategia, contenido y media kit.</p>
+                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>1 llamada semanal (4 en total)</li>
-                                    <li>Seguimiento por WhatsApp / mensajes</li>
-                                    <li>Ajustes sobre lo que vayas haciendo</li>
-                                    <li>Guía estratégica aplicada a tu caso real</li>
+                                    <li>Todo de Nivel 1</li>
+                                    <li>Definición y comunicación de nicho y audiencia</li>
+                                    <li>Elaboración de Media kit profesional</li>
+                                    <li>Esquema de calendario de contenido estratégico (30 días)</li>
+                                    <li>Identificación de marcas y rubros target</li>
+                                    <li>4 sesiones de seguimiento y trabajo conjunto</li>
                                 </ul>
                             </div>
 
                             <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Opción 3</div>
-                                <h3>Programa Full</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Programa intensivo de implementación completa: contenido + monetización.</p>
-                                
+                                <div class="tree-node-badge verde">NIVEL 3</div>
+                                <h3>Posicionamiento Full + Acompañamiento</h3>
+                                <p>Dos meses para construir tu perfil como referente, tu media kit y tu estrategia de outreach a marcas.</p>
+                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesiones sincrónicas</li>
-                                    <li>Estrategia de Marca Básica</li>
-                                    <li>Optimización de perfiles (Instagram, opcional LinkedIn)</li>
-                                    <li>Sistema de contenido simplificado (batching 90 min/semana)</li>
-                                    <li>Media Kit profesional</li>
-                                    <li>Templates de propuestas para marcas</li>
-                                    <li>Soporte por WhatsApp (8 semanas)</li>
-                                    <li>Revisión de hasta 5 propuestas antes de enviar</li>
+                                    <li>Todo de Nivel 2</li>
+                                    <li>Template de propuesta formal para marcas</li>
+                                    <li>Estrategia de outreach: cómo contactar marcas, qué decir, cómo negociar acuerdos</li>
+                                    <li>Registro semanal de progreso</li>
+                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
                                 </ul>
-
-                                <h4>Para quién:</h4>
-                                <p>Figuras que quieren sistema completo y planean gestionar su monetización ellos mismos.</p>
-
-                                <h4>Resultado esperado:</h4>
-                                <ul>
-                                    <li>12-18 posts publicados con el sistema presentado</li>
-                                    <li>5-10 propuestas enviadas a marcas reales</li>
-                                    <li>Media kit profesional listo</li>
-                                    <li>Primeros deals cerrados o en negociación</li>
-                                    <li>Sistema autónomo para continuar por tu cuenta</li>
-                                </ul>
-
-                                <p><strong>Tiempo requerido del cliente:</strong> 2-3 horas/semana</p>
                             </div>
 
                             <div class="tree-node gris">
-                                <div class="tree-node-badge gris">Opción 4</div>
-                                <h3>Programa VIP (Full + Acompañamiento)</h3>
-                                <p><strong>20 semanas (5 meses)</strong></p>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Programa Full + 3 meses adicionales de soporte para garantizar resultados sostenidos.</p>
-                                
+                                <div class="tree-node-badge gris">NIVEL 4</div>
+                                <h3>Acompañamiento Express</h3>
+                                <p>Seguimiento semanal para mantener el ritmo, revisar propuestas a marcas y seguir creciendo como referente.</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Todo del Programa Full (8 semanas iniciales)</li>
-                                    <li>+ 3 meses de acompañamiento post-programa:
-                                        <ul style="margin-left: 20px; margin-top: 10px;">
-                                            <li>Sesiones sincrónicas</li>
-                                            <li>Revisión de contenido</li>
-                                            <li>Análisis mensual de resultados</li>
-                                            <li>Sugerencias de estrategia según performance</li>
-                                            <li>Soporte vía WhatsApp</li>
-                                        </ul>
-                                    </li>
+                                    <li>Sesión semanal de 30 min: revisar contenido, propuestas en curso y ajustes de estrategia</li>
+                                    <li>Revisión de métricas clave y evolución de audiencia</li>
+                                    <li>Ajuste de media kit y materiales de presentación cuando sea necesario</li>
+                                    <li>Consulta breve por WhatsApp entre sesiones (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
-
-                                <h4>Para quién:</h4>
-                                <p>Figuras/referentes que quieren garantizar implementación exitosa y resultados sostenidos.</p>
-
-                                <p><strong>Tiempo requerido del cliente:</strong> 2-3 horas/semana</p>
                             </div>
                         </div>
                     </div>
@@ -3337,70 +3302,76 @@
 
                 <div class="separator" style="margin-top: 20px;">
                     <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
                 </div>
 
                 <div class="wide-container">
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Modernización Comunicacional para PyMEs</h1>
+                            <h1 class="tree-main-title">PyME Moderna y Rentable</h1>
                         </div>
 
                         <div class="tree-timeline">
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Opción 1</div>
-                                <h3>Diagnóstico de Identidad y Comunicación</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Un análisis estratégico de la comunicación histórica y actual de la empresa para proyectar su modernización sin perder la esencia.</p>
-                                
+                                <div class="tree-node-badge rosa">NIVEL 1</div>
+                                <h3>Auditoría Flash</h3>
+                                <p>Diagnóstico rápido y concreto de cómo comunica tu empresa hoy y qué cambiar para atraer más clientes y mejores resultados.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>1 sesión de relevamiento profundo (90 minutos) con fundadores y sucesores</li>
-                                    <li>Auditoría de activos: Revisión de logos, sitio web, señalética y redes</li>
-                                    <li>Mapeo de ruidos internos: Identificación de fricciones en la transmisión de decisiones</li>
-                                    <li>Traducción cultural: Identificación de valores históricos a conservar</li>
-                                    <li>Documento: Mini-Estrategia de Estilo</li>
+                                    <li>Auditoría de redes sociales, perfil de empresa y materiales de comunicación</li>
+                                    <li>Revisión de los últimos 10 posts o comunicaciones</li>
+                                    <li>Reporte con 5 cambios específicos y priorizados</li>
+                                    <li>Reescritura conjunta de la bio o descripción del negocio y CTAs</li>
+                                    <li>1 sesión de 60 min + documento entregable</li>
                                 </ul>
+                            </div>
 
-                                <h4>Para quién:</h4>
-                                <p>Empresas familiares que se sienten "antiguas" frente a lo digital y necesitan un norte claro antes de invertir en cambios.</p>
-
-                                <h4>Resultado:</h4>
-                                <p>Claridad sobre qué modernizar y qué prácticas de identidad preservar para una transición generacional fluida.</p>
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">NIVEL 2</div>
+                                <h3>Optimización de Comunicación Integral</h3>
+                                <p>Un mes para ordenar, unificar y potenciar la comunicación de tu empresa en todos sus canales.</p>
+                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Todo de Nivel 1</li>
+                                    <li>Criterios base para manual de comunicación: tono, estilo y mensajes clave</li>
+                                    <li>Esquema de calendario de contenido estratégico (30 días) – diseño y revisión conjunta</li>
+                                    <li>Guía de mensajes para canales clave (redes, WhatsApp, email)</li>
+                                    <li>4 sesiones de seguimiento</li>
+                                </ul>
                             </div>
 
                             <div class="tree-node verde">
-                                <div class="tree-node-badge verde">Opción 2</div>
-                                <h3>Programa Completo</h3>
-                                
-                                <h4>Duración y Formato:</h4>
-                                <p>7 semanas • Online</p>
-                                <p><strong>Modalidad:</strong> Consultoría estratégica + acompañamiento</p>
-                                <p><strong>Sesiones sincrónicas</strong></p>
-                                
-                                <h4>Qué se trabaja:</h4>
+                                <div class="tree-node-badge verde">NIVEL 3</div>
+                                <h3>Comunicación Integral Full + Acompañamiento</h3>
+                                <p>Dos meses para transformar la comunicación de tu empresa: mensaje unificado, equipo alineado y canales que venden más y de manera más eficiente.</p>
+                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1 - 2 sesiones/mes en mes 2</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Diagnóstico de la comunicación interna y externa</li>
-                                    <li>Lectura de cultura, valores y formas históricas de la empresa</li>
-                                    <li>Traducción de esos valores a un lenguaje actual y comprensible</li>
-                                    <li>Estrategia de arquitectura y objetivos del Sitio Web</li>
-                                    <li>Definición de criterios de estilo comunicacional (tono y forma)</li>
-                                    <li>Orden de roles y mensajes para reducir ruido interno</li>
-                                    <li>Integración de herramientas digitales sin forzar cambios bruscos</li>
+                                    <li>Todo de Nivel 2</li>
+                                    <li>Manual de comunicación completo</li>
+                                    <li>Revisión de la comunicación de cada área de cara al cliente</li>
+                                    <li>Registro semanal de progreso</li>
+                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
                                 </ul>
-                                
-                                <h4>Entregables:</h4>
+                            </div>
+
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge gris">NIVEL 4</div>
+                                <h3>Acompañamiento Express</h3>
+                                <p>Seguimiento continuo para que la comunicación de tu empresa nunca se estanque.</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Diagnóstico comunicacional estratégico (interno + externo)</li>
-                                    <li>Mini-Estrategia de Comunicación y Estilo (PDF)</li>
-                                    <li>Lineamientos de comunicación interna y externa</li>
-                                    <li>Recomendaciones prácticas para el uso de canales digitales y sitio web</li>
-                                    <li>Documento de criterios (qué hacer / qué evitar / cómo decidir)</li>
-                                    <li>Sistema simple replicable de contenidos</li>
+                                    <li>Sesión semanal de 30 min: revisar comunicaciones recientes, resolver dudas puntuales, ajustar mensajes</li>
+                                    <li>Revisión de métricas y resultados de las comunicaciones</li>
+                                    <li>Soporte para situaciones de comunicación urgentes o no planificadas</li>
+                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
                         </div>
@@ -3429,85 +3400,75 @@
 
                 <div class="separator" style="margin-top: 20px;">
                     <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
                 </div>
 
                 <div class="wide-container">
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Posicionamiento y Comunicación Personal</h1>
+                            <h1 class="tree-main-title">Posicionamiento y Rentabilidad Sostenibles</h1>
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node gris">
-                                <h3 class="flash-title">Auditoría Flash</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>En una sesión 1:1 vemos tu caso y te digo exactamente qué está frenando que tu comunicación te genere resultados reales, y qué ajustar para empezar a destrabarlo.</p>
-                                
-                                <h4>Incluye:</h4>
-                                <ul>
-                                    <li>1 llamada de 60 minutos</li>
-                                    <li>Diagnóstico claro y directo</li>
-                                    <li>3–5 ajustes concretos</li>
-                                    <li>Pasos accionables para los próximos 15–30 días</li>
-                                </ul>
-                            </div>
-
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Opción 1</div>
-                                <h3>Auditoría de Claridad</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Diagnóstico de tu propuesta profesional para alinear lo que sos, lo que decís y lo que el mercado entiende.</p>
-                                
+                                <div class="tree-node-badge rosa">NIVEL 1</div>
+                                <h3>Auditoría Flash</h3>
+                                <p>Los cambios que necesitás para pasar de seguidores y likes a clientes y ventas.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>1 sesión estratégica (90 minutos) de clarificación de oferta</li>
-                                    <li>Auditoría digital en vivo: Revisión de bio, LinkedIn y últimos contenidos</li>
-                                    <li>Definición de "Superpoder": Identificación de tu diferenciador de nicho</li>
-                                    <li>Documento estratégico: Definición de propuesta de valor en 10 palabras y 3 ejes comunicacionales</li>
-                                    <li>Recomendaciones de sistema: Primeros pasos para el método "Benching de Domingo"</li>
+                                    <li>Análisis completo de perfil</li>
+                                    <li>Auditoría de últimos 10 posts</li>
+                                    <li>Reporte con 5 cambios específicos</li>
+                                    <li>Reescritura conjunta de bio y CTAs</li>
+                                    <li>1 sesión de 60 min + documento entregable</li>
                                 </ul>
-
-                                <h4>Para quién:</h4>
-                                <p>Emprendedores e independientes que sienten que su comunicación es dispersa y no les ayuda a vender servicios de alto valor.</p>
-
-                                <h4>Resultado:</h4>
-                                <p>Un discurso de venta coherente y un sistema de contenido que no te quite tiempo operativo.</p>
                             </div>
 
                             <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Opción 2</div>
-                                <h3>Programa Completo</h3>
-                                
-                                <h4>Duración y Formato:</h4>
-                                <p>3 a 5 semanas • Online</p>
-                                <p><strong>Modalidad:</strong></p>
+                                <div class="tree-node-badge amarillo">NIVEL 2</div>
+                                <h3>Optimización de Perfil orientado a Rentabilidad</h3>
+                                <p>De perfil estático a máquina de atraer clientes. Un mes de trabajo real.</p>
+                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesiones sincrónicas</li>
-                                    <li>Contenidos en video (asincrónicos)</li>
-                                    <li>Acompañamiento breve entre sesiones (WhatsApp / mail)</li>
+                                    <li>Todo de Nivel 1</li>
+                                    <li>Reorganización completa de highlights</li>
+                                    <li>Esquema de calendario de contenido (30 días) — diseño y revisión conjunta</li>
+                                    <li>Scripts de DMs y respuestas</li>
+                                    <li>4 sesiones de seguimiento (1/semana)</li>
                                 </ul>
-                                
-                                <h4>Qué se trabaja:</h4>
+                            </div>
+
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">NIVEL 3</div>
+                                <h3>Optimización Full + Acompañamiento</h3>
+                                <p>Dos meses para transformar tu perfil, tu contenido y tu forma de convertir.</p>
+                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Clarificación de propuesta profesional</li>
-                                    <li>Orden del mensaje: qué comunicar y cómo</li>
-                                    <li>Definición de ejes comunicacionales</li>
-                                    <li>Coherencia entre discurso, oferta y presencia digital</li>
-                                    <li>Sistema para creación de contenidos</li>
+                                    <li>Todo de Nivel 2</li>
+                                    <li>Registro semanal de progreso</li>
+                                    <li>30 días de acompañamiento tras finalizar el primer mes (2 sesiones/mes)</li>
+                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
                                 </ul>
-                                
-                                <h4>Entregables:</h4>
+                            </div>
+
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge gris">NIVEL 4</div>
+                                <h3>Acompañamiento Express</h3>
+                                <p>Seguimiento continuo para mantener el ritmo, resolver en el momento y seguir creciendo.</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Diagnóstico de comunicación personal</li>
-                                    <li>Definición clara de posicionamiento</li>
-                                    <li>Lineamientos de comunicación profesional</li>
-                                    <li>Guía práctica para sostener la comunicación en el tiempo</li>
+                                    <li>Sesión semanal de 30 minutos para revisar publicaciones, responder dudas puntuales y ajustar estrategia</li>
+                                    <li>Revisión de métricas clave al inicio de cada sesión</li>
+                                    <li>Ajuste de mensajes, copies y CTAs sobre la marcha</li>
+                                    <li>Acceso a consulta breve por WhatsApp entre sesiones (1 por semana, respuesta dentro de las 24 hs.)</li>
+                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
                         </div>
@@ -3536,62 +3497,75 @@
 
                 <div class="separator" style="margin-top: 20px;">
                     <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
                 </div>
 
                 <div class="wide-container">
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Consultoría Estratégica de Comunicación Organizacional</h1>
+                            <h1 class="tree-main-title">Comunicación Rentable Empresarial</h1>
                         </div>
 
                         <div class="tree-timeline">
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Opción 1</div>
-                                <h3>Consultoría Estratégica de Comunicación Organizacional</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Visión externa y honesta sobre cómo la empresa se comunica con sus usuarios y empleados para detectar brechas de eficiencia.</p>
-                                
+                                <div class="tree-node-badge rosa">NIVEL 1</div>
+                                <h3>Diagnóstico Flash</h3>
+                                <p>Una visión externa y objetiva de cómo comunica tu empresa y dónde están las brechas entre lo que querés proyectar y lo que realmente percibe el público.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Kick-off meeting con C-levels para definir KPIs y accesos</li>
-                                    <li>Entrevistas internas: Diagnóstico de la percepción de marca desde adentro</li>
-                                    <li>Experiencia como usuario: Testeo real de onboarding, soporte y navegación</li>
-                                    <li>Benchmarking competencia: Análisis de 3-5 competidores directos</li>
-                                    <li>Entregable: Reporte Ejecutivo con matriz de priorización (Crítico/Importante/Menor)</li>
+                                    <li>Análisis de los canales de comunicación externos más relevantes</li>
+                                    <li>Revisión de la consistencia del mensaje entre canales y áreas</li>
+                                    <li>5 observaciones estratégicas y acciones prioritarias</li>
+                                    <li>Revisión conjunta del mensaje central y propuesta de valor de la empresa</li>
+                                    <li>1 sesión de 60 minutos + documento entregable</li>
                                 </ul>
+                            </div>
 
-                                <h4>Para quién:</h4>
-                                <p>Empresas con equipos grandes y presupuestos altos que han perdido la conexión real con su audiencia por burocracia interna.</p>
+                            <div class="tree-node amarillo">
+                                <div class="tree-node-badge amarillo">NIVEL 2</div>
+                                <h3>Plan de Comunicación Alineada</h3>
+                                <p>Un mes para definir y alinear el mensaje de tu empresa en todos sus canales y áreas de cara al cliente.</p>
+                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Todo de Nivel 1</li>
+                                    <li>Definición del mensaje corporativo unificado</li>
+                                    <li>Esquema de calendario de contenido corporativo estratégico (30 días) – diseño y revisión conjunta</li>
+                                    <li>Guía de tono y estilo para todas las áreas</li>
+                                    <li>4 sesiones de trabajo</li>
+                                </ul>
+                            </div>
 
-                                <h4>Resultado:</h4>
-                                <p>Mapeo de puntos de fricción reales y una hoja de ruta de mejoras comunicacionales.</p>
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">NIVEL 3</div>
+                                <h3>Implementación Full + Acompañamiento</h3>
+                                <p>Dos meses para transformar la comunicación corporativa: mensaje unificado, áreas alineadas y equipos que saben cómo comunicar la empresa hacia afuera con mayor eficacia y rentabilidad.</p>
+                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
+                                <h4>Qué incluye:</h4>
+                                <ul>
+                                    <li>Todo de Nivel 2</li>
+                                    <li>Manual de comunicación corporativo completo</li>
+                                    <li>Revisión y alineación de la comunicación por área (ventas, atención al cliente, marketing, RRHH)</li>
+                                    <li>2 consultas adicionales bonificadas al completar el plan</li>
+                                </ul>
                             </div>
 
                             <div class="tree-node gris">
-                                <div class="tree-node-badge verde">Opción 2</div>
-                                <h3>Programa Completo</h3>
-                                
-                                <h4>Duración y Formato:</h4>
-                                <p>10 semanas • Online</p>
-                                <p><strong>Modalidad:</strong></p>
+                                <div class="tree-node-badge gris">NIVEL 4</div>
+                                <h3>Consultoría de Comunicación Express</h3>
+                                <p>Seguimiento continuo para mantener la coherencia comunicacional, resolver situaciones de comunicación estratégica y acompañar el crecimiento de la empresa.</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>5 Sesiones Sincrónicas: Encuentros de alta carga estratégica</li>
-                                    <li>1 Contenido Asincrónico: Video Máster sobre "Marco de Criterios Comunicacionales"</li>
-                                    <li>Trabajo de Campo: Auditoría de flujos y entrevistas clave con referentes</li>
-                                </ul>
-                                
-                                <h4>Qué se trabaja:</h4>
-                                <ul>
-                                    <li>Diagnóstico Estratégico: Identificación de brechas entre identidad, cultura, liderazgo y comunicación interna/externa</li>
-                                    <li>Identificación de puntos de fricción: Detección de ruidos entre áreas y mensajes contradictorios</li>
-                                    <li>Criterios de Comunicación: Definición del estilo institucional (qué se comunica, cómo y desde dónde)</li>
-                                    <li>Orden y Priorización: Decisión estratégica sobre qué áreas ajustar primero y qué puede resolverse internamente</li>
-                                    <li>Alineación Institucional: Sincronización del mensaje institucional con la práctica operativa diaria</li>
+                                    <li>Sesión semanal de 30 minutos: revisión de comunicaciones en curso, ajuste de mensajes estratégicos</li>
+                                    <li>Soporte para situaciones de comunicación no planificadas (lanzamientos, crisis, anuncios)</li>
+                                    <li>Revisión de materiales de comunicación clave antes de su publicación</li>
+                                    <li>Consulta puntual por email o WhatsApp (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
                         </div>
@@ -3620,9 +3594,9 @@
 
                 <div class="separator" style="margin-top: 20px;">
                     <span class="line gris"></span>
-            <span class="line rosa"></span>
-            <span class="line verde"></span>
-            <span class="line amarillo"></span>
+                    <span class="line rosa"></span>
+                    <span class="line verde"></span>
+                    <span class="line amarillo"></span>
                 </div>
 
                 <div class="wide-container">
@@ -3634,61 +3608,61 @@
 
                         <div class="tree-timeline">
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">Opción 1</div>
-                                <h3>Auditoría de Hábitos y Conflictos</h3>
-                                
-                                <h4>¿Qué es?</h4>
-                                <p>Un diagnóstico profundo de tus interacciones diarias para identificar dónde <strong>perdés</strong> claridad y cómo recuperar el control frente al desgaste digital.</p>
-                                
+                                <div class="tree-node-badge rosa">NIVEL 1</div>
+                                <h3>Diagnóstico de Comunicación Personal</h3>
+                                <p>Entendé dónde están los quiebres en tu comunicación y qué cambiar para que tus palabras lleguen como querés.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>1 sesión de diagnóstico profundo (90 minutos): Mapeo de conflictos recurrentes, tanto analógicos como digitales</li>
-                                    <li>Auditoría digital en vivo: Revisión de hilos de WhatsApp, audios y mails para detectar ruidos, sobreexplicaciones o falta de límites</li>
-                                    <li>Análisis de "Agencia Comunicacional": Evaluación de cómo <strong>gestionás</strong> los vistos, los silencios y la ansiedad de respuesta</li>
-                                    <li>Documento: Diagnóstico Comunicacional Personal: Mapeo de puntos de fricción y hábitos detectados</li>
-                                    <li>Entregable técnico: Árbol de decisión preliminar (¿cuándo llamar, cuándo escribir, cuándo callar?)</li>
+                                    <li>Diagnóstico de las situaciones de comunicación que más te cuestan</li>
+                                    <li>Identificación de patrones: qué decís, cómo lo decís, qué resultado obtenés</li>
+                                    <li>Reporte con 5 cambios concretos y accionables</li>
+                                    <li>Trabajo en vivo sobre una situación de comunicación real</li>
+                                    <li>1 sesión de 60 min + documento entregable</li>
                                 </ul>
-
-                                <h4>Para quién:</h4>
-                                <p>Personas que experimentan desgaste por malentendidos, que evitan conversaciones difíciles o que se sienten atrapadas por la mensajería instantánea.</p>
-
-                                <h4>Resultado:</h4>
-                                <p>Un roadmap claro para reducir el desgaste cotidiano y criterios prácticos para recuperar la claridad en tus vínculos.</p>
                             </div>
 
                             <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">Opción 2</div>
-                                <h3>Programa Completo</h3>
-                                
-                                <h4>Duración y Formato:</h4>
-                                <p>4 a 5 semanas • Online (Modalidad mixta)</p>
-                                <p><strong>Modalidad:</strong></p>
+                                <div class="tree-node-badge amarillo">NIVEL 2</div>
+                                <h3>Comunicación Efectiva</h3>
+                                <p>Un mes para desarrollar habilidades de comunicación reales: en el trabajo, en tus relaciones y en los entornos digitales.</p>
+                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesiones sincrónicas</li>
-                                    <li>Soporte continuo: Seguimiento vía WhatsApp / mail entre sesiones</li>
+                                    <li>Todo de Nivel 1</li>
+                                    <li>Trabajo en situaciones concretas de comunicación laboral, personal o digital</li>
+                                    <li>Herramientas para evitar malentendidos y manejar conversaciones difíciles</li>
+                                    <li>Scripts y guías para situaciones frecuentes</li>
+                                    <li>4 sesiones de seguimiento</li>
                                 </ul>
-                                
-                                <h4>Qué se trabaja:</h4>
-                                <p><strong>1. Estrategia Analógica (Cara a cara)</strong></p>
-                                <ul>
-                                    <li>Orden del mensaje: Qué decir, cuándo y cómo para evitar escalar conflictos</li>
-                                    <li>Argumentación básica: Cómo expresar necesidades sin sobreexplicarse ni callarse de más</li>
-                                    <li>Lectura de contexto: Análisis de situaciones comunicacionales reales y observación guiada</li>
-                                </ul>
+                            </div>
 
-                                <p><strong>2. Criterio Digital (Mensajería y redes)</strong></p>
+                            <div class="tree-node verde">
+                                <div class="tree-node-badge verde">NIVEL 3</div>
+                                <h3>Comunicación Full + Acompañamiento</h3>
+                                <p>Dos meses para transformar tu forma de comunicarte: herramientas, práctica y acompañamiento en situaciones reales.</p>
+                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Formatos y decisiones: Cuándo enviar texto, cuándo audio y cuándo llamar (o callar)</li>
-                                    <li>Gestión de la espera: Cómo interpretar (y no interpretar) silencios, vistos y tiempos de respuesta</li>
-                                    <li>Tono y Humanización: Uso estratégico de emojis y signos para dar claridad sin perder profesionalismo o calidez</li>
+                                    <li>Todo de Nivel 2</li>
+                                    <li>Guía personalizada de comunicación según tu perfil y situación</li>
+                                    <li>Seguimiento de situaciones reales entre sesiones</li>
+                                    <li>Registro semanal de situaciones y avances</li>
+                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
                                 </ul>
-                                
-                                <h4>Entregables:</h4>
+                            </div>
+
+                            <div class="tree-node gris">
+                                <div class="tree-node-badge gris">NIVEL 4</div>
+                                <h3>Acompañamiento Express</h3>
+                                <p>Seguimiento semanal para trabajar situaciones de comunicación concretas, resolver dudas y seguir creciendo.</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Diagnóstico Comunicacional Personal: Mapeo de tus puntos de fricción y hábitos actuales</li>
-                                    <li>Guía Práctica de Comunicación Cotidiana: Manual con lineamientos aplicables a entornos digitales y presenciales</li>
-                                    <li>Marco de Criterios de Decisión: Tu propia hoja de ruta para elegir canal, tono y timing según la situación</li>
-                                    <li>Recomendaciones Personalizadas: Ajustes específicos basados en tus casos reales analizados en el programa</li>
+                                    <li>Sesión semanal de 30 minutos: trabajar una situación de comunicación concreta, revisar avances, ajustar herramientas</li>
+                                    <li>Revisión de situaciones que surgieron en la semana</li>
+                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta dentro de las 24 hs)</li>
+                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
                         </div>

@@ -867,8 +867,8 @@
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
-            background: var(--verde);
-            border: 3px solid var(--verde);
+            background: var(--amarillo);
+            border: 3px solid var(--amarillo);
             color: var(--negro);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -876,7 +876,7 @@
 
         .btn-verde-servicios:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(192, 210, 38, 0.4);
+            box-shadow: 0 6px 20px rgba(244, 207, 60, 0.4);
             background: var(--blanco);
             color: var(--negro);
         }
@@ -1474,11 +1474,11 @@
         .btn-half.tecnosfera:active { transform: translateY(4px); box-shadow: 0 2px 0 #c0408a; }
 
         .btn-verde-servicios {
-            background: linear-gradient(180deg, #d0db50 0%, #c0d226 55%, #a8ba20 100%);
-            box-shadow: 0 6px 0 #88981a, 0 8px 18px rgba(192,210,38,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+            background: linear-gradient(180deg, #f8dc6a 0%, #f4cf3c 55%, #d8b530 100%);
+            box-shadow: 0 6px 0 #b09020, 0 8px 18px rgba(244,207,60,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
         }
-        .btn-verde-servicios:hover { transform: translateY(-2px); background: var(--blanco); box-shadow: 0 8px 0 #88981a; }
-        .btn-verde-servicios:active { transform: translateY(4px); box-shadow: 0 2px 0 #88981a; }
+        .btn-verde-servicios:hover { transform: translateY(-2px); background: var(--blanco); box-shadow: 0 8px 0 #b09020; }
+        .btn-verde-servicios:active { transform: translateY(4px); box-shadow: 0 2px 0 #b09020; }
 
         /* — Service-btn colores — */
         .service-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #b0b0b0, 0 10px 20px rgba(0,0,0,0.13); }
@@ -1727,12 +1727,12 @@
         </div>
 
         <!-- Línea fina gris centrada -->
-        <div style="width: 700px; max-width: calc(100% - 40px); margin: 40px auto; border-bottom: 1px solid #d0d0d0;"></div>
+        <div style="width: 700px; max-width: calc(100% - 40px); margin: 40px auto 20px; border-bottom: 1px solid #d0d0d0;"></div>
 
         <!-- Marquesina -->
-        <div style="width: 100%; overflow: hidden; height: 54px; display: flex; align-items: center; background: transparent; margin: 0; padding: 0;">
-            <div id="marquee-text" style="white-space: nowrap; will-change: transform; font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; color: var(--negro); line-height: 1.2; display: inline-block;">
-                Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="width: 100%; overflow: hidden; height: 54px; display: flex; align-items: center; background: var(--rosa); margin: 0; padding: 0;">
+            <div id="marquee-text" style="white-space: nowrap; will-change: transform; font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; color: var(--amarillo); line-height: 1.2; display: inline-block; padding: 0 0;">
+                Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp; <span style="display:inline-block;width:10px;height:10px;background:var(--amarillo);border-radius:50%;vertical-align:middle;margin:0 16px;"></span> &nbsp;&nbsp;&nbsp; Te ayudo a optimizar tus redes, tu web y tu comunicación en general para que no solo sumes seguidores, sino que vendas más y ganes más dinero &nbsp;&nbsp;&nbsp; <span style="display:inline-block;width:10px;height:10px;background:var(--amarillo);border-radius:50%;vertical-align:middle;margin:0 16px;"></span> &nbsp;&nbsp;&nbsp;
             </div>
         </div>
         <script>
@@ -1752,8 +1752,8 @@
         </script>
 
         <div class="container" style="padding-top: 0; padding-bottom: 20px;">
-            <!-- Botón verde nuevo (más junto) -->
-            <div class="btn-container" style="margin-top: 0; margin-bottom: 30px;">
+            <!-- Botón amarillo -->
+            <div class="btn-container" style="margin-top: 20px; margin-bottom: 30px;">
                 <button class="btn-verde-servicios" onclick="scrollToServicios()">Transformemos tu comunicación en resultados monetizables</button>
             </div>
 
@@ -1884,13 +1884,13 @@
             </div>
 
             <!-- Botones Sobre mí y Tecnósfera (movidos aquí) -->
-            <div class="top-buttons" style="margin-bottom: 12px; margin-top: 40px;">
+            <div class="top-buttons" style="margin-bottom: 40px; margin-top: 40px;">
                 <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
                 <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
             </div>
 
             <!-- Botón Hablemos -->
-            <div class="btn-container" style="margin-top: 12px; margin-bottom: 30px;">
+            <div class="btn-container" style="margin-top: 0; margin-bottom: 30px;">
                 <button class="btn btn-contacto" onclick="showContactScreen('home')">¡Hablemos!</button>
             </div>
 
@@ -3122,35 +3122,58 @@
         }
 
         function initTreeCollapse(container) {
+            // Determinar el programa actual desde el screenId del container
+            const screenId = container.id || '';
+            const programMap = {
+                'screen-detalle-figura-rentable': 'figura-rentable',
+                'screen-detalle-pyme': 'pyme',
+                'screen-detalle-posicionamiento': 'posicionamiento',
+                'screen-detalle-organizacional': 'organizacional',
+                'screen-detalle-cotidiana': 'cotidiana'
+            };
+            const currentProgram = programMap[screenId] || 'programa';
+
+            // Colores de borde por clase de nodo
+            const nodeColors = {
+                'rosa':     { bg: 'var(--rosa)',     shadow: '#c0408a', text: 'var(--blanco)' },
+                'amarillo': { bg: 'var(--amarillo)', shadow: '#b09020', text: 'var(--negro)'  },
+                'verde':    { bg: 'var(--verde)',    shadow: '#88981a', text: 'var(--negro)'  },
+                'gris':     { bg: 'var(--gris)',     shadow: '#606060', text: 'var(--blanco)' }
+            };
+
             container.querySelectorAll('.tree-node').forEach(node => {
                 const badge = node.querySelector('.tree-node-badge');
                 const h3 = node.querySelector('h3');
                 if (!h3) return;
 
+                // Detectar color del nodo
+                let nodeColor = 'gris';
+                ['rosa','amarillo','verde','gris'].forEach(c => {
+                    if (node.classList.contains(c)) nodeColor = c;
+                });
+                const colors = nodeColors[nodeColor];
+
+                // Nivel desde el badge
+                const nivelText = badge ? badge.textContent.replace('▼','').replace('▲','').trim() : '';
+                const programLabel = programNames[currentProgram] || currentProgram;
+                const contactKey = currentProgram + '-' + nivelText.replace(/\s+/g, '-').toLowerCase();
+
                 const allChildren = Array.from(node.children);
                 const h3Idx = allChildren.indexOf(h3);
                 
                 // Buscar elementos a mantener visibles después del h3
-                // Nuevo formato: h3 → p (bajada) → p con <strong> (duración) → h4 → ...
-                // Mantenemos visibles la bajada y la duración; el resto colapsa
                 let visibleUntilIdx = h3Idx;
                 
                 for (let i = h3Idx + 1; i < allChildren.length; i++) {
                     const el = allChildren[i];
-                    
-                    // Primer <p> después de h3: es la bajada — siempre visible
                     if (i === h3Idx + 1 && el.tagName === 'P') {
                         visibleUntilIdx = i;
                         continue;
                     }
-                    
-                    // Segundo <p> con <strong>: es la duración — también visible
                     if (i === h3Idx + 2 && el.tagName === 'P' && el.querySelector('strong')) {
                         visibleUntilIdx = i;
                         break;
                     }
-                    
-                    // Si llegamos a un h4, paramos
                     if (el.tagName === 'H4') {
                         break;
                     }
@@ -3160,36 +3183,72 @@
                 const collapsibleItems = allChildren.slice(visibleUntilIdx + 1);
                 if (collapsibleItems.length === 0) return;
 
+                // Botón ¡Me interesa! al final del contenido colapsable
+                const meInteresaBtn = document.createElement('div');
+                meInteresaBtn.style.cssText = 'display:flex; justify-content:flex-end; margin-top:20px;';
+                meInteresaBtn.innerHTML = `<button onclick="showContactScreen('${contactKey}')" style="
+                    background: ${colors.bg};
+                    color: ${colors.text};
+                    border: none;
+                    border-radius: 50px;
+                    padding: 10px 24px;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    box-shadow: 0 4px 0 ${colors.shadow}, 0 6px 14px rgba(0,0,0,0.15);
+                    transition: all 0.2s ease;
+                    position: relative;
+                    overflow: hidden;
+                " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">¡Me interesa!</button>`;
+                collapsibleItems.push(meInteresaBtn);
+
+                // "Ver menos" al final del contenido desplegado
+                const verMenosDiv = document.createElement('div');
+                verMenosDiv.style.cssText = 'text-align:left; margin-top:12px; padding-bottom:4px;';
+                verMenosDiv.innerHTML = '<button style="background:none; border:none; cursor:pointer; font-family:\'Poppins\',sans-serif; font-size:13px; color:var(--gris); display:inline-flex; align-items:center; gap:5px; padding:0;">Ver menos <span style="display:inline-block; transform:rotate(180deg);">▼</span></button>';
+                collapsibleItems.push(verMenosDiv);
+
                 // Wrapper collapsible
                 const wrapper = document.createElement('div');
                 wrapper.className = 'tree-collapsible';
                 wrapper.style.cssText = 'overflow:hidden; max-height:0; transition: max-height 0.4s ease;';
                 collapsibleItems.forEach(el => wrapper.appendChild(el));
-
                 node.appendChild(wrapper);
 
-                // Crear botón de expansión clickeable
+                // "Ver más" pegado justo debajo del último elemento visible (duración)
+                const verMasDiv = document.createElement('div');
+                verMasDiv.style.cssText = 'text-align:left; margin-top:8px;';
+                const verMasBtn = document.createElement('button');
+                verMasBtn.style.cssText = 'background:none; border:none; cursor:pointer; font-family:\'Poppins\',sans-serif; font-size:13px; color:var(--gris); display:inline-flex; align-items:center; gap:5px; padding:0;';
+                verMasBtn.innerHTML = 'Ver más <span style="display:inline-block; transition:transform 0.3s ease;">▼</span>';
+                verMasDiv.appendChild(verMasBtn);
+
+                // Insertar verMasDiv justo después del último elemento visible
+                const lastVisible = allChildren[visibleUntilIdx];
+                lastVisible.parentNode.insertBefore(verMasDiv, lastVisible.nextSibling);
+
+                // El badge también es clickeable
                 const toggleBtn = badge || h3;
                 toggleBtn.style.cursor = 'pointer';
                 toggleBtn.style.userSelect = 'none';
-                
-                // Agregar flecha indicadora
-                const indicator = document.createElement('span');
-                indicator.className = 'tree-toggle-icon';
-                indicator.textContent = '▼';
-                indicator.style.cssText = 'margin-left: 8px; display: inline-block; transition: transform 0.3s ease;';
-                toggleBtn.appendChild(indicator);
 
-                toggleBtn.addEventListener('click', () => {
+                const doToggle = () => {
                     const isOpen = wrapper.style.maxHeight && wrapper.style.maxHeight !== '0px';
                     if (isOpen) {
                         wrapper.style.maxHeight = '0';
-                        indicator.textContent = '▼';
+                        verMasBtn.innerHTML = 'Ver más <span style="display:inline-block; transition:transform 0.3s ease;">▼</span>';
+                        verMasDiv.style.display = 'block';
                     } else {
-                        wrapper.style.maxHeight = wrapper.scrollHeight + 200 + 'px';
-                        indicator.textContent = '▲';
+                        wrapper.style.maxHeight = (wrapper.scrollHeight + 300) + 'px';
+                        verMasBtn.innerHTML = 'Ver menos <span style="display:inline-block; transform:rotate(180deg); transition:transform 0.3s ease;">▼</span>';
+                        verMasDiv.style.display = 'none';
                     }
-                });
+                };
+
+                toggleBtn.addEventListener('click', doToggle);
+                verMasBtn.addEventListener('click', doToggle);
+                verMenosDiv.querySelector('button').addEventListener('click', doToggle);
             });
         }
 
@@ -3219,15 +3278,15 @@
                             <div class="tree-node rosa">
                                 <div class="tree-node-badge rosa">NIVEL 1</div>
                                 <h3>Auditoría Flash</h3>
-                                <p>Entendé cómo te ven las marcas hoy — y qué cambiar para que empiecen a escribirte.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
+                                <p>Entendé cómo te ven las marcas hoy y qué cambiar para que empiecen a escribirte.</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Análisis completo del perfil</li>
                                     <li>Auditoría de los últimos 10 posts</li>
                                     <li>Reporte con 5 cambios específicos para atraer marcas y monetizar el perfil</li>
                                     <li>Reescritura conjunta de bio y propuesta de valor como creador/a</li>
-                                    <li>1 sesión de 60 min + documento entregable</li>
+                                    <li>1 sesión de 60 minutos + documento entregable</li>
                                 </ul>
                             </div>
 
@@ -3269,10 +3328,10 @@
                                 <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesión semanal de 30 min: revisar contenido, propuestas en curso y ajustes de estrategia</li>
+                                    <li>Sesión semanal de 30 minutos: revisar contenido, propuestas en curso y ajustes de estrategia</li>
                                     <li>Revisión de métricas clave y evolución de audiencia</li>
                                     <li>Ajuste de media kit y materiales de presentación cuando sea necesario</li>
-                                    <li>Consulta breve por WhatsApp entre sesiones (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Consulta breve por WhatsApp entre sesiones (1 por semana, respuesta en 24 horas)</li>
                                     <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
@@ -3319,14 +3378,14 @@
                                 <div class="tree-node-badge rosa">NIVEL 1</div>
                                 <h3>Auditoría Flash</h3>
                                 <p>Diagnóstico rápido y concreto de cómo comunica tu empresa hoy y qué cambiar para atraer más clientes y mejores resultados.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Auditoría de redes sociales, perfil de empresa y materiales de comunicación</li>
                                     <li>Revisión de los últimos 10 posts o comunicaciones</li>
                                     <li>Reporte con 5 cambios específicos y priorizados</li>
                                     <li>Reescritura conjunta de la bio o descripción del negocio y CTAs</li>
-                                    <li>1 sesión de 60 min + documento entregable</li>
+                                    <li>1 sesión de 60 minutos + documento entregable</li>
                                 </ul>
                             </div>
 
@@ -3367,10 +3426,10 @@
                                 <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
-                                    <li>Sesión semanal de 30 min: revisar comunicaciones recientes, resolver dudas puntuales, ajustar mensajes</li>
+                                    <li>Sesión semanal de 30 minutos: revisar comunicaciones recientes, resolver dudas puntuales, ajustar mensajes</li>
                                     <li>Revisión de métricas y resultados de las comunicaciones</li>
                                     <li>Soporte para situaciones de comunicación urgentes o no planificadas</li>
-                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta en 24 horas)</li>
                                     <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
@@ -3417,14 +3476,14 @@
                                 <div class="tree-node-badge rosa">NIVEL 1</div>
                                 <h3>Auditoría Flash</h3>
                                 <p>Los cambios que necesitás para pasar de seguidores y likes a clientes y ventas.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Análisis completo de perfil</li>
                                     <li>Auditoría de últimos 10 posts</li>
                                     <li>Reporte con 5 cambios específicos</li>
                                     <li>Reescritura conjunta de bio y CTAs</li>
-                                    <li>1 sesión de 60 min + documento entregable</li>
+                                    <li>1 sesión de 60 minutos + documento entregable</li>
                                 </ul>
                             </div>
 
@@ -3461,13 +3520,13 @@
                                 <div class="tree-node-badge gris">NIVEL 4</div>
                                 <h3>Acompañamiento Express</h3>
                                 <p>Seguimiento continuo para mantener el ritmo, resolver en el momento y seguir creciendo.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Sesión semanal de 30 minutos para revisar publicaciones, responder dudas puntuales y ajustar estrategia</li>
                                     <li>Revisión de métricas clave al inicio de cada sesión</li>
                                     <li>Ajuste de mensajes, copies y CTAs sobre la marcha</li>
-                                    <li>Acceso a consulta breve por WhatsApp entre sesiones (1 por semana, respuesta dentro de las 24 hs.)</li>
+                                    <li>Acceso a consulta breve por WhatsApp entre sesiones (1 por semana, respuesta dentro de las 24 horas.)</li>
                                     <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
@@ -3514,7 +3573,7 @@
                                 <div class="tree-node-badge rosa">NIVEL 1</div>
                                 <h3>Diagnóstico Flash</h3>
                                 <p>Una visión externa y objetiva de cómo comunica tu empresa y dónde están las brechas entre lo que querés proyectar y lo que realmente percibe el público.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Análisis de los canales de comunicación externos más relevantes</li>
@@ -3558,13 +3617,13 @@
                                 <div class="tree-node-badge gris">NIVEL 4</div>
                                 <h3>Consultoría de Comunicación Express</h3>
                                 <p>Seguimiento continuo para mantener la coherencia comunicacional, resolver situaciones de comunicación estratégica y acompañar el crecimiento de la empresa.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Sesión semanal de 30 minutos: revisión de comunicaciones en curso, ajuste de mensajes estratégicos</li>
                                     <li>Soporte para situaciones de comunicación no planificadas (lanzamientos, crisis, anuncios)</li>
                                     <li>Revisión de materiales de comunicación clave antes de su publicación</li>
-                                    <li>Consulta puntual por email o WhatsApp (1 por semana, respuesta en 24 hs)</li>
+                                    <li>Consulta puntual por email o WhatsApp (1 por semana, respuesta en 24 horas)</li>
                                     <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>
@@ -3611,14 +3670,14 @@
                                 <div class="tree-node-badge rosa">NIVEL 1</div>
                                 <h3>Diagnóstico de Comunicación Personal</h3>
                                 <p>Entendé dónde están los quiebres en tu comunicación y qué cambiar para que tus palabras lleguen como querés.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 min</p>
+                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Diagnóstico de las situaciones de comunicación que más te cuestan</li>
                                     <li>Identificación de patrones: qué decís, cómo lo decís, qué resultado obtenés</li>
                                     <li>Reporte con 5 cambios concretos y accionables</li>
                                     <li>Trabajo en vivo sobre una situación de comunicación real</li>
-                                    <li>1 sesión de 60 min + documento entregable</li>
+                                    <li>1 sesión de 60 minutos + documento entregable</li>
                                 </ul>
                             </div>
 
@@ -3656,12 +3715,12 @@
                                 <div class="tree-node-badge gris">NIVEL 4</div>
                                 <h3>Acompañamiento Express</h3>
                                 <p>Seguimiento semanal para trabajar situaciones de comunicación concretas, resolver dudas y seguir creciendo.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 min por semana</p>
+                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
                                 <h4>Qué incluye:</h4>
                                 <ul>
                                     <li>Sesión semanal de 30 minutos: trabajar una situación de comunicación concreta, revisar avances, ajustar herramientas</li>
                                     <li>Revisión de situaciones que surgieron en la semana</li>
-                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta dentro de las 24 hs)</li>
+                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta dentro de las 24 horas)</li>
                                     <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
                                 </ul>
                             </div>

@@ -50,7 +50,7 @@
         }
 
         .header.home {
-            padding: 60px 20px 0;
+            padding: 25px 20px 0;
         }
 
         .logo-container {
@@ -1727,7 +1727,7 @@
         </div>
 
         <!-- Línea fina gris centrada -->
-        <div style="width: 700px; max-width: calc(100% - 40px); margin: 40px auto 20px; border-bottom: 1px solid #d0d0d0;"></div>
+        <div style="width: 700px; max-width: calc(100% - 40px); margin: 20px auto 20px; border-bottom: 1px solid #d0d0d0;"></div>
 
         <!-- Marquesina -->
         <div style="width: 100%; overflow: hidden; height: 54px; display: flex; align-items: center; background: var(--rosa); margin: 0; padding: 0;">
@@ -1884,7 +1884,7 @@
             </div>
 
             <!-- Botones Sobre mí y Tecnósfera (movidos aquí) -->
-            <div class="top-buttons" style="margin-bottom: 40px; margin-top: 40px;">
+            <div id="botones-sobre-tecnosfera" class="top-buttons" style="margin-bottom: 40px; margin-top: 40px;">
                 <button class="btn-half sobre-mi" onclick="showScreen('screen-sobre-mi')">Sobre mí</button>
                 <button class="btn-half tecnosfera" onclick="showScreen('screen-tecnosfera')">Tecnósfera Podcast</button>
             </div>
@@ -2356,7 +2356,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home'); setTimeout(()=>{ document.getElementById('botones-sobre-tecnosfera').scrollIntoView({behavior:'smooth', block:'center'}); }, 100);">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>
@@ -2393,7 +2394,8 @@
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">← Volver a inicio</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home'); setTimeout(()=>{ document.getElementById('botones-sobre-tecnosfera').scrollIntoView({behavior:'smooth', block:'center'}); }, 100);">← Volver</button>
+                <button class="btn btn-outline nav-btn" onclick="showScreen('screen-home')">⌂ Volver a inicio</button>
             </div>
         </div>
     </div>

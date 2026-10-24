@@ -1923,28 +1923,28 @@
                 <div class="program-card amarillo-icon" onclick="showProgramScreen('figura-rentable')">
                     <img src="icono_para_perfil_figuras_publicas.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Programa Perfil Rentable</p>
+                        <p class="program-title">Mentoring de Posicionamiento y Perfil Rentable</p>
                         <p class="program-profile">Figuras / Periodistas / Creadores de Contenidos / Referentes</p>
                     </div>
                 </div>
                 <div class="program-card rosa-icon" onclick="showProgramScreen('pyme')">
                     <img src="icono_PyMEs.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">PyME Moderna y Rentable</p>
+                        <p class="program-title">Consultoría de Dirección Estratégica para PyMEs</p>
                         <p class="program-profile">Pequeñas y Medianas Empresas / Negocios familiares</p>
                     </div>
                 </div>
                 <div class="program-card verde-icon" onclick="showProgramScreen('posicionamiento')">
                     <img src="icono_emprendedores.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Posicionamiento y Rentabilidad Sostenibles</p>
+                        <p class="program-title">Mentoría de Posicionamiento Estratégico 1:1</p>
                         <p class="program-profile">Emprendedores / Profesionales / Independientes</p>
                     </div>
                 </div>
                 <div class="program-card gris-icon" onclick="showProgramScreen('organizacional')">
                     <img src="iconograndesempresas.png" alt="" class="profile-icon">
                     <div class="program-info">
-                        <p class="program-title">Comunicación Rentable Empresarial</p>
+                        <p class="program-title">Asesoría y Validación Estratégica Empresarial</p>
                         <p class="program-profile">Grandes Empresas</p>
                     </div>
                 </div>
@@ -2080,6 +2080,9 @@
                 <div class="option-card rosa" onclick="selectProblem('pymes', 'digital')">
                     <p>Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo</p>
                 </div>
+                <div class="option-card verde" onclick="selectProblem('pymes', 'mensajes')">
+                    <p>Sé a dónde quiero ir y lo que quiero mostrar, pero no tengo claro si mis mensajes son los adecuados ni cómo decirlos de forma estratégica.</p>
+                </div>
             </div>
 
             <div class="nav-buttons">
@@ -2122,7 +2125,7 @@
                     <p>No sé qué mostrar, qué contar ni desde dónde hablar</p>
                 </div>
                 <div class="option-card rosa" onclick="selectProblem('emprendedores', 'sostener')">
-                    <p>Me cuesta sostener una comunicación coherente en el tiempo</p>
+                    <p>Necesito una mirada experta y externa para destrabar mis ideas y validar el rumbo de mi comunicación.</p>
                 </div>
                 <div class="option-card gris" onclick="selectProblem('emprendedores', 'flash')">
                     <p>Necesito claridad rápida sobre qué ajustar en mi comunicación</p>
@@ -2577,6 +2580,10 @@
                 digital: {
                     text: "La tecnología no es solo una herramienta, también impone nuevos modos de comunicación. Integrarla sin forzar cambios bruscos requiere criterio, no improvisación.",
                     program: "pyme"
+                },
+                mensajes: {
+                    text: "Tener claro a dónde ir y qué mostrar es una base sólida, pero no alcanza si los mensajes no están pensados estratégicamente. Una mirada externa ayuda a validar qué decir y cómo decirlo para que la comunicación de la empresa llegue a donde quiere llegar.",
+                    program: "pyme"
                 }
             },
             emprendedores: {
@@ -2649,14 +2656,15 @@
                 modernizar: "Queremos modernizarnos, pero tenemos miedo de perder nuestros valores o identidad",
                 diluye: "Cada área o persona comunica distinto y el mensaje de la empresa se diluye",
                 interna: "Subimos contenido y conseguimos likes pero no nuevos clientes.",
-                digital: "Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo"
+                digital: "Sentimos que el mundo digital nos pasó por arriba y no sabemos cómo integrarlo",
+                mensajes: "Sé a dónde quiero ir y lo que quiero mostrar, pero no tengo claro si mis mensajes son los adecuados ni cómo decirlos de forma estratégica."
             },
             emprendedores: {
                 explicar: "Sé lo que hago, pero no sé cómo explicarlo de forma clara",
                 diferencia: "Subo contenido y consigo likes pero no nuevos clientes",
                 nivel: "Mi comunicación no refleja mi nivel profesional",
                 mostrar: "No sé qué mostrar, qué contar ni desde dónde hablar",
-                sostener: "Me cuesta sostener una comunicación coherente en el tiempo",
+                sostener: "Necesito una mirada experta y externa para destrabar mis ideas y validar el rumbo de mi comunicación.",
                 flash: "Necesito claridad rápida sobre qué ajustar en mi comunicación"
             },
             empresas: {
@@ -2669,14 +2677,14 @@
         };
 
         const programNames = {
-            "figura-rentable": "Programa Perfil Rentable",
-            "figura-rentable-personalizada": "Programa Perfil Rentable - Propuesta personalizada",
-            "pyme": "PyME Moderna y Rentable",
-            "pyme-personalizada": "PyME Moderna y Rentable - Propuesta personalizada",
-            "posicionamiento": "Posicionamiento y Rentabilidad Sostenibles",
-            "posicionamiento-personalizada": "Posicionamiento y Rentabilidad Sostenibles - Propuesta personalizada",
-            "organizacional": "Comunicación Rentable Empresarial",
-            "organizacional-personalizada": "Comunicación Rentable Empresarial - Propuesta personalizada",
+            "figura-rentable": "Mentoring de Posicionamiento y Perfil Rentable",
+            "figura-rentable-personalizada": "Mentoring de Posicionamiento y Perfil Rentable - Propuesta personalizada",
+            "pyme": "Consultoría de Dirección Estratégica para PyMEs",
+            "pyme-personalizada": "Consultoría de Dirección Estratégica para PyMEs - Propuesta personalizada",
+            "posicionamiento": "Mentoría de Posicionamiento Estratégico 1:1",
+            "posicionamiento-personalizada": "Mentoría de Posicionamiento Estratégico 1:1 - Propuesta personalizada",
+            "organizacional": "Asesoría y Validación Estratégica Empresarial",
+            "organizacional-personalizada": "Asesoría y Validación Estratégica Empresarial - Propuesta personalizada",
             "estrategias": "Estrategias de comunicación",
             "contenidos": "Creación de contenidos",
             "identidad": "Identidad de marca",
@@ -2790,23 +2798,23 @@
         function showProgramScreen(program) {
             const programContent = {
                 'figura-rentable': {
-                    title: 'Programa Perfil Rentable',
-                    description: 'Un programa de consultoría estratégica con diferentes niveles a elegir según necesidad para transformar tu perfil en una herramienta coherente, atractiva para marcas y monetizable, sin improvisación ni desgaste.',
+                    title: 'Mentoring de Posicionamiento y Perfil Rentable',
+                    description: 'Ofrecemos evaluación diagnóstica, asesoría y auditoría de tu estrategia actual para detectar fallas o esfuerzos mal enfocados. Trabajamos sobre tu posicionamiento para que tu perfil resulte atractivo para las marcas, aportándote la formación y auditoría necesarias para saber cómo generar acuerdos comerciales rentables y avanzar con total autonomía en la optimización de tu marca personal.',
                     screenId: 'screen-programa-figura-rentable'
                 },
                 'pyme': {
-                    title: 'PyME Moderna y Rentable',
-                    description: 'Un programa de consultoría estratégica de corto plazo para actualizar la comunicación interna y externa de empresas con historia, integrando lo digital sin perder su identidad, valores ni cultura organizacional.',
+                    title: 'Consultoría de Dirección Estratégica para PyMEs',
+                    description: 'Evaluación diagnóstica y auditoría estratégica de la comunicación de tu empresa. Revisamos y asesoramos sobre tus acciones actuales para corregir esfuerzos mal enfocados, brindándote directrices claras y un plan de optimización estratégica para que tu equipo ejecute con autonomía o sepas exactamente qué indicaciones y exigencias darle al Community Manager o a la agencia con la que decidas trabajar.',
                     screenId: 'screen-programa-pyme'
                 },
                 'posicionamiento': {
-                    title: 'Posicionamiento y Rentabilidad Sostenibles',
-                    description: 'Un programa de consultoría estratégica para ordenar tu comunicación, clarificar qué ofrecés, cómo lo contás, y lograr coherencia entre lo que hacés, lo que decís y lo que los demás entienden.',
+                    title: 'Mentoría de Posicionamiento Estratégico 1:1',
+                    description: 'Sesiones de asesoría y revisión estratégica basadas en una evaluación diagnóstica de tu comunicación. Auditamos tus ideas y rumbos actuales para corregir desalineaciones, entregándote un plan de optimización que te dé las herramientas y el criterio necesarios para avanzar con autonomía o dirigir a tus colaboradores estratégicos de forma efectiva.',
                     screenId: 'screen-programa-posicionamiento'
                 },
                 'organizacional': {
-                    title: 'Comunicación Rentable Empresarial',
-                    description: 'Un programa de consultoría estratégica diseñado para ordenar la arquitectura comunicacional de organizaciones con estructuras complejas. El objetivo es alinear el discurso institucional con la práctica diaria y la cultura interna, reduciendo fricciones operativas y ruidos innecesarios sin producir manuales extensos ni piezas irrelevantes.',
+                    title: 'Asesoría y Validación Estratégica Empresarial',
+                    description: 'Auditoría, asesoría y validación estratégica de la comunicación actual de la empresa. Detectamos fallas y desalineaciones institucionales para entregar un plan de optimización y directrices de revisión, promoviendo la eficiencia, la coherencia de mensajes y brindando las herramientas de control necesarias para las distintas áreas de la empresa.',
                     screenId: 'screen-programa-organizacional'
                 }
             };
@@ -3022,68 +3030,17 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Programa Perfil Rentable</h1>
+                            <h1 class="tree-main-title">Mentoring de Posicionamiento y Perfil Rentable</h1>
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">NIVEL 1</div>
-                                <h3>Auditoría Flash</h3>
-                                <p>Entendé cómo te ven las marcas hoy y qué cambiar para que empiecen a escribirte.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Análisis completo del perfil</li>
-                                    <li>Auditoría de los últimos 10 posts</li>
-                                    <li>Reporte con 5 cambios específicos para atraer marcas y monetizar el perfil</li>
-                                    <li>Reescritura conjunta de bio y propuesta de valor como creador/a</li>
-                                    <li>1 sesión de 60 minutos + documento entregable</li>
-                                </ul>
-                            </div>
-
                             <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">NIVEL 2</div>
-                                <h3>Optimización de Perfil para Monetización</h3>
-                                <p>Tu perfil listo para que las marcas quieran trabajar con vos. Estrategia, contenido y media kit.</p>
-                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
-                                <h4>Qué incluye:</h4>
+                                <h2 style="font-size: 24px; margin-bottom: 15px; font-weight: 600;">Mentoring de Posicionamiento y Perfil Rentable</h2>
+                                <p>Ofrecemos evaluación diagnóstica, asesoría y auditoría de tu estrategia actual para detectar fallas o esfuerzos mal enfocados. Trabajamos sobre tu posicionamiento para que tu perfil resulte atractivo para las marcas, aportándote la formación y auditoría necesarias para saber cómo generar acuerdos comerciales rentables y avanzar con total autonomía en la optimización de tu marca personal.</p>
+                                <h4>Formatos de tiempo y límites de sesiones:</h4>
                                 <ul>
-                                    <li>Todo de Nivel 1</li>
-                                    <li>Definición y comunicación de nicho y audiencia</li>
-                                    <li>Elaboración de Media kit profesional</li>
-                                    <li>Esquema de calendario de contenido estratégico (30 días)</li>
-                                    <li>Identificación de marcas y rubros target</li>
-                                    <li>4 sesiones de seguimiento y trabajo conjunto</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">NIVEL 3</div>
-                                <h3>Posicionamiento Full + Acompañamiento</h3>
-                                <p>Dos meses para construir tu perfil como referente, tu media kit y tu estrategia de outreach a marcas.</p>
-                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 2</li>
-                                    <li>Template de propuesta formal para marcas</li>
-                                    <li>Estrategia de outreach: cómo contactar marcas, qué decir, cómo negociar acuerdos</li>
-                                    <li>Registro semanal de progreso</li>
-                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node gris">
-                                <div class="tree-node-badge gris">NIVEL 4</div>
-                                <h3>Acompañamiento Express</h3>
-                                <p>Seguimiento semanal para mantener el ritmo, revisar propuestas a marcas y seguir creciendo como referente.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Sesión semanal de 30 minutos: revisar contenido, propuestas en curso y ajustes de estrategia</li>
-                                    <li>Revisión de métricas clave y evolución de audiencia</li>
-                                    <li>Ajuste de media kit y materiales de presentación cuando sea necesario</li>
-                                    <li>Consulta breve por WhatsApp entre sesiones (1 por semana, respuesta en 24 horas)</li>
-                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
+                                    <li><strong>Por única vez (Sesión Express):</strong> Incluye 1 única sesión de consultoría 1:1 de 60 minutos de diagnóstico rápido.</li>
+                                    <li><strong>Planes de 3, 6 o 12 meses:</strong> Incluye un máximo estricto de 2 sesiones de consultoría 1:1 de 60 minutos por mes + soporte para dudas exprés por WhatsApp de lunes a viernes (máximo 3 consultas semanales).</li>
                                 </ul>
                             </div>
                         </div>
@@ -3121,67 +3078,17 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">PyME Moderna y Rentable</h1>
+                            <h1 class="tree-main-title">Consultoría de Dirección Estratégica para PyMEs</h1>
                         </div>
 
                         <div class="tree-timeline">
                             <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">NIVEL 1</div>
-                                <h3>Auditoría Flash</h3>
-                                <p>Diagnóstico rápido y concreto de cómo comunica tu empresa hoy y qué cambiar para atraer más clientes y mejores resultados.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
-                                <h4>Qué incluye:</h4>
+                                <h2 style="font-size: 24px; margin-bottom: 15px; font-weight: 600;">Consultoría de Dirección Estratégica para PyMEs</h2>
+                                <p>Evaluación diagnóstica y auditoría estratégica de la comunicación de tu empresa. Revisamos y asesoramos sobre tus acciones actuales para corregir esfuerzos mal enfocados, brindándote directrices claras y un plan de optimización estratégica para que tu equipo ejecute con autonomía o sepas exactamente qué indicaciones y exigencias darle al Community Manager o a la agencia con la que decidas trabajar.</p>
+                                <h4>Formatos de tiempo y límites de sesiones:</h4>
                                 <ul>
-                                    <li>Auditoría de redes sociales, perfil de empresa y materiales de comunicación</li>
-                                    <li>Revisión de los últimos 10 posts o comunicaciones</li>
-                                    <li>Reporte con 5 cambios específicos y priorizados</li>
-                                    <li>Reescritura conjunta de la bio o descripción del negocio y CTAs</li>
-                                    <li>1 sesión de 60 minutos + documento entregable</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">NIVEL 2</div>
-                                <h3>Optimización de Comunicación Integral</h3>
-                                <p>Un mes para ordenar, unificar y potenciar la comunicación de tu empresa en todos sus canales.</p>
-                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 1</li>
-                                    <li>Criterios base para manual de comunicación: tono, estilo y mensajes clave</li>
-                                    <li>Esquema de calendario de contenido estratégico (30 días) – diseño y revisión conjunta</li>
-                                    <li>Guía de mensajes para canales clave (redes, WhatsApp, email)</li>
-                                    <li>4 sesiones de seguimiento</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">NIVEL 3</div>
-                                <h3>Comunicación Integral Full + Acompañamiento</h3>
-                                <p>Dos meses para transformar la comunicación de tu empresa: mensaje unificado, equipo alineado y canales que venden más y de manera más eficiente.</p>
-                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1 - 2 sesiones/mes en mes 2</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 2</li>
-                                    <li>Manual de comunicación completo</li>
-                                    <li>Revisión de la comunicación de cada área de cara al cliente</li>
-                                    <li>Registro semanal de progreso</li>
-                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node gris">
-                                <div class="tree-node-badge gris">NIVEL 4</div>
-                                <h3>Acompañamiento Express</h3>
-                                <p>Seguimiento continuo para que la comunicación de tu empresa nunca se estanque.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Sesión semanal de 30 minutos: revisar comunicaciones recientes, resolver dudas puntuales, ajustar mensajes</li>
-                                    <li>Revisión de métricas y resultados de las comunicaciones</li>
-                                    <li>Soporte para situaciones de comunicación urgentes o no planificadas</li>
-                                    <li>Consulta breve por WhatsApp (1 por semana, respuesta en 24 horas)</li>
-                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
+                                    <li><strong>Por única vez (Auditoría Puntual):</strong> Incluye 1 única sesión estratégica de 90 minutos de diagnóstico externo de canales.</li>
+                                    <li><strong>Planes de 3, 6 o 12 meses:</strong> Incluye un máximo estricto de 1 mesa de trabajo mensual por Zoom (90 min) para delinear la estrategia + 1 sesión quincenal de control (45 min) para auditar el rendimiento de tu agencia o equipo (yo valido y audito, tu equipo ejecuta) + soporte institucional por WhatsApp de lunes a viernes.</li>
                                 </ul>
                             </div>
                         </div>
@@ -3219,66 +3126,17 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Posicionamiento y Rentabilidad Sostenibles</h1>
+                            <h1 class="tree-main-title">Mentoría de Posicionamiento Estratégico 1:1</h1>
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">NIVEL 1</div>
-                                <h3>Auditoría Flash</h3>
-                                <p>Los cambios que necesitás para pasar de seguidores y likes a clientes y ventas.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Análisis completo de perfil</li>
-                                    <li>Auditoría de últimos 10 posts</li>
-                                    <li>Reporte con 5 cambios específicos</li>
-                                    <li>Reescritura conjunta de bio y CTAs</li>
-                                    <li>1 sesión de 60 minutos + documento entregable</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">NIVEL 2</div>
-                                <h3>Optimización de Perfil orientado a Rentabilidad</h3>
-                                <p>De perfil estático a máquina de atraer clientes. Un mes de trabajo real.</p>
-                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 1</li>
-                                    <li>Reorganización completa de highlights</li>
-                                    <li>Esquema de calendario de contenido (30 días) — diseño y revisión conjunta</li>
-                                    <li>Scripts de DMs y respuestas</li>
-                                    <li>4 sesiones de seguimiento (1/semana)</li>
-                                </ul>
-                            </div>
-
                             <div class="tree-node verde">
-                                <div class="tree-node-badge verde">NIVEL 3</div>
-                                <h3>Optimización Full + Acompañamiento</h3>
-                                <p>Dos meses para transformar tu perfil, tu contenido y tu forma de convertir.</p>
-                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
-                                <h4>Qué incluye:</h4>
+                                <h2 style="font-size: 24px; margin-bottom: 15px; font-weight: 600;">Mentoría de Posicionamiento Estratégico 1:1</h2>
+                                <p>Sesiones de asesoría y revisión estratégica basadas en una evaluación diagnóstica de tu comunicación. Auditamos tus ideas y rumbos actuales para corregir desalineaciones, entregándote un plan de optimización que te dé las herramientas y el criterio necesarios para avanzar con autonomía o dirigir a tus colaboradores estratégicos de forma efectiva.</p>
+                                <h4>Formatos de tiempo y límites de sesiones:</h4>
                                 <ul>
-                                    <li>Todo de Nivel 2</li>
-                                    <li>Registro semanal de progreso</li>
-                                    <li>30 días de acompañamiento tras finalizar el primer mes (2 sesiones/mes)</li>
-                                    <li>2 consultas breves adicionales bonificadas al completar el plan</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node gris">
-                                <div class="tree-node-badge gris">NIVEL 4</div>
-                                <h3>Acompañamiento Express</h3>
-                                <p>Seguimiento continuo para mantener el ritmo, resolver en el momento y seguir creciendo.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Sesión semanal de 30 minutos para revisar publicaciones, responder dudas puntuales y ajustar estrategia</li>
-                                    <li>Revisión de métricas clave al inicio de cada sesión</li>
-                                    <li>Ajuste de mensajes, copies y CTAs sobre la marcha</li>
-                                    <li>Acceso a consulta breve por WhatsApp entre sesiones (1 por semana, respuesta dentro de las 24 horas.)</li>
-                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
+                                    <li><strong>Por única vez (Sesión Express):</strong> Incluye 1 única sesión 1:1 de 60 minutos de desbloqueo creativo y orden de ideas.</li>
+                                    <li><strong>Planes de 3, 6 o 12 meses:</strong> Incluye un máximo estricto de 2 sesiones de consultoría 1:1 de 60 minutos por mes + soporte para dudas exprés por WhatsApp de lunes a viernes (máximo 3 consultas semanales).</li>
                                 </ul>
                             </div>
                         </div>
@@ -3316,66 +3174,17 @@
                     <div class="tree-container">
                         <div class="tree-header">
                             <div class="tree-title">Estructura del Programa</div>
-                            <h1 class="tree-main-title">Comunicación Rentable Empresarial</h1>
+                            <h1 class="tree-main-title">Asesoría y Validación Estratégica Empresarial</h1>
                         </div>
 
                         <div class="tree-timeline">
-                            <div class="tree-node rosa">
-                                <div class="tree-node-badge rosa">NIVEL 1</div>
-                                <h3>Diagnóstico Flash</h3>
-                                <p>Una visión externa y objetiva de cómo comunica tu empresa y dónde están las brechas entre lo que querés proyectar y lo que realmente percibe el público.</p>
-                                <p><strong>Duración:</strong> 1 sesión de 60 minutos</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Análisis de los canales de comunicación externos más relevantes</li>
-                                    <li>Revisión de la consistencia del mensaje entre canales y áreas</li>
-                                    <li>5 observaciones estratégicas y acciones prioritarias</li>
-                                    <li>Revisión conjunta del mensaje central y propuesta de valor de la empresa</li>
-                                    <li>1 sesión de 60 minutos + documento entregable</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node amarillo">
-                                <div class="tree-node-badge amarillo">NIVEL 2</div>
-                                <h3>Plan de Comunicación Alineada</h3>
-                                <p>Un mes para definir y alinear el mensaje de tu empresa en todos sus canales y áreas de cara al cliente.</p>
-                                <p><strong>Duración:</strong> 30 días — 1 sesión por semana</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 1</li>
-                                    <li>Definición del mensaje corporativo unificado</li>
-                                    <li>Esquema de calendario de contenido corporativo estratégico (30 días) – diseño y revisión conjunta</li>
-                                    <li>Guía de tono y estilo para todas las áreas</li>
-                                    <li>4 sesiones de trabajo</li>
-                                </ul>
-                            </div>
-
-                            <div class="tree-node verde">
-                                <div class="tree-node-badge verde">NIVEL 3</div>
-                                <h3>Implementación Full + Acompañamiento</h3>
-                                <p>Dos meses para transformar la comunicación corporativa: mensaje unificado, áreas alineadas y equipos que saben cómo comunicar la empresa hacia afuera con mayor eficacia y rentabilidad.</p>
-                                <p><strong>Duración:</strong> 60 días — 1 sesión/semana en mes 1, 2 sesiones/mes en mes 2</p>
-                                <h4>Qué incluye:</h4>
-                                <ul>
-                                    <li>Todo de Nivel 2</li>
-                                    <li>Manual de comunicación corporativo completo</li>
-                                    <li>Revisión y alineación de la comunicación por área (ventas, atención al cliente, marketing, RRHH)</li>
-                                    <li>2 consultas adicionales bonificadas al completar el plan</li>
-                                </ul>
-                            </div>
-
                             <div class="tree-node gris">
-                                <div class="tree-node-badge gris">NIVEL 4</div>
-                                <h3>Consultoría de Comunicación Express</h3>
-                                <p>Seguimiento continuo para mantener la coherencia comunicacional, resolver situaciones de comunicación estratégica y acompañar el crecimiento de la empresa.</p>
-                                <p><strong>Duración:</strong> Indefinida — 1 sesión de 30 minutos por semana</p>
-                                <h4>Qué incluye:</h4>
+                                <h2 style="font-size: 24px; margin-bottom: 15px; font-weight: 600;">Asesoría y Validación Estratégica Empresarial</h2>
+                                <p>Auditoría, asesoría y validación estratégica de la comunicación actual de la empresa. Detectamos fallas y desalineaciones institucionales para entregar un plan de optimización y directrices de revisión, promoviendo la eficiencia, la coherencia de mensajes y brindando las herramientas de control necesarias para las distintas áreas de la empresa.</p>
+                                <h4>Formatos de tiempo y límites de sesiones:</h4>
                                 <ul>
-                                    <li>Sesión semanal de 30 minutos: revisión de comunicaciones en curso, ajuste de mensajes estratégicos</li>
-                                    <li>Soporte para situaciones de comunicación no planificadas (lanzamientos, crisis, anuncios)</li>
-                                    <li>Revisión de materiales de comunicación clave antes de su publicación</li>
-                                    <li>Consulta puntual por email o WhatsApp (1 por semana, respuesta en 24 horas)</li>
-                                    <li>Tarifa preferencial para quienes completaron Niveles 1, 2 y/o 3</li>
+                                    <li><strong>Por única vez (Consultoría Puntual):</strong> Incluye 1 sesión exclusiva de asesoramiento estratégico corporativo para una necesidad específica.</li>
+                                    <li><strong>Planes de 3, 6 o 12 meses:</strong> Estructura de mesas de trabajo corporativas periódicas y auditoría de alineación según objetivos de alta dirección (sesiones y alcance a convenir).</li>
                                 </ul>
                             </div>
                         </div>
